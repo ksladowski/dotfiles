@@ -1,0 +1,6 @@
+dolphin: {}
+game:
+  main_file: /home/kevin/media/Emulation/Games/Nintendo Wii/Metroid Prime Trilogy
+    [NTSC-U].iso
+  platform: '1'
+system: {}

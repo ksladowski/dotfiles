@@ -1,0 +1,1123 @@
+#+title kSladowski Emacs configuration (icEmacs)
+#+PROPERTY: header-args:emacs-lisp :tangle ./init.el
+
+* Use-Package
+Initializing package repos. If an error occurs when installing something, run M-x list-packages to pull down updates to the repo
+#+begin_src emacs-lisp
+(require 'package)
+
+(setq package-archives '(("org"       . "http://orgmode.org/elpa/") ; define repos
+                         ("gnu"       . "http://elpa.gnu.org/packages/")
+                         ("melpa"     . "https://melpa.org/packages/")))
+#+end_src
+
+Make sure use-package is installed and up to date
+#+begin_src emacs-lisp
+(package-initialize)
+(unless package-archive-contents
+ (package-refresh-contents))
+
+;; use-package
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t) 
+#+end_src
+
+* Search and Documentation
+** Helpful 
+Provides better help functionality than vanilla emacs
+#+begin_src emacs-lisp
+(use-package helpful 
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-key] . helpful-key))
+
+#+end_src
+** Ivy 
+Diminish removes 'ivy' from modeline, and ivy-mode 1 enables ivy everywhere 
+#+begin_src emacs-lisp 
+(use-package ivy 
+:diminish 
+:bind (("C-s" . swiper) 
+:map ivy-minibuffer-map 
+("TAB" . ivy-alt-done) 
+("C-l" . ivy-alt-done) 
+("C-j" . ivy-next-line) 
+("C-k" . ivy-previous-line) 
+("C-<RET>" . ivy-immediate-done) 
+:map ivy-switch-buffer-map 
+("C-k" . ivy-previous-line) 
+("C-l" . ivy-done) 
+("C-d" . ivy-switch-buffer-kill) 
+:map ivy-reverse-i-search-map 
+("C-k" . ivy-previous-line) 
+("C-d" . ivy-reverse-i-search-kill)) 
+:config 
+(ivy-mode 1)) 
+#+end_src 
+*** Extend ivy 
+Enable rich mode and make sure counsel and swiper are loaded 
+#+begin_src emacs-lisp 
+(use-package ivy-rich :init (ivy-rich-mode 1)) 
+(use-package counsel
+:custom
+  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only )) 
+(use-package swiper)
+(use-package all-the-icons-ivy)
+(use-package all-the-icons-ivy-rich)
+#+end_src
+* Keys
+** Evil
+Set global evil keys. Specific bindings and leader are located under general.el
+#+begin_src emacs-lisp
+(use-package evil
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-d-scroll t)
+  :config
+  (evil-mode 1)
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+  (evil-global-set-key 'normal "/" 'swiper)
+  (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
+
+  (evil-set-initial-state 'messages-buffer-mode 'normal)
+  (evil-set-initial-state 'dashboard-mode 'normal))
+
+#+end_src
+
+Evil mode support for popular packages
+#+begin_src emacs-lisp
+(use-package evil-collection
+  :after evil
+  :config (evil-collection-init))
+#+end_src
+
+Vim style undo/redo tree
+#+begin_src emacs-lisp
+(use-package undo-tree)
+(global-undo-tree-mode)
+(evil-set-undo-system 'undo-tree)
+#+end_src
+
+Have to rebind this to something since C-u is for scrolling
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-M-u") 'universal-argument)
+#+end_src
+
+Make :q kill the buffer, :quit to kill emacs
+#+begin_src emacs-lisp
+  (evil-ex-define-cmd "q" 'kill-this-buffer)
+  (evil-ex-define-cmd "quit" 'evil-quit)
+#+end_src
+
+** Which key 
+Hide 'which key' from modeline and set popup delay
+#+begin_src emacs-lisp
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 0.3))
+#+end_src
+** Hydra 
+#+begin_src emacs-lisp
+(use-package hydra)
+
+#+end_src
+** General (Leader menu)
+*** Leader key, main leader menu, global leader menu binds
+Set leader key and !:
+#+begin_src emacs-lisp
+(global-unset-key (kbd "C-SPC"))
+
+(general-create-definer global-definer
+  :keymaps 'override
+  :states '(insert emacs normal hybrid motion visual operator)
+  :prefix "SPC"
+  :global-prefix "C-SPC")
+
+(global-definer
+  "!"   'shell-command
+  ":"   'eval-expression
+  "h"   'help-command
+  "c" (general-simulate-key "C-c")
+  "x" (general-simulate-key "C-x")
+  "f" 'find-file
+  "SPC" 'counsel-linux-app
+  "RET" 'vterm)
+#+end_src
+
+Define function to be used throughout the file to define bindings properly with which-key
+#+begin_src emacs-lisp
+(defmacro general-global-menu-definer (def infix-key &rest body)
+  "Create a definer named general-global-DEF wrapping global-definer.
+The prefix map is named 'my-DEF-map'."
+  `(progn
+     (general-create-definer ,(intern (concat "general-global-" def))
+       :wrapping global-definer
+       :prefix-map (quote ,(intern (concat "my-" def "-map")))
+       :infix ,infix-key
+       :wk-full-keys nil
+       "" '(:ignore t :which-key ,def))
+     (,(intern (concat "general-global-" def))
+      ,@body)))
+#+end_src
+
+*** Applications Menu
+#+begin_src emacs-lisp
+(use-package general)
+;;Packages will extend these via the general keyword in their own declarations.
+(general-global-menu-definer
+ "application" "a"
+ "m" 'mu4e
+ "v" 'vterm
+ )
+#+end_src
+
+**** Buffer management
+#+begin_src emacs-lisp
+(general-global-menu-definer
+ "buffer" "b"
+ "b"  'counsel-switch-buffer
+ "d"  'kill-current-buffer
+ "p"  'previous-buffer
+ "M" '((lambda () (interactive) (switch-to-buffer "*Messages*"))
+       :which-key "messages-buffer")
+ "n"  'next-buffer
+ "s" '((lambda () (interactive) (switch-to-buffer "*scratch*"))
+       :which-key "scratch-buffer")
+ "TAB" '((lambda () (interactive) (switch-to-buffer nil))
+         :which-key "other-buffer"))
+#+end_src
+
+**** Window management
+#+begin_src emacs-lisp
+ (defhydra hydra-window ()
+   "
+Movement^^    ^Split^         ^Switch^		^Resize^
+----------------------------------------------------------------
+_h_ ←     	_v_ertical    	  _b_uffer		_<_ X←
+_j_ ↓      	_s_ horizontal	  _c_lose      	_-_ X↓
+_k_ ↑     	                  s_w_ap  	    _+_ X↑
+_l_ →                      	  _o_nly this   _>_ X→
+_q_uit	
+"
+   ("h" windmove-left )
+   ("j" windmove-down )
+   ("k" windmove-up )
+   ("l" windmove-right )
+   ("<" evil-window-decrease-width)
+   ("-" evil-window-decrease-height)
+   ("+" evil-window-increase-height)
+   (">" evil-window-increase-width)
+   ("b" counsel-switch-buffer)
+   ("w" evil-window-next)
+   ("v" (lambda ()
+          (interactive)
+          (split-window-right)
+          (windmove-right))
+       )
+   ("s" (lambda ()
+          (interactive)
+          (split-window-below)
+          (windmove-down))
+       )
+   ("B" save-buffer)
+   ("c" delete-window)
+   ("o" delete-other-windows)
+   ("ESC" nil)
+   ("q" nil)
+   )
+   
+(global-definer "w" 'hydra-window/body)
+#+end_src
+
+**** TODO Tab management
+* EXWM
+** Basic configuration req'd to load
+#+begin_src emacs-lisp
+(defun ice/exwm-update-class ()
+  (exwm-workspace-rename-buffer exwm-class-name))
+
+(use-package exwm
+  :config
+  ;; Set the default number of workspaces
+  (setq exwm-workspace-number 5)
+
+  ;;update window names to set the buffer name
+  (add-hook 'exwm-update-class-hook #'ice/exwm-update-class )
+
+ (require 'exwm-randr)
+ ;; (start-process-shell-command "xrandr" nil "xrandr --output DVI-I-0 --off --output DVI-I-1 --mode 1600x1200 --pos 1920x0 --rotate normal --output HDMI-0 --off --output DP-0 --off --output DVI-D-0 --off --output DP-1 --primary --mode 1920x1200 --pos 0x0 --rotate normal")
+ (exwm-randr-enable) 
+
+  ;;needs to be loaded before exwm-init
+(require 'exwm-systemtray)
+  ;; (setq exwm-systemtray-height 32)
+  (exwm-systemtray-enable)
+
+  ;;always accept these keys
+(setq exwm-input-prefix-keys
+    '(?\C-x
+      ?\C-u
+      ?\C-h
+      ?\M-x
+      ?\M-`
+      ?\M-&
+      ?\M-:
+      ?\C-\s))  ;; Ctrl+Space
+      
+;;next input will be sent directly
+(define-key exwm-mode-map [?\C-\q] 'exwm-input-send-next-key)
+
+;;basically only use super keys here
+(setq exwm-input-global-keys
+        `(
+          ;; Reset to line-mode (C-c C-k switches to char-mode via exwm-input-release-keyboard)
+          ([?\s-r] . exwm-reset)
+
+          ;; Move between windows
+          ([?\s-h] . windmove-left)
+          ([?\s-l] . windmove-right)
+          ([?\s-k] . windmove-up)
+          ([?\s-j] . windmove-down)
+
+          ;; Launch applications via shell command
+          ([?\s-\ ] . (lambda (command)
+                       (interactive (list (read-shell-command "$ ")))
+                       (start-process-shell-command command nil command)))
+
+          ;; Switch workspace
+          ([?\s-w] . exwm-workspace-switch)
+          ([?\s-`] . (lambda () (interactive) (exwm-workspace-switch-create 0)))
+
+          ;; 's-N': Switch to certain workspace with Super (Win) plus a number key (0 - 9)
+          ,@(mapcar (lambda (i)
+                      `(,(kbd (format "s-%d" i)) .
+                        (lambda ()
+                          (interactive)
+                          (exwm-workspace-switch-create ,i))))
+                    (number-sequence 0 9))))
+                    
+
+  ;;run init hook when setup complete
+  ;; (add-hook 'exwm-init-hook #'ice/after-exwm-init )
+
+  (exwm-enable))
+
+#+end_src
+** Post load configuration
+*** Run in background function
+#+begin_src emacs-lisp
+(defun ice/run-in-background (command)
+  (let ((command-parts (split-string command "[ ]+")))
+    (apply #'call-process `(,(car command-parts) nil 0 nil ,@(cdr command-parts)))))
+#+end_src
+*** Run on startup
+Init hook
+#+begin_src emacs-lisp
+(defun ice/exwm-init-hook ()
+  ;; Make workspace 1 be the one where we land at startup
+  (exwm-workspace-switch-create 1)
+
+  ;; Open buffers by default
+  ;; (vterm)
+
+  ;; Show battery status in the mode line
+  ;; (display-battery-mode 1)
+
+  ;; Show the time and date in modeline
+  (setq display-time-day-and-date t)
+  (display-time-mode 1)
+  ;; Also take a look at display-time-format and format-time-string
+
+  ;; Launch apps that will run in the background
+  (ice/run-in-background "nm-applet")
+  (ice/run-in-background "pasystray"))
+  ;; (ice/run-in-background "blueman-applet")
+#+end_src
+*** TODO Media keys
+#+begin_src emacs-lisp
+;; (use-package desktop-environment
+;;   :after exwm
+;;   :config (desktop-environment-mode)
+;;   :custom
+;;   (desktop-environment-brightness-small-increment "2%+")
+;;   (desktop-environment-brightness-small-decrement "2%-")
+;;   (desktop-environment-brightness-normal-increment "5%+")
+;;   (desktop-environment-brightness-normal-decrement "5%-"))
+#+end_src
+* Applications
+** vterm
+#+begin_src emacs-lisp
+(use-package vterm
+  :commands vterm
+  :config
+  (setq term-prompt-regexp "^[^#$%>\n]*[#$%>]❯ *")
+  (setq vterm-shell "zsh")
+  (setq vterm-max-scrollback 10000))
+#+end_src
+
+paste integration
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-p") 'vterm-yank)
+#+end_src
+
+Stop whining, I'm not accidentally killing these term buffers
+#+begin_src emacs-lisp
+(setq kill-buffer-query-functions (delq 'process-kill-buffer-query-function kill-buffer-query-functions))
+#+end_src
+
+** dired
+#+begin_src emacs-lisp
+(use-package dired
+  :ensure nil
+  :commands (dired dired-jump)
+  :custom ((dired-listing-switches "-agho --group-directories-first"))
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "h" 'dired-single-up-directory
+    "l" 'dired-single-buffer))
+    
+(global-definer "d" 'dired)
+#+end_src
+
+Try to limit amount of dired buffers open at once
+#+begin_src emacs-lisp
+(use-package dired-single)
+#+end_src
+
+Prettify it
+#+begin_src emacs-lisp
+(use-package all-the-icons-dired
+  :hook (dired-mode . all-the-icons-dired-mode))
+#+end_src
+
+Set default programs based on file extension
+#+begin_src emacs-lisp
+(use-package dired-open
+  :config
+  (setq dired-open-extensions '(("png" . "feh")
+                                ("mkv" . "mpv"))))
+#+end_src
+
+Toggle hidden files
+#+begin_src emacs-lisp
+(use-package dired-hide-dotfiles
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "H" 'dired-hide-dotfiles-mode))
+#+end_src
+
+*** Hydra shortcut menu
+#+begin_src emacs-lisp
+(defhydra hydra-dired (:hint nil :color pink)
+  "
+_+_ mkdir          _v_iew           _m_ark             _(_ details        _i_nsert-subdir    wdired
+_C_opy             _O_ view other   _U_nmark all       _)_ omit-mode      _$_ hide-subdir    C-x C-q : edit
+_D_elete           _o_pen other     _u_nmark           _l_ redisplay      _w_ kill-subdir    C-c C-c : commit
+_R_ename           _M_ chmod        _t_oggle           _g_ revert buf     _e_ ediff          C-c ESC : abort
+_Y_ rel symlink    _G_ chgrp        _E_xtension mark   _s_ort             _=_ pdiff
+_S_ymlink          ^ ^              _F_ind marked      _._ toggle hydra   \\ flyspell
+_r_sync            ^ ^              ^ ^                ^ ^                _?_ summary
+_z_ compress-file  _A_ find regexp
+_Z_ compress       _Q_ repl regexp
+
+T - tag prefix
+"
+  ("\\" dired-do-ispell)
+  ("(" dired-hide-details-mode)
+  (")" dired-omit-mode)
+  ("+" dired-create-directory)
+  ("=" diredp-ediff)         ;; smart diff
+  ("?" dired-summary)
+  ("$" diredp-hide-subdir-nomove)
+  ("A" dired-do-find-regexp)
+  ("C" dired-do-copy)        ;; Copy all marked files
+  ("D" dired-do-delete)
+  ("E" dired-mark-extension)
+  ("e" dired-ediff-files)
+  ("F" dired-do-find-marked-files)
+  ("G" dired-do-chgrp)
+  ("g" revert-buffer)        ;; read all directories again (refresh)
+  ("i" dired-maybe-insert-subdir)
+  ("l" dired-do-redisplay)   ;; relist the marked or singel directory
+  ("M" dired-do-chmod)
+  ("m" dired-mark)
+  ("O" dired-display-file)
+  ("o" dired-find-file-other-window)
+  ("Q" dired-do-find-regexp-and-replace)
+  ("R" dired-do-rename)
+  ("r" dired-do-rsynch)
+  ("S" dired-do-symlink)
+  ("s" dired-sort-toggle-or-edit)
+  ("t" dired-toggle-marks)
+  ("U" dired-unmark-all-marks)
+  ("u" dired-unmark)
+  ("v" dired-view-file)      ;; q to exit, s to search, = gets line #
+  ("w" dired-kill-subdir)
+  ("Y" dired-do-relsymlink)
+  ("z" diredp-compress-this-file)
+  ("Z" dired-do-compress)
+  ("q" nil)
+  ("." nil :color blue))
+
+(define-key dired-mode-map "." 'hydra-dired/body)
+#+end_src
+
+** mu4e
+Ensure nil and set load path manually because we want mu4e to be managed by mu aur package
+This ensures that mu and mu4e versions are in sync
+#+begin_src emacs-lisp
+(use-package mu4e
+  :ensure nil
+  :load-path "/usr/share/emacs/site-lisp/mu4e/"
+  ;; :defer 20 ; Wait until 20 seconds after startup
+  :config
+
+  ;;req'd for capture template
+  (require 'mu4e-org)
+
+  ;; This is set to 't' to avoid mail syncing issues when using mbsync
+  (setq mu4e-change-filenames-when-moving t)
+  
+  ;; Emacs' built in smtp
+  (setq message-send-mail-function 'smtpmail-send-it)
+  
+  ;; Refresh mail using isync every 15 minutes
+  (setq mu4e-update-interval (* 15 60))
+  (setq mu4e-get-mail-command "mbsync -a")
+  (setq mu4e-maildir "~/Mail")
+  (setq mu4e-context-policy 'pick-first)
+
+  ;; Formatting for other clients. If they don't support this, it does nothing. No downside
+  (setq mu4e-compose-format-flowed t)
+  
+
+  (setq mu4e-contexts
+      (list
+        ;; Personal account
+        (make-mu4e-context
+        :name "Slad"
+        :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p "/Slad" (mu4e-message-field msg :maildir))))
+              :vars '((user-mail-address . "kevm@sladowski.us")
+                (user-full-name    . "Kevin Sladowski")
+                (smtpmail-smtp-server  . "smtpout.secureserver.net")
+                (smtpmail-smtp-service . 465)
+                (smtpmail-stream-type  . ssl)
+                (mu4e-drafts-folder  . "/Slad/Drafts")
+                (mu4e-sent-folder  . "/Slad/Sent")
+                (mu4e-refile-folder  . "/Slad/Archive")
+                (mu4e-trash-folder  . "/Slad/Trash")))
+
+        ;; Wisc account
+        (make-mu4e-context
+        :name "Wisc"
+        :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p "/Wisc" (mu4e-message-field msg :maildir))))
+              :vars '((user-mail-address . "sladowski@wisc.edu")
+                (user-full-name    . "Kevin Sladowski")
+                (smtpmail-smtp-server  . "smtp.office365.com")
+                (smtpmail-smtp-service . 587)
+                (smtpmail-stream-type  . ssl)
+                (mu4e-drafts-folder  . "/Wisc/Drafts")
+                (mu4e-sent-folder  . "/Wisc/Sent Items")
+                (mu4e-refile-folder  . "/Wisc/Archive")
+                (mu4e-trash-folder  . "/Wisc/Deleted Items")))
+
+         ;; Gmail account
+         (make-mu4e-context
+          :name "Gmail"
+          :match-func
+            (lambda (msg)
+              (when msg
+                (string-prefix-p "/Gmail" (mu4e-message-field msg :maildir))))
+                :vars '((user-mail-address . "kevs1198@gmail.com")
+                  (user-full-name    . "Kevin Sladowski")
+                  (smtpmail-smtp-server  . "smtp.gmail.com")
+                  (smtpmail-smtp-service . 465)
+                  (smtpmail-stream-type  . ssl)
+                  (mu4e-drafts-folder  . "/Gmail/[Gmail]/Drafts")
+                  (mu4e-sent-folder  . "/Gmail/[Gmail]/Sent Mail")
+                  (mu4e-refile-folder  . "/Gmail/[Gmail]/All Mail")
+                  (mu4e-trash-folder  . "/Gmail/[Gmail]/Trash"))))))
+
+  #+end_src
+  
+** pass
+#+begin_src emacs-lisp
+(use-package password-store)
+(use-package pass)
+(use-package auth-source-pass)
+(auth-source-pass-enable)
+(use-package ivy-pass)
+(global-definer "p" 'ivy-pass)
+#+end_src
+** elfeed
+** erc
+* Development tools
+** Projectile
+#+begin_src emacs-lisp
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  ;; NOTE: Set this to the folder where you keep your Git repos!
+  (when (file-directory-p "~/git")
+    (setq projectile-project-search-path '("~/git")))
+  (setq projectile-switch-project-action #'projectile-dired)
+  ;; these two lines are req'd for the globally ignored directories
+  (setq projectile-enable-caching t)
+
+  (setq projectile-indexing-method 'native)
+  (setq projectile-globally-ignored-directories
+    '(".git"
+    ".ccls-cache"
+    ".svn"
+    ".stack-work"
+    ".cquery_cached_index")))
+
+(global-definer
+    "P" 'projectile-command-map)
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+#+end_src
+** Magit
+Normal magit
+#+begin_src emacs-lisp
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1)
+  )
+#+end_src
+
+Forge (integrate with github features like issue tracking and pull requests)
+#+begin_src emacs-lisp
+;; (use-package forge
+;;   :after magit)
+#+end_src
+
+*** TODO Keybindings
+#+begin_src emacs-lisp
+(general-global-menu-definer
+ "git" "g"
+  "g" 'magit-file-dispatch
+  "c" 'magit-clone)
+
+#+end_src
+** Flycheck
+#+begin_src emacs-lisp
+(use-package flycheck
+  :defer t
+  :hook (lsp-mode . flycheck-mode))
+#+end_src
+** Treemacs
+*** TODO Auto open on lsp mode? and open lsp-treemacs underneath
+#+begin_src emacs-lisp
+(use-package treemacs)
+(use-package treemacs-magit)
+(use-package treemacs-evil)
+#+end_src
+** LSP Mode
+#+begin_src emacs-lisp
+(defun ice/lsp-mode-setup ()
+  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+  (lsp-headerline-breadcrumb-mode))
+
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :hook (lsp-mode . ice/lsp-mode-setup)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
+  
+(global-definer "l" 'lsp-keymap-prefix)
+#+end_src
+
+lsp ui enhancement
+#+begin_src emacs-lisp
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-doc-position 'bottom)
+  (lsp-ui-sideline-show-code-actions t)
+  (lsp-ui-sideline-delay 0))
+#+end_src
+
+Code completion with company-mode
+#+begin_src emacs-lisp
+(use-package company
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
+  :bind (:map company-active-map
+         ("<tab>" . company-complete-selection)
+         ("C-j" . company-select-previous)
+         ("C-k" . company-select-next))
+        (:map lsp-mode-map
+         ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+#+end_src
+
+Integration with other packages
+#+begin_src emacs-lisp
+(use-package lsp-ivy)
+(use-package lsp-treemacs
+  :after lsp)
+#+end_src
+
+*** TODO Bash
+*** C/C#/C++
+#+begin_src emacs-lisp
+(use-package ccls
+  :config
+  (setq ccls-executable "ccls")
+  :hook ((c-mode c++-mode objc-mode) .
+         (lambda () (require 'ccls) (lsp))))
+#+end_src
+
+*** Javascript/Typescript
+Language server install command: npm install -g typescript-language-server typescript
+#+begin_src emacs-lisp
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-indent-level 2))
+#+end_src
+
+*** TODO Python
+*** TODO Verilog/System Verilog
+** DAP Mode
+
+#+begin_src emacs-lisp
+(use-package dap-mode
+:config
+  ;; Set up Node
+  (require 'dap-node)
+  (dap-node-setup) ;; Automatically installs Node debug adapter if needed
+  
+  ;; Bind `C-c l d` to `dap-hydra` for easy access
+  (general-define-key
+    :keymaps 'lsp-mode-map
+    :prefix lsp-keymap-prefix
+    "d" '(dap-hydra t :wk "debugger")))
+#+end_src
+
+*** GDB
+
+Initialize gdb defaults
+#+begin_src emacs-lisp
+(use-package gdb-mi)
+(setq gdb-many-windows t)
+(setq gdb-show-main t)
+(setq gdb-show-changed-values t)
+(setq gdb-use-colon-colon-notation t)
+(setq gdb-use-separate-io-buffer nil)
+(setq gdb-delete-out-of-scope t)
+(setq gdb-speedbar-auto-raise t)
+#+end_src
+
+Setup window configuration when gdb is launched
+#+begin_src emacs-lisp
+
+(defadvice gdb-setup-windows (after activate)
+  (gdb-setup-my-windows)
+)
+
+(defun gdb-setup-my-windows ()
+  (set-window-dedicated-p (selected-window) nil)
+  (switch-to-buffer gud-comint-buffer)
+  (delete-other-windows)
+  (let
+    ((win0 (selected-window))             ; breakpoints
+     (win1 (split-window-horizontally
+         (floor (* 0.5 (window-width)))))   ; source + i/o
+     (win2 (split-window-vertically
+         (floor (* 0.5 (window-body-height))))) ; gdb
+     (win3 (split-window-vertically
+        (floor (* 0.5 (window-body-height))))) ; locals
+     (win4 (split-window-vertically
+         (floor (* 0.6 (window-body-height))))) ; stack
+    )
+    (select-window win1)
+    ; configurating right window
+    (let
+    ((winSrc (selected-window)) ; source
+     (winIO (split-window-vertically (floor (* 0.9 (window-body-height))))) ; I/O
+     )
+      (set-window-buffer winIO (gdb-get-buffer-create 'gdb-inferior-io))
+      (set-window-buffer
+    winSrc
+    (if gud-last-last-frame
+     (gud-find-file (car gud-last-last-frame))
+      (if gdb-main-file
+       (gud-find-file gdb-main-file)
+     (list-buffers-noselect))))
+      (setq gdb-source-window winSrc)
+      (set-window-dedicated-p winIO t)
+   )
+
+    (set-window-buffer win0 (gdb-get-buffer-create 'gdb-breakpoints-buffer))
+    (set-window-buffer win3 (gdb-get-buffer-create 'gdb-locals-buffer))
+    (set-window-buffer win4 (gdb-get-buffer-create 'gdb-stack-buffer))
+    (select-window win2)
+  )
+)
+#+end_src
+
+Ensures that all source code buffers are opened in same window while gdb is running
+#+begin_src emacs-lisp
+(add-to-list 'display-buffer-alist
+         (cons 'gdb-source-code-buffer-p
+           (cons 'display-buffer-use-some-window nil)))
+
+(defun gdb-source-code-buffer-p (bufName action)
+  (let ((buf (get-buffer bufName)))
+    (and buf
+         (eq gud-minor-mode 'gdbmi)
+         (with-current-buffer buf
+           (derived-mode-p buf 'c++-mode 'c-mode)))))
+#+end_src
+
+** Misc 
+(v)improved commenting functionality
+#+begin_src emacs-lisp
+(use-package evil-nerd-commenter
+  :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+  (global-definer "/" 'evilnc-comment-or-uncomment-lines)
+#+end_src
+
+Colorize parens automatically in 'programming modes'
+#+begin_src emacs-lisp
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+#+end_src
+
+Smart parens
+#+begin_src emacs-lisp
+(use-package smartparens
+  :hook (prog-mode . smartparens-mode))
+#+end_src
+
+* UI Configuration
+** Font settings
+Make sure we use UTF-8 encoding everywhere - honestly might not even need this
+#+begin_src emacs-lisp
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+#+end_src
+
+Setting the font
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil :font "JetBrains Mono Nerd Font" :height 100)
+#+end_src
+** Line numbers and scrolling
+*** Line numbers
+Enable line numbers everywhere by default and remove them in specific modes (org, term, etc)
+#+begin_src emacs-lisp
+(column-number-mode)
+(global-display-line-numbers-mode t)
+
+(dolist (mode '(org-mode-hook
+		term-mode-hook
+		vterm-mode-hook
+      treemacs-mode-hook
+		eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+#+end_src
+
+*** Scroll behavior
+Speedup scrolling, disable mouse accel, set "top" and "bottom" to a 4 line margin, center on errors when cycling through them
+#+begin_src emacs-lisp
+(setq fast-but-imprecise-scrolling nil)
+(setq jit-lock-defer-time 0)
+(setq scroll-margin 4)
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-inhibit-click-time nil)
+(setq scroll-preserve-screen-position t)
+(setq scroll-error-top-bottom t)
+(setq next-error-recenter (quote (4)))
+#+end_src
+** UI Elements
+*** Hide gtk stuff
+Remove toolbars, replace gtk dialog box with text interface in minibuffer, hide mouse
+#+begin_src emacs-lisp
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(setq use-dialog-box nil)
+(setq make-pointer-invisible t)
+#+end_src
+*** Doom themes support a lot of plugins out of the box 
+All-the-icons is needed for modeline
+#+begin_src emacs-lisp
+(use-package all-the-icons)
+
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :custom (doom-modeline-height 15))
+
+(use-package doom-themes
+  :init (load-theme 'doom-nord t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config)
+  (doom-themes-treemacs-config))
+  
+#+end_src
+*** Transparency settings
+#+begin_src emacs-lisp
+(set-frame-parameter (selected-frame) 'alpha '(95 . 95))
+(add-to-list 'default-frame-alist '(alpha . (95 . 95)))
+(set-frame-parameter (selected-frame) 'fullscreen 'maximized)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+#+end_src
+*** Misc UI settings
+Visual bell, line wrapping, show extra whitespace, change cursor in inactive windows
+#+begin_src emacs-lisp
+(setq sentence-end-double-space nil)
+(setq default-fill-column 80)
+(setq-default indicate-empty-lines t)
+(setq bidi-display-reordering nil)
+(setq cursor-in-non-selected-windows 'hollow)
+#+end_src
+
+** TODO Dashboard
+* File handling and backups 
+** Clipboard and undo cache
+Increase size of cached undo actions, integrate with system clipboard, and only undo one thing at a time
+#+begin_src emacs-lisp
+(setq select-enable-clipboard t)
+(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+(fset 'undo-auto-amalgamate 'ignore)
+(setq undo-limit 6710886400)
+(setq undo-strong-limit 100663296)
+(setq undo-outer-limit 1006632960)
+#+end_src
+** Auto-save and file backup settings 
+Set backup directories, enable version control on file backups, clear old backups automatically
+#+begin_src emacs-lisp
+(setq delete-old-versions -1)
+(setq version-control t)
+(setq vc-make-backup-files t)
+(setq backup-directory-alist `(("." . "~/.config/emacs/backups")))
+(setq vc-follow-symlinks t)
+(setq auto-save-file-name-transforms '((".*" "~/.config/emacs/auto-save-list/" t)))
+#+end_src
+* Misc behavioral changes
+Just type y or n instead of yes or no
+#+begin_src emacs-lisp
+(defalias 'yes-or-no-p 'y-or-n-p) 
+#+end_src
+
+Fix tabs. Write tab character and change it to 4 spaces
+#+begin_src emacs-lisp
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+#+end_src
+
+Save state of emacs on exit and any dynamically set variables
+#+begin_src emacs-lisp
+(savehist-mode 1)
+(setq savehist-additional-variables '(register-alist))
+#+end_src
+
+Make escape behave as expected
+#+begin_src emacs-lisp
+(define-key key-translation-map (kbd "<ESC>") (kbd "C-g"))
+#+end_src
+
+* Org Mode 
+#+begin_src emacs-lisp
+(use-package org
+  :hook (org-mode . ice/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾" ; character to use to show heading can be unfolded
+	org-hide-emphasis-markers t))
+#+end_src
+** Keybindings
+#+begin_src emacs-lisp
+(general-global-menu-definer
+    "org" "o"
+    "c"   'org-capture
+    "i"   'org-insert-link
+    "j"   '(:ignore t :which-key "journal")
+    ;;just manually specify the prefix key for deeper menus
+    "k"   '(:ignore t :which-key "clock")
+    "kg"  'org-clock-goto
+    "ki"  'org-clock-in-last
+    "kj"  'org-clock-jump-to-current-clock
+    "ko"  'org-clock-out
+    "kr"  'org-resolve-clocks
+    "l"   'org-store-link
+    "m"   'org-tags-view
+    "s"   'org-search-view
+    "t"   'org-todo-list)
+#+end_src
+** Org mode setup hook
+Set variable font size for headers, change bullet list to unicode chars
+#+begin_src emacs-lisp
+(defun ice/org-mode-setup ()
+  (org-indent-mode)
+  (visual-line-mode 1)
+  (dolist (face '((org-level-1 . 1.2)
+                  (org-level-2 . 1.1)
+                  (org-level-3 . 1.05)
+                  (org-level-4 . 1.0)
+                  (org-level-5 . 1.1)
+                  (org-level-6 . 1.1)
+                  (org-level-7 . 1.1)
+                  (org-level-8 . 1.1)))
+    (set-face-attribute (car face) nil :weight 'regular :height (cdr face)))
+  (font-lock-add-keywords 'org-mode
+                          '(("^ *\\([-]\\) "
+                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+  )
+#+end_src
+** Org-Babel
+Initialize languages
+#+begin_src emacs-lisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)))
+#+end_src
+*** Auto-tangle this config on save
+#+begin_src emacs-lisp
+(defun ice/org-babel-tangle-dont-ask ()
+  (let ((org-confirm-babel-evaluate nil))
+    (org-babel-tangle)))
+
+(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'ice/org-babel-tangle-dont-ask
+                                              'run-at-end 'only-in-org-mode)))
+#+end_src
+** Org-Mime
+#+begin_src emacs-lisp
+(use-package org-mime)
+#+end_src
+** Org Agenda
+Defaults and Basic config
+#+begin_src emacs-lisp
+  (setq org-agenda-files '("~/documents/org"))
+  (setq org-agenda-start-with-log-mode t)
+  (setq org-log-done 'note)
+  (setq org-log-into-drawer t)
+  (setq org-todo-keywords
+	'((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")))
+#+end_src
+
+Custom commands
+#+begin_src emacs-lisp
+  (setq org-agenda-custom-commands
+   '(("d" "Dashboard"
+     ((agenda "" ((org-deadline-warning-days 7)))
+      (todo "NEXT"
+        ((org-agenda-overriding-header "Next Tasks")))
+
+    ("n" "Next Tasks"
+     ((todo "NEXT"
+        ((org-agenda-overriding-header "Next Tasks")))))
+
+    ;; tag sort example
+    ("W" "Work Tasks" tags-todo "+work-email")))))
+    
+#+end_src
+
+** Capture templates
+#+begin_src emacs-lisp
+(setq org-capture-templates
+    `(("t" "Task" entry (file+olp "~/documents/org/todo.org" "Inbox")
+           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+      ("a" "Appointment" entry (file+olp "~/documents/org/todo.org" "Inbox")
+           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+      ("m" "Mail" entry (file+olp "~/documents/org/todo.org" "Inbox")
+          "* TODO %a")
+      ("d" "Deadline" entry (file+headline as/gtd "")
+            "* TODO %? %^G \n  DEADLINE: %^t" :empty-lines 1)
+      ("j" "Journal" entry (file+datetree "~/documents/org/journal.org")
+        "* %? %^G\nEntered on %U\n")))
+#+end_src
+
+** Tags and Refiling
+#+begin_src emacs-lisp
+(setq org-tag-alist
+    '((:startgroup)
+       ; Put mutually exclusive tags here
+       (:endgroup)
+       ("@errand" . ?E)
+       ("@home" . ?H)
+       ("@work" . ?W)
+       ("agenda" . ?a)
+       ("ECE 271" . ?l)
+       ("ECE 340" . ?c)
+       ("ECE 303" . ?L)
+       ("ECE 434" . ?p)
+       ("CS 506" . ?s)
+       ("CS 537" . ?o)
+       ("note" . ?n)
+       ("idea" . ?i)))
+#+end_src
+
+Refile to archive.org or send into todo
+#+begin_src emacs-lisp
+(setq org-refile-targets
+    '(("archive.org" :maxlevel . 1)
+      ("todo.org" :maxlevel . 1)))
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
+#+end_src
+
+** Additional packages
+Custom structure templates 
+el and others expanding into a code block with tab
+#+begin_src emacs-lisp
+(require 'org-tempo)
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+#+end_src
+
+Make nicer bullet points instead of ***********
+#+begin_src emacs-lisp
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode))
+#+end_src
+
+* Source custom.el
+Source file that stores all dynamically set variables
+#+begin_src emacs-lisp
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
+#+end_src

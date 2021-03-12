@@ -1,0 +1,6 @@
+game:
+  core: mednafen_psx
+  main_file: /home/kevin/media/Emulation/Games/Sony Playstation/Spyro - Year of the
+    Dragon (USA) (v1.1).bin
+libretro: {}
+system: {}

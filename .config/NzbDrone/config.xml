@@ -1,0 +1,11 @@
+<Config>
+  <LogLevel>Info</LogLevel>
+  <Port>8989</Port>
+  <UrlBase></UrlBase>
+  <BindAddress>*</BindAddress>
+  <SslPort>9898</SslPort>
+  <EnableSsl>False</EnableSsl>
+  <ApiKey>ea1c6d93308549b1beb223092dcaa4af</ApiKey>
+  <AuthenticationMethod>None</AuthenticationMethod>
+  <LaunchBrowser>True</LaunchBrowser>
+</Config>

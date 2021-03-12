@@ -1,0 +1,5 @@
+game:
+  core: vice_x64sc
+  main_file: /home/kevin/media/Emulation/Games/C64/Impossible Mission.d64
+libretro: {}
+system: {}

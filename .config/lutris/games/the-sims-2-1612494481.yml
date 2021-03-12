@@ -1,0 +1,5 @@
+game:
+  core: desmume
+  main_file: /home/kevin/media/Emulation/Games/Nintendo DS/Sims 2, The (USA) (En,Fr,De,Es,It).zip
+libretro: {}
+system: {}

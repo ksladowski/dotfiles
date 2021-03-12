@@ -1,0 +1,39 @@
+{
+  "marketplace": {
+    "%2Fhome%2Fkevin%2F": {
+      "config%2Fnvim": [
+        "mark",
+        "java",
+        ":q"
+      ]
+    }
+  },
+  "diagnostics": {
+    "%2Fhome%2Fkevin%2F": {
+      "config%2Fnvim": [
+        ":co"
+      ]
+    }
+  },
+  "explorerFiles": {
+    "%2Fhome%2Fkevin%2Fdocuments%2F552%2Fdemo1%2Fverilog": [
+      "Wb",
+      "ex"
+    ]
+  },
+  "explorerActions": {
+    "%2Fhome%2Fkevin": [
+      "cd"
+    ],
+    "%2Fhome%2Fkevin%2F": {
+      "config%2Fnvim": [
+        "coll"
+      ],
+      "config%2Fnvim%2Fautoload%2Fplugged%2Flightline": {
+        "vim": [
+          "collaps"
+        ]
+      }
+    }
+  }
+}

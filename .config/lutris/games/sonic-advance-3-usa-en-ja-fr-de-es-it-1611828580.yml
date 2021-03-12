@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Sonic Advance 3 (USA) (En,Ja,Fr,De,Es,It).gba
+libretro: {}
+system: {}

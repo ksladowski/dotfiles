@@ -1,0 +1,15 @@
+configuration {
+	modi: "drun,run,window,ssh";
+	lines: 7;
+	font: "Hack Nerd Font 12";
+	bw: 0;
+	padding: 0;
+	show-icons: true;
+	matching: "fuzzy";
+	line-margin: 0;
+	line-padding: 10;
+	separator-style: "none";
+	hide-scrollbar: true;
+	theme: ".config/rofi/nord.rasi";
+	terminal: "alacritty";
+}

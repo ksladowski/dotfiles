@@ -1,0 +1,5 @@
+game:
+  core: genesis_plus_gx
+  main_file: Sega Genesis/Comix Zone (USA).md
+libretro: {}
+system: {}

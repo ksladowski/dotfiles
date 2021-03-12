@@ -1,0 +1,5 @@
+game:
+  core: bluemsx
+  main_file: /home/kevin/media/Emulation/Games/MSX/Metal Gear 2 - Solid Snake (Japan).rom
+libretro: {}
+system: {}

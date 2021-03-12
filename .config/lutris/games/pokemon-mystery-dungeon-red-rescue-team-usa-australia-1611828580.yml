@@ -1,0 +1,6 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Pokemon Mystery Dungeon - Red Rescue Team (USA,
+    Australia).gba
+libretro: {}
+system: {}

@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Sims 2, The - Pets (USA, Europe).gba
+libretro: {}
+system: {}

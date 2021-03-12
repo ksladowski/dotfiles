@@ -1,0 +1,10 @@
+[0220/192228.154996:INFO:API.cpp(289)] zfb_init: Started browser
+[0220/192228.155051:INFO:API.cpp(291)] zfb_init: Using --disable-smooth-scrolling
+[0220/192228.155060:INFO:API.cpp(291)] zfb_init: Using --enable-system-flash
+[0220/192310.560122:WARNING:x11_util.cc(1422)] X error received: serial 440, error_code 3 (BadWindow (invalid Window parameter)), request_code 4, minor_code 0 (X_DestroyWindow)
+[0220/192310.598314:INFO:CONSOLE(0)] "HTML Imports is deprecated and will be removed in M73, around March 2019. Please use ES modules instead. See https://www.chromestatus.com/features/5144752345317376 for more details.", source:  (0)
+[0220/192427.515492:WARNING:x11_util.cc(1422)] X error received: serial 744, error_code 3 (BadWindow (invalid Window parameter)), request_code 4, minor_code 0 (X_DestroyWindow)
+[0220/192427.515551:WARNING:x11_util.cc(1422)] X error received: serial 746, error_code 3 (BadWindow (invalid Window parameter)), request_code 4, minor_code 0 (X_DestroyWindow)
+[0220/192451.385518:WARNING:x11_util.cc(1422)] X error received: serial 799, error_code 3 (BadWindow (invalid Window parameter)), request_code 4, minor_code 0 (X_DestroyWindow)
+[0220/192451.403105:INFO:CONSOLE(0)] "HTML Imports is deprecated and will be removed in M73, around March 2019. Please use ES modules instead. See https://www.chromestatus.com/features/5144752345317376 for more details.", source:  (0)
+[0220/211055.237589:INFO:API.cpp(350)] zfb_shutdown called on thread 44648

@@ -1,0 +1,11 @@
+# GIMP action-history
+
+(history-item "file-quit" 2)
+(history-item "file-open" 1)
+(history-item "file-overwrite" 0)
+(history-item "file-export-as" 1)
+(history-item "file-open-as-layers" 0)
+(history-item "tools-scale" 0)
+(history-item "filters-hue-saturation" 1)
+
+# end of action-history

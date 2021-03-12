@@ -1,0 +1,6 @@
+game:
+  core: mednafen_psx
+  main_file: /home/kevin/media/Emulation/Games/Sony Playstation/Resident Evil 2 -
+    Dual Shock Ver. (USA) (Disc 2) (Claire) (Track 2).bin
+libretro: {}
+system: {}

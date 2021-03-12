@@ -1,0 +1,88 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+#module_path+=( "/home/kevin/.zinit/bin/zmodules/Src" )
+#zmodload zdharma/zplugin
+
+#uncomment following line to get verbose startup
+#zpmod source-study
+GITSTATUS_LOG_LEVEL=DEBUG
+typeset -g ZPLG_MOD_DEBUG=1
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/kevin/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# Lines configured by zsh-newuser-install
+#HISTFILE=~/.zshhist
+HISTSIZE=1000
+SAVEHIST=1000
+setopt notify
+unsetopt beep
+bindkey -v
+# End of lines configured by zsh-newuser-install
+setopt auto_cd
+CASE_SENSITIVE="false"
+setopt MENU_COMPLETE
+setopt no_list_ambiguous
+zstyle ':completion:*' menu yes select
+
+# this fixes the stupid % on launch BUT prevents you telling whether or not newline is at the end of a given output
+PROMPT_EOL_MARK=''
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+### End of Zinit's installer chunk
+
+
+# Fast-syntax-highlighting & autosuggestions
+zinit wait lucid for \
+ atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
+    zdharma/fast-syntax-highlighting \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+ blockf \
+    zsh-users/zsh-completions
+zstyle ':completion:*' menu select
+
+#nord things
+test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+
+# PL10K
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+# Source aliases
+source "$HOME/.aliases"
+source "$HOME/.profile"
+
+# Colorize man pages
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -1,0 +1,4 @@
+game:
+  main_file: /home/kevin/media/Emulation/MAME/roms/klax.zip
+mame: {}
+system: {}

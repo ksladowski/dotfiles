@@ -1,0 +1,5 @@
+game:
+  core: genesis_plus_gx
+  main_file: Sega Genesis/Phantasy Star II (USA, Europe) (Rev A).md
+libretro: {}
+system: {}

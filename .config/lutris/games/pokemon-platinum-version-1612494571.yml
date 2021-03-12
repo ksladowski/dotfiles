@@ -1,0 +1,6 @@
+game:
+  core: desmume
+  main_file: /home/kevin/media/Emulation/Games/Nintendo DS/Pokemon - Platinum Version
+    (USA) (Rev 1).zip
+libretro: {}
+system: {}

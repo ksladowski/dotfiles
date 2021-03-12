@@ -1,0 +1,4 @@
+mame: {}
+system:
+  terminal: false
+  terminal_app: /usr/bin/alacritty

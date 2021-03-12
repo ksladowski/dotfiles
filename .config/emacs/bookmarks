@@ -1,0 +1,25 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8-emacs -*-
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("org-capture-last-stored-marker"
+ (filename . "~/documents/org/todo.org")
+ (front-context-string . "** TODO Level up")
+ (rear-context-string . "pm-11:00pm +1w>\n")
+ (position . 3072))
+("org-refile-last-stored"
+ (filename . "~/documents/org/todo.org")
+ (front-context-string . "** TODO Level up")
+ (rear-context-string . "pm-11:00pm +1w>\n")
+ (position . 3072))
+("config.org"
+ (filename . "~/.config/emacs/config.org")
+ (front-context-string . "#+title kSladows")
+ (rear-context-string)
+ (position . 1))
+("org-capture-last-stored"
+ (filename . "~/documents/org/todo.org")
+ (front-context-string . "** TODO Level up")
+ (rear-context-string . "95 for taxes]]\n\n")
+ (position . 129))
+)

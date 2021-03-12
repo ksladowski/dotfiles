@@ -1,0 +1,6 @@
+system:
+  env:
+    LD_PRELOAD: ''
+yuzu:
+  prod_keys: /home/kevin/media/Emulation/systemfiles/keys/prod.keys
+  title_keys: /home/kevin/media/Emulation/systemfiles/keys/title.keys

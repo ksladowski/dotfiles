@@ -1,0 +1,6 @@
+game:
+  core: mesen-s
+  main_file: /home/kevin/media/Emulation/Games/Super Nintendo Entertainment System/Contra
+    III - The Alien Wars (USA).sfc
+libretro: {}
+system: {}

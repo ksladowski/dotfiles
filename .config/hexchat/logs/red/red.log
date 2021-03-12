@@ -1,0 +1,151 @@
+**** BEGIN LOGGING AT Fri Feb 19 15:59:09 2021
+
+Feb 19 15:59:09 *	Disconnected (Remote host closed socket)
+Feb 19 15:59:19 Cycling to next server in RED...
+Feb 19 15:59:19 *	Disconnected ()
+Feb 19 15:59:19 *	Looking up irc.scratch-network.net
+Feb 19 15:59:20 *	Connecting to irc.scratch-network.net (192.81.221.18:6697)
+Feb 19 15:59:20 *	Connected. Now logging in.
+Feb 19 15:59:20 *	Disconnected (Remote host closed socket)
+Feb 19 15:59:30 Cycling to next server in RED...
+Feb 19 15:59:30 *	Disconnected ()
+Feb 19 15:59:30 *	Looking up irc.scratch-network.net
+Feb 19 15:59:30 *	Connecting to irc.scratch-network.net (192.81.221.18:6697)
+Feb 19 15:59:30 *	Connected. Now logging in.
+Feb 19 15:59:30 *	Disconnected (Remote host closed socket)
+Feb 19 15:59:37 Checksum plugin unloaded
+Feb 19 15:59:37 Sysinfo plugin unloaded
+Feb 19 15:59:37 FiSHLiM plugin unloaded
+Feb 19 15:59:37 Perl interface unloaded
+**** ENDING LOGGING AT Fri Feb 19 15:59:37 2021
+
+**** BEGIN LOGGING AT Fri Feb 19 16:00:01 2021
+
+Feb 19 16:00:01 *	Welcome to the Scratch-Network IRC Network markofcorn!kevin@024-240-038-042.res.spectrum.com
+Feb 19 16:00:01 *	Your host is tokyo.scratch-network.net, running version InspIRCd-2.0
+Feb 19 16:00:01 *	This server was created 14:32:01 Feb  2 2019
+Feb 19 16:00:01 *	tokyo.scratch-network.net InspIRCd-2.0 BHILRSWcdgikorswx CDFIJLMNOPQRSTXYabcdefhijklmnopqrstuvwz FIJLXYabdefhjkloqvw
+Feb 19 16:00:01 *	AWAYLEN=200 CALLERID=g CASEMAPPING=rfc1459 CHANMODES=IXbew,k,FJLdfjl,CDMNOPQRSTcimnprstuz CHANNELLEN=64 CHANTYPES=# CHARSET=ascii ELIST=MU ESILENCE EXCEPTS=e EXTBAN=,CNOQRSTUcjmprsz FNC INVEX=I :are supported by this server
+**** BEGIN LOGGING AT Sat Feb 20 18:31:01 2021
+
+Feb 20 18:31:01 *	Welcome to the Scratch-Network IRC Network markofcorn!kevin@024-240-038-042.res.spectrum.com
+Feb 20 18:31:01 *	Your host is tokyo.scratch-network.net, running version InspIRCd-2.0
+Feb 20 18:31:01 *	This server was created 14:32:01 Feb  2 2019
+Feb 20 18:31:01 *	tokyo.scratch-network.net InspIRCd-2.0 BHILRSWcdgikorswx CDFIJLMNOPQRSTXYabcdefhijklmnopqrstuvwz FIJLXYabdefhjkloqvw
+Feb 20 18:31:01 *	AWAYLEN=200 CALLERID=g CASEMAPPING=rfc1459 CHANMODES=IXbew,k,FJLdfjl,CDMNOPQRSTcimnprstuz CHANNELLEN=64 CHANTYPES=# CHARSET=ascii ELIST=MU ESILENCE EXCEPTS=e EXTBAN=,CNOQRSTUcjmprsz FNC INVEX=I :are supported by this server
+Feb 20 18:31:01 *	KICKLEN=255 MAP MAXBANS=60 MAXCHANNELS=120 MAXPARA=32 MAXTARGETS=20 MODES=20 NAMESX NETWORK=Scratch-Network NICKLEN=31 OPERLOG PREFIX=(Yqaohv)!~&@%+ REMOVE :are supported by this server
+Feb 20 18:31:01 *	SECURELIST SILENCE=32 SSL=192.81.221.18:6697 STATUSMSG=!~&@%+ TOPICLEN=307 UHNAMES USERIP VBANLIST WALLCHOPS WALLVOICES WATCH=32 :are supported by this server
+Feb 20 18:31:01 *	867A89IY4 :your unique ID
+Feb 20 18:31:01 *	tokyo.scratch-network.net message of the day
+Feb 20 18:31:01 *	End of message of the day.
+Feb 20 18:31:01 *	There are 1013 users and 605 invisible on 5 servers
+Feb 20 18:31:01 *	8 :operator(s) online
+Feb 20 18:31:01 *	521 :channels formed
+Feb 20 18:31:01 *	I have 1588 clients and 1 servers
+Feb 20 18:31:01 *	Current Local Users: 1588  Max: 1767
+Feb 20 18:31:01 *	Current Global Users: 1618  Max: 1784
+Feb 20 18:31:01 *	red-hau.tm1.t1r84g.IP :is now your displayed host
+Feb 20 18:31:01 *	markofcorn sets mode +x on markofcorn
+**** BEGIN LOGGING AT Sat Feb 20 18:39:44 2021
+
+Feb 20 18:39:44 *	Welcome to the Scratch-Network IRC Network markofcorn!kevin@024-240-038-042.res.spectrum.com
+Feb 20 18:39:44 *	Your host is tokyo.scratch-network.net, running version InspIRCd-2.0
+Feb 20 18:39:44 *	This server was created 14:32:01 Feb  2 2019
+Feb 20 18:39:44 *	tokyo.scratch-network.net InspIRCd-2.0 BHILRSWcdgikorswx CDFIJLMNOPQRSTXYabcdefhijklmnopqrstuvwz FIJLXYabdefhjkloqvw
+Feb 20 18:39:44 *	AWAYLEN=200 CALLERID=g CASEMAPPING=rfc1459 CHANMODES=IXbew,k,FJLdfjl,CDMNOPQRSTcimnprstuz CHANNELLEN=64 CHANTYPES=# CHARSET=ascii ELIST=MU ESILENCE EXCEPTS=e EXTBAN=,CNOQRSTUcjmprsz FNC INVEX=I :are supported by this server
+Feb 20 18:39:44 *	KICKLEN=255 MAP MAXBANS=60 MAXCHANNELS=120 MAXPARA=32 MAXTARGETS=20 MODES=20 NAMESX NETWORK=Scratch-Network NICKLEN=31 OPERLOG PREFIX=(Yqaohv)!~&@%+ REMOVE :are supported by this server
+Feb 20 18:39:44 *	SECURELIST SILENCE=32 SSL=192.81.221.18:6697 STATUSMSG=!~&@%+ TOPICLEN=307 UHNAMES USERIP VBANLIST WALLCHOPS WALLVOICES WATCH=32 :are supported by this server
+Feb 20 18:39:44 *	867A89JBT :your unique ID
+Feb 20 18:39:44 *	tokyo.scratch-network.net message of the day
+Feb 20 18:39:44 *	End of message of the day.
+Feb 20 18:39:44 *	There are 1014 users and 606 invisible on 5 servers
+Feb 20 18:39:44 *	8 :operator(s) online
+Feb 20 18:39:44 *	521 :channels formed
+Feb 20 18:39:44 *	I have 1590 clients and 1 servers
+Feb 20 18:39:44 *	Current Local Users: 1590  Max: 1767
+Feb 20 18:39:44 *	Current Global Users: 1620  Max: 1784
+Feb 20 18:39:44 *	red-hau.tm1.t1r84g.IP :is now your displayed host
+Feb 20 18:39:44 *	markofcorn sets mode +x on markofcorn
+Feb 20 18:39:59 *	# :Cannot join channel; SSL users only (+z)
+Feb 20 18:40:03 Checksum plugin unloaded
+Feb 20 18:40:03 Sysinfo plugin unloaded
+Feb 20 18:40:03 FiSHLiM plugin unloaded
+Feb 20 18:40:03 Perl interface unloaded
+**** ENDING LOGGING AT Sat Feb 20 18:40:03 2021
+
+**** BEGIN LOGGING AT Sun Feb 21 19:01:10 2021
+
+Feb 21 19:01:10 *	Welcome to the Scratch-Network IRC Network markofcorn!kevin@024-240-038-042.res.spectrum.com
+Feb 21 19:01:10 *	Your host is tokyo.scratch-network.net, running version InspIRCd-2.0
+Feb 21 19:01:10 *	This server was created 14:32:01 Feb  2 2019
+Feb 21 19:01:10 *	tokyo.scratch-network.net InspIRCd-2.0 BHILRSWcdgikorswx CDFIJLMNOPQRSTXYabcdefhijklmnopqrstuvwz FIJLXYabdefhjkloqvw
+Feb 21 19:01:10 *	AWAYLEN=200 CALLERID=g CASEMAPPING=rfc1459 CHANMODES=IXbew,k,FJLdfjl,CDMNOPQRSTcimnprstuz CHANNELLEN=64 CHANTYPES=# CHARSET=ascii ELIST=MU ESILENCE EXCEPTS=e EXTBAN=,CNOQRSTUcjmprsz FNC INVEX=I :are supported by this server
+Feb 21 19:01:10 *	KICKLEN=255 MAP MAXBANS=60 MAXCHANNELS=120 MAXPARA=32 MAXTARGETS=20 MODES=20 NAMESX NETWORK=Scratch-Network NICKLEN=31 OPERLOG PREFIX=(Yqaohv)!~&@%+ REMOVE :are supported by this server
+Feb 21 19:01:10 *	SECURELIST SILENCE=32 SSL=192.81.221.18:6697 STATUSMSG=!~&@%+ TOPICLEN=307 UHNAMES USERIP VBANLIST WALLCHOPS WALLVOICES WATCH=32 :are supported by this server
+Feb 21 19:01:10 *	867A9A8HZ :your unique ID
+Feb 21 19:01:10 *	tokyo.scratch-network.net message of the day
+Feb 21 19:01:10 *	End of message of the day.
+Feb 21 19:01:10 *	There are 1031 users and 606 invisible on 5 servers
+Feb 21 19:01:10 *	8 :operator(s) online
+Feb 21 19:01:10 *	521 :channels formed
+Feb 21 19:01:10 *	I have 1607 clients and 1 servers
+Feb 21 19:01:10 *	Current Local Users: 1607  Max: 1767
+Feb 21 19:01:10 *	Current Global Users: 1637  Max: 1784
+Feb 21 19:01:10 *	red-hau.tm1.t1r84g.IP :is now your displayed host
+Feb 21 19:01:10 *	markofcorn sets mode +x on markofcorn
+Feb 21 19:01:42 Checksum plugin unloaded
+Feb 21 19:01:42 Sysinfo plugin unloaded
+Feb 21 19:01:42 Perl interface unloaded
+**** ENDING LOGGING AT Sun Feb 21 19:01:42 2021
+
+**** BEGIN LOGGING AT Mon Feb 22 10:34:48 2021
+
+Feb 22 10:34:48 *	Welcome to the Scratch-Network IRC Network markofcorn!kevin@024-240-038-042.res.spectrum.com
+Feb 22 10:34:48 *	Your host is tokyo.scratch-network.net, running version InspIRCd-2.0
+Feb 22 10:34:48 *	This server was created 14:32:01 Feb  2 2019
+Feb 22 10:34:48 *	tokyo.scratch-network.net InspIRCd-2.0 BHILRSWcdgikorswx CDFIJLMNOPQRSTXYabcdefhijklmnopqrstuvwz FIJLXYabdefhjkloqvw
+Feb 22 10:34:48 *	AWAYLEN=200 CALLERID=g CASEMAPPING=rfc1459 CHANMODES=IXbew,k,FJLdfjl,CDMNOPQRSTcimnprstuz CHANNELLEN=64 CHANTYPES=# CHARSET=ascii ELIST=MU ESILENCE EXCEPTS=e EXTBAN=,CNOQRSTUcjmprsz FNC INVEX=I :are supported by this server
+Feb 22 10:34:48 *	KICKLEN=255 MAP MAXBANS=60 MAXCHANNELS=120 MAXPARA=32 MAXTARGETS=20 MODES=20 NAMESX NETWORK=Scratch-Network NICKLEN=31 OPERLOG PREFIX=(Yqaohv)!~&@%+ REMOVE :are supported by this server
+Feb 22 10:34:48 *	SECURELIST SILENCE=32 SSL=192.81.221.18:6697 STATUSMSG=!~&@%+ TOPICLEN=307 UHNAMES USERIP VBANLIST WALLCHOPS WALLVOICES WATCH=32 :are supported by this server
+Feb 22 10:34:48 *	867A9CCBK :your unique ID
+Feb 22 10:34:48 *	tokyo.scratch-network.net message of the day
+Feb 22 10:34:48 *	End of message of the day.
+Feb 22 10:34:48 *	There are 1031 users and 612 invisible on 5 servers
+Feb 22 10:34:48 *	8 :operator(s) online
+Feb 22 10:34:48 *	521 :channels formed
+Feb 22 10:34:48 *	I have 1613 clients and 1 servers
+Feb 22 10:34:48 *	Current Local Users: 1613  Max: 1767
+Feb 22 10:34:48 *	Current Global Users: 1643  Max: 1784
+Feb 22 10:34:48 *	red-hau.tm1.t1r84g.IP :is now your displayed host
+Feb 22 10:34:48 *	markofcorn sets mode +x on markofcorn
+Feb 22 18:55:44 Checksum plugin unloaded
+Feb 22 18:55:44 Sysinfo plugin unloaded
+Feb 22 18:55:44 Perl interface unloaded
+**** ENDING LOGGING AT Mon Feb 22 18:55:44 2021
+
+**** BEGIN LOGGING AT Fri Mar  5 18:40:55 2021
+
+Mar 05 18:40:55 *	Welcome to the Scratch-Network IRC Network markofcorn!kevin@024-240-038-042.res.spectrum.com
+Mar 05 18:40:55 *	Your host is tokyo.scratch-network.net, running version InspIRCd-2.0
+Mar 05 18:40:55 *	This server was created 14:32:01 Feb  2 2019
+Mar 05 18:40:55 *	tokyo.scratch-network.net InspIRCd-2.0 BHILRSWcdgikorswx CDFIJLMNOPQRSTXYabcdefhijklmnopqrstuvwz FIJLXYabdefhjkloqvw
+Mar 05 18:40:55 *	AWAYLEN=200 CALLERID=g CASEMAPPING=rfc1459 CHANMODES=IXbew,k,FJLdfjl,CDMNOPQRSTcimnprstuz CHANNELLEN=64 CHANTYPES=# CHARSET=ascii ELIST=MU ESILENCE EXCEPTS=e EXTBAN=,CNOQRSTUcjmprsz FNC INVEX=I :are supported by this server
+Mar 05 18:40:55 *	KICKLEN=255 MAP MAXBANS=60 MAXCHANNELS=120 MAXPARA=32 MAXTARGETS=20 MODES=20 NAMESX NETWORK=Scratch-Network NICKLEN=31 OPERLOG PREFIX=(Yqaohv)!~&@%+ REMOVE :are supported by this server
+Mar 05 18:40:55 *	SECURELIST SILENCE=32 SSL=192.81.221.18:6697 STATUSMSG=!~&@%+ TOPICLEN=307 UHNAMES USERIP VBANLIST WALLCHOPS WALLVOICES WATCH=32 :are supported by this server
+Mar 05 18:40:55 *	867A9V906 :your unique ID
+Mar 05 18:40:55 *	tokyo.scratch-network.net message of the day
+Mar 05 18:40:55 *	End of message of the day.
+Mar 05 18:40:55 *	There are 1036 users and 613 invisible on 5 servers
+Mar 05 18:40:55 *	7 :operator(s) online
+Mar 05 18:40:55 *	2 :unknown connections
+Mar 05 18:40:55 *	529 :channels formed
+Mar 05 18:40:55 *	I have 1623 clients and 1 servers
+Mar 05 18:40:55 *	Current Local Users: 1623  Max: 1767
+Mar 05 18:40:55 *	Current Global Users: 1649  Max: 1784
+Mar 05 18:40:55 *	red-hau.tm1.t1r84g.IP :is now your displayed host
+Mar 05 18:40:55 *	markofcorn sets mode +x on markofcorn
+Mar 05 18:41:15 Checksum plugin unloaded
+Mar 05 18:41:15 Sysinfo plugin unloaded
+Mar 05 18:41:15 Perl interface unloaded
+**** ENDING LOGGING AT Fri Mar  5 18:41:15 2021
+

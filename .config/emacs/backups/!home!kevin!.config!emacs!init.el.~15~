@@ -1,0 +1,230 @@
+; Setting defaults that change variables in vanilla emacs
+(setq delete-old-versions -1 )		; delete excess backup versions silently
+(setq version-control t )		; use version control
+(setq vc-make-backup-files t )		; make backups file even when in version controlled dir
+(setq backup-directory-alist `(("." . "~/.config/emacs/backups")) ) ; which directory to put backups file
+(setq vc-follow-symlinks t )		; don't ask for confirmation when opening symlinked file
+(setq auto-save-file-name-transforms '((".*" "~/.config/emacs/auto-save-list/" t)) ) ;transform backups file name
+(setq inhibit-startup-screen t )	; inhibit useless and old-school startup screen TODO change later
+(setq visible-bell 1 )	                ; silent bell, visual only
+(setq sentence-end-double-space nil)	; sentence isn't delimited by double space
+(setq default-fill-column 80)		; toggle wrapping text at the 80th character
+(setq-default indicate-empty-lines t)   ; get this - the default behavior is to hide trailing whitespace at EOF
+(setq bidi-display-reordering nil)      ; this is for right to left text. never gonna use that
+(setq cursor-in-non-selected-windows 'hollow) ; change cursor in non-selected window
+(defalias 'yes-or-no-p 'y-or-n-p) ; why would i want to type out the words "yes" or "no"
+
+
+;; ensure utf-8 everywhere
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+
+;; this should save macros and other state on exit
+(savehist-mode 1)
+(setq savehist-additional-variables '(register-alist))
+
+;; Disable gui/gtk elements
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(setq use-dialog-box nil)
+(setq make-pointer-invisible t)
+
+;; scrolling
+(setq scroll-margin 4) ; don't wait until the last line before scrolling down
+(setq mouse-wheel-progressive-speed nil) ; fucking mouse acceleration
+(setq mouse-wheel-inhibit-click-time nil) ; this is useless anyway, may as well save a few cpu cycles
+(setq scroll-preserve-screen-position t) ; don't move the cursor when scrolling
+(setq scroll-error-top-bottom t) ; but if we page to the top or bottom and scroll again, then move the cursor
+(setq next-error-recenter (quote (4))) ; center on compiler error when jumping through them
+
+; always redraw immediately when scrolling, more responsive this way
+(setq fast-but-imprecise-scrolling nil)
+(setq jit-lock-defer-time 0)
+
+;; clipboard
+(setq select-enable-clipboard t) ; integrate with system clipboard
+(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING)) ; utf-8 for clipboard
+(fset 'undo-auto-amalgamate 'ignore) ; don't undo groups of things
+(setq undo-limit 6710886400) ; increase undo limit to 64mb (i doubt i'll ever work on anything that goes this high
+;; Strong limit of 1.5x (96mb)
+(setq undo-strong-limit 100663296) ; 96 mb, it will go up to here if an action overflows from the normal limit
+(setq undo-outer-limit 1006632960) ; never ever gonna reach this. 960mb
+
+;; font settings
+(set-face-attribute 'default nil :font "JetBrains Mono Nerd Font" :height 100)
+
+;; line numbers
+(column-number-mode)
+(global-display-line-numbers-mode t)
+
+;; disable line numbers in specific modes
+(dolist (mode '(org-mode-hook
+		term-mode-hook
+		eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+;; theme settings
+(load-theme 'tango-dark)
+
+;; indentation
+
+;; packages
+(require 'package)
+
+(setq package-archives '(("org"       . "http://orgmode.org/elpa/") ; define repos
+                         ("gnu"       . "http://elpa.gnu.org/packages/")
+                         ("melpa"     . "https://melpa.org/packages/")))
+
+(package-initialize)
+(unless package-archive-contents
+ (package-refresh-contents))
+
+;; use-package
+(unless (package-installed-p 'use-package) ; install use-package if not already
+  (package-install 'use-package)) ; update to newest version of use-package
+
+(require 'use-package)
+(setq use-package-always-ensure t) ; install packages if not already installed, don't need to ensure t each pkg
+
+(use-package general
+    :config
+    (general-define-key "C-'" 'avy-goto-word-1)
+    ) ; config/bind keys in place as the package is called
+
+(use-package avy :ensure t
+    :commands (avy-goto-word-1)) ; avy won't load until this command (or any other avy command) is called
+
+(use-package ivy
+  :diminish ; remove 'ivy' listing from modeline
+  :bind (("C-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)	
+         ("C-l" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line)
+         :map ivy-switch-buffer-map
+         ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+         ("C-d" . ivy-switch-buffer-kill)
+         :map ivy-reverse-i-search-map
+         ("C-k" . ivy-previous-line)
+         ("C-d" . ivy-reverse-i-search-kill))
+  :config
+  (ivy-mode 1)) ; enable ivy everywhere by default
+
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit) ; make escape quit prompts
+
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
+(use-package counsel)
+(use-package swiper)
+
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 0.3))
+
+(use-package all-the-icons) ; needed for doom modeline, must run install script first time package is installed
+
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+  :custom (doom-modeline-height 15))
+
+(use-package doom-themes
+  :init (load-theme 'doom-nord t))
+  
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode)) ; prog mode means do this for any programming language mode
+
+(use-package helpful ; much better describe configurations than the default - more organized, better ivy integration
+  :custom
+  (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-variable-function #'helpful-variable)
+  :bind
+  ([remap describe-function] . counsel-describe-function)
+  ([remap describe-variable] . counsel-describe-variable)
+  ([remap describe-command] . helpful-command)
+  ([remap describe-key] . helpful-key))
+
+(use-package general
+  :config
+   (general-create-definer slad/leader-keys
+     :keymaps '(normal insert visual emacs)
+     :prefix "SPC"
+     :global-prefix "C-SPC")
+   (slad/leader-keys
+    "t"  '(:ignore t :which-key "toggles")
+    "tt" '(counsel-load-theme :which-key "choose theme")))
+
+(general-define-key
+ "C-M-b" 'counsel-switch-buffer)
+
+(use-package evil
+  :init
+  (setq evil-want-integration t)
+  (setq evil-want-keybinding nil)
+  (setq evil-want-C-u-scroll t)
+  (setq evil-want-C-d-scroll t)
+  :config
+  (evil-mode 1)
+  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join) ; should reinforce this behavior
+
+  ;; Use visual line motions even outside of visual-line-mode buffers -- for line wraps
+  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+  (evil-set-initial-state 'messages-buffer-mode 'normal)
+  (evil-set-initial-state 'dashboard-mode 'normal))
+
+(use-package evil-collection
+  :after evil
+  :config (evil-collection-init))
+
+(use-package hydra)
+
+(defhydra hydra-text-scale (:timeout 4)
+  "scale text"
+  ("j" text-scale-increase "in")
+  ("k" text-scale-decrease "out")
+  ("f" nil "finished" :exit t))
+
+(slad/leader-keys
+  "ts" '(hydra-text-scale/body :which-key "scale text"))
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  ;; NOTE: Set this to the folder where you keep your Git repos!
+  (when (file-directory-p "~/git")
+    (setq projectile-project-search-path '("~/git")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+(use-package forge ; integrate magit with github/gitlab for issues, pull requests, etc
+  :after magit
+  :config
+  (setq auth-sources '("~/.password-store/githubtoken.gpg")))
+
+;; customs file (don't edit manually)
+;; this is the same as using the :custom keyword, except when setting the values on the fly within emacs instead of in init.el
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)

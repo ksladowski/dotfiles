@@ -1,0 +1,439 @@
+import {Request, Response} from "express";
+import * as admin from "firebase-admin";
+import {db} from "./index";
+
+export function login(req: Request, res: Response) {
+  // Get the ID token passed
+  const idToken = req.body.idToken;
+  admin
+      .auth()
+      .verifyIdToken(idToken.toString())
+      .then(
+          (decodedToken) => res.end(JSON.stringify({status: "success"}))
+      )
+      .catch(() => res.status(401).send("UNAUTHORIZED REQUEST!"));
+}
+
+export function getUser(req: Request, res: Response) {
+  const idToken = req.query.idToken;
+
+  if(!idToken)  {
+      res.status(404).send("User Not Found");
+      return;
+  }
+
+  admin
+      .auth()
+      .verifyIdToken(idToken.toString())
+      .then((decodedToken) => {
+        admin
+            .auth()
+            .getUser(decodedToken.sub)
+            .then(async (userRecord) => {
+              const userRef = db.collection("users").doc(userRecord.uid);
+              const doc = await userRef.get();
+
+              if (!doc.exists) {
+                res.status(404).send("User Not Found");
+                return;
+              }
+
+              if (!req.query.user_id || (doc.get("role") != "admin" && doc.get("role") != "staff")) {
+                res.end(JSON.stringify({
+                  "id": doc.id,
+                  "user": doc.data(),
+                }));
+                return;
+              }
+
+              db.collection("users").doc(req.query.user_id.toString()).get()
+                  .then((userRes) => {
+                    res.end(JSON.stringify({
+                      "id": userRes.id,
+                      "user": userRes.data(),
+                    }));
+                  })
+                  .catch(() => res.status(500).send("Internal Service Error"));
+            });
+      });
+}
+
+export function register(req: Request, res: Response) {
+  const email = req.body.email;
+  const password = req.body.password;
+
+  if (!email || !password) {
+    res.status(400).send("Invalid email or password");
+    return;
+  }
+
+  const params : any = {
+    "email": email.toString(),
+    "password": password.toString(),
+  };
+
+  admin
+      .auth()
+      .createUser(params)
+      .then(async (userRecord) => {
+        const uid = userRecord.uid;
+
+        params["address"] = (req.body.address ? req.body.address.toString() : "");
+        params["car"] = (req.body.car ? req.body.car.toString() : "");
+        params["name"] = (req.body.name ? req.body.name.toString() : "");
+        delete params["password"];
+        params["phone"] = (req.body.phone ? req.body.phone.toString() : "");
+        params["role"] = "customer";
+        params["stripe_id"] = "";
+        params["username"] = (req.body.username ? req.body.username.toString() : "");
+
+        await db.collection("users").doc(uid).set(params);
+        res.end(JSON.stringify({status: "success"}));
+      })
+      .catch((error) => res.status(500).send(error));
+}
+
+export function updateUser(req: Request, res: Response) {
+  const idToken = req.body.idToken;
+
+  admin
+      .auth()
+      .verifyIdToken(idToken.toString())
+      .then((decodedToken) => {
+        admin
+            .auth()
+            .getUser(decodedToken.sub)
+            .then(async (userRecord) => {
+              const userRef = db.collection("users").doc(userRecord.uid);
+              const doc = await userRef.get();
+
+              if (!doc.exists) {
+                res.status(404).send("User Not Found");
+                return;
+              }
+
+              const parameters : any = {};
+
+              if (req.body.address) parameters["address"] = req.body.address.toString();
+              if (req.body.email) parameters["email"] = req.body.email.toString();
+              if (req.body.name) parameters["name"] = req.body.name.toString();
+              if (req.body.phone) parameters["phone"] = req.body.phone.toString();
+              if (req.body.username) parameters["username"] = req.body.username.toString();
+
+              const uid = (doc.get("role") == "admin" && req.body.user_id) ?
+                        req.body.user_id.toString() : userRecord.uid;
+
+              if (doc.get("role") == "admin") {
+                if (req.body.role) parameters["role"] = req.body.role;
+              }
+
+              const properties : any = {};
+              if (parameters["email"]) properties["email"] = parameters["email"];
+              if (req.body.password) properties["password"] = req.body.password.toString();
+
+              // Update Firebase auth table
+              if (properties["email"] || properties["password"]) {
+                admin.auth().updateUser(uid, properties).then();
+              }
+
+              db.collection("users").doc(uid).update(parameters)
+                  .then(() => res.end(JSON.stringify({status: "success"})))
+                  .catch(() => res.status(500).send("Internal Service Error"));
+            })
+            .catch(() => res.status(404).send("User Not Found"));
+      })
+      .catch(() => res.redirect("/login"));
+}
+
+export function getOrders(req: Request, res: Response) {
+  const idToken = req.query.idToken;
+    if(!idToken)  {
+        res.status(404).send("User Not Found");
+        return;
+    }
+
+  admin
+      .auth()
+      .verifyIdToken(idToken.toString())
+      .then((decodedToken) => {
+        admin
+            .auth()
+            .getUser(decodedToken.sub)
+            .then(async (userRecord) => {
+              const userRef = db.collection("users").doc(userRecord.uid);
+              const doc = await userRef.get();
+
+              if (!doc.exists) {
+                res.status(404).send("User Not Found");
+                return;
+              }
+
+              const ordersRef = db.collection("orders");
+              let snapshot : any;
+              if (req.query.order_id) {
+                snapshot = await ordersRef.doc(req.query.order_id.toString()).get();
+                if (!snapshot.exists) {
+                  res.status(404).send("No matching documents.");
+                  return;
+                }
+                res.end(JSON.stringify({
+                  "id": snapshot.id,
+                  "data": snapshot.data(),
+                }));
+                return;
+              } else if (doc.get("role") == "admin" || doc.get("role") == "staff") {
+                const showCompleted = (req.query.showCompleted) ? req.query.showCompleted : false;
+                snapshot = await ordersRef
+                    .where("is_completed", "==", showCompleted).get();
+                if (snapshot.empty) {
+                  res.status(404).send("No matching documents.");
+                  return;
+                }
+              } else {
+                snapshot = await ordersRef.where("user_id", "==", userRecord.uid).get();
+                if (snapshot.empty) {
+                  res.status(404).send("No matching documents.");
+                  return;
+                }
+              }
+
+              const data: any[] = [];
+              snapshot.forEach((doc: any) => {
+                data.push({
+                  "id": doc.id,
+                  "order": doc.data(),
+                });
+              });
+
+              res.end(JSON.stringify(data));
+            });
+      });
+}
+
+export function createOrder(req: Request, res: Response) {
+  const idToken = req.body.idToken;
+
+  admin
+      .auth()
+      .verifyIdToken(idToken.toString())
+      .then((decodedToken) => {
+        admin
+            .auth()
+            .getUser(decodedToken.sub)
+            .then(async (userRecord) => {
+              const userRef = db.collection("users").doc(userRecord.uid);
+              const doc = await userRef.get();
+
+              if (!doc.exists) {
+                res.status(404).send("User Not Found");
+                return;
+              }
+
+              if (doc.get("role") != "customer") {
+                res.status(401).send("Unauthorized");
+                return;
+              }
+
+              /* if(doc.get('stripe_id')) {
+                        stripe.customers.create({
+                            "email": doc.get('email'),
+                            "source": req.body.stripeToken.toString()
+                        }).then((customer) => {
+                            stripe.charges.create({ // charge the customer
+                                amount,
+                                description: "Sample Charge",
+                                currency: "usd",
+                                customer: customer.id
+                            }))
+                        });
+                    }
+                    else{
+
+                    }*/
+
+              const params = {
+                "created": admin.firestore.FieldValue.serverTimestamp(),
+                "due_time": (req.body.due_time ?
+                            admin.firestore.Timestamp.fromDate(new Date(req.body.due_time.toString())) :
+                            admin.firestore.FieldValue.serverTimestamp()
+                ),
+                "is_completed": false,
+                "items": req.body.items.toArray(),
+                "price": req.body.price.toString(),
+                "stripe_transaction_id": "",
+                "user_id": userRecord.uid,
+              };
+
+              db.collection("orders").add(params)
+                  .then(() => res.end(JSON.stringify({status: "success"})))
+                  .catch(() => res.status(500).send("Internal Service Error"));
+            });
+      });
+}
+
+export function getMenu(req: Request, res: Response) {
+  db.collection("menu").get().then((querySnapshot) => {
+    const data: any[] = [];
+
+    querySnapshot.forEach((doc: any) => {
+      data.push({
+        "id": doc.id,
+        "item": doc.data(),
+      });
+    });
+
+    res.end(JSON.stringify(data));
+  })
+      .catch(() => res.status(500).send("Internal Server Error"));
+}
+
+export function updateMenu(req: Request, res: Response) {
+  const idToken = req.body.idToken;
+
+  admin
+      .auth()
+      .verifyIdToken(idToken.toString())
+      .then((decodedToken) => {
+        admin
+            .auth()
+            .getUser(decodedToken.sub)
+            .then(async (userRecord) => {
+              const userRef = db.collection("users").doc(userRecord.uid);
+              const doc = await userRef.get();
+
+              if (!doc.exists) {
+                res.status(404).send("User Not Found");
+                return;
+              }
+
+              if (doc.get("role") != "admin" && doc.get("role") != "staff") {
+                res.status(401).send("Unauthorized");
+                return;
+              }
+
+              const parameters : any = {};
+              const menuId = req.body.menu_id.toString();
+
+              if (doc.get("role") == "admin") {
+                if (req.body.name) parameters["name"] = req.body.name.toString();
+                if (req.body.price) parameters["price"] = req.body.price.toString();
+                if (req.body.img) parameters["img"] = req.body.img.toString();
+              }
+
+              if (req.body.is_available) parameters["is_available"] = req.body.is_available;
+
+
+              db.collection("menu").doc(menuId).update(parameters)
+                  .then(() => res.end(JSON.stringify({status: "success"})))
+                  .catch(() => res.status(500).send("Internal Service Error"));
+            })
+            .catch(() => res.status(404).send("Menu Item Not Found"));
+      })
+      .catch(() => res.redirect("/login"));
+}
+
+export function createMenuItem(req: Request, res: Response) {
+  const idToken = req.body.idToken;
+
+  admin
+      .auth()
+      .verifyIdToken(idToken.toString())
+      .then((decodedToken) => {
+        admin
+            .auth()
+            .getUser(decodedToken.sub)
+            .then(async (userRecord) => {
+              const userRef = db.collection("users").doc(userRecord.uid);
+              const doc = await userRef.get();
+
+              if (!doc.exists) {
+                res.status(404).send("User Not Found");
+                return;
+              }
+
+              if (doc.get("role") != "admin") {
+                res.status(401).send("Unauthorized");
+                return;
+              }
+
+              const parameters : any = {
+                "img": (req.body.img ? req.body.img.toString() : ""),
+                "is_available": (req.body.is_available ? req.body.is_available : true),
+                "name": (req.body.name ? req.body.name.toString() : ""),
+                "price": (req.body.price ? req.body.price.toString() : ""),
+                "rating": "5",
+              };
+
+
+              db.collection("menu").add(parameters)
+                  .then(() => res.end(JSON.stringify({status: "success"})))
+                  .catch(() => res.status(500).send("Internal Service Error"));
+            })
+            .catch(() => res.status(404).send("User Not Found"));
+      })
+      .catch(() => res.redirect("/login"));
+}
+
+export function markOrderAsComplete(req: Request, res: Response) {
+  const idToken = req.body.idToken;
+
+  admin
+      .auth()
+      .verifyIdToken(idToken.toString())
+      .then((decodedToken) => {
+        admin
+            .auth()
+            .getUser(decodedToken.sub)
+            .then(async (userRecord) => {
+              const userRef = db.collection("users").doc(userRecord.uid);
+              const doc = await userRef.get();
+
+              if (!doc.exists) {
+                res.status(404).send("User Not Found");
+                return;
+              }
+
+              if (doc.get("role") != "admin" && doc.get("role") != "staff") {
+                res.status(401).send("Unauthorized");
+                return;
+              }
+
+              const order_id = req.body.order_id.toString();
+
+              db.collection("orders").doc(order_id).update({"is_completed": true})
+                  .then(() => res.end(JSON.stringify({status: "success"})))
+                  .catch(() => res.status(500).send("Internal Service Error"));
+            })
+            .catch(() => res.status(404).send("Menu Item Not Found"));
+      })
+      .catch(() => res.redirect("/login"));
+}
+
+export function getReport(req: Request, res: Response) {
+  const idToken = req.body.idToken;
+
+  admin
+      .auth()
+      .verifyIdToken(idToken.toString())
+      .then((decodedToken) => {
+        admin
+            .auth()
+            .getUser(decodedToken.sub)
+            .then(async (userRecord) => {
+              const userRef = db.collection("users").doc(userRecord.uid);
+              const doc = await userRef.get();
+
+              if (!doc.exists) {
+                res.status(404).send("User Not Found");
+                return;
+              }
+
+              if (doc.get("role") != "admin") {
+                res.status(401).send("Unauthorized");
+                return;
+              }
+            })
+            .catch(() => res.status(404).send("Menu Item Not Found"));
+      })
+      .catch(() => res.redirect("/login"));
+}

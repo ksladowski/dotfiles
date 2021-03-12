@@ -1,0 +1,5 @@
+dolphin: {}
+game:
+  main_file: /home/kevin/media/Emulation/Games/Nintendo GameCube/Sims 2, The (USA).iso
+  platform: '0'
+system: {}

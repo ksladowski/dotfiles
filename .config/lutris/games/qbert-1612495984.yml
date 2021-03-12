@@ -1,0 +1,5 @@
+game:
+  core: mame
+  main_file: /home/kevin/media/Emulation/MAME/roms/qbert.zip
+libretro: {}
+system: {}

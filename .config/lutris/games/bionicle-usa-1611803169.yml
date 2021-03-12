@@ -1,0 +1,5 @@
+dolphin: {}
+game:
+  main_file: /home/kevin/media/Emulation/Games/Nintendo GameCube/Bionicle (USA).nkit.iso
+  platform: '0'
+system: {}

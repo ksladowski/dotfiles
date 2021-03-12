@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Rayman Advance (USA) (En,Fr,De,Es,It).gba
+libretro: {}
+system: {}

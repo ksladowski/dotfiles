@@ -1,0 +1,6 @@
+game:
+  core: mesen-s
+  main_file: /home/kevin/media/Emulation/Games/Super Nintendo Entertainment System/Super
+    Mario World 2 - Yoshi's Island (USA).sfc
+libretro: {}
+system: {}

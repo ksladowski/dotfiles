@@ -1,0 +1,4 @@
+game:
+  exe: /usr/bin/yuzu
+linux: {}
+system: {}

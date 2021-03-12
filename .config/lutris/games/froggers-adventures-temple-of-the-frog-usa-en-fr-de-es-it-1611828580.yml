@@ -1,0 +1,6 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Frogger's Adventures - Temple of the Frog (USA)
+    (En,Fr,De,Es,It).gba
+libretro: {}
+system: {}

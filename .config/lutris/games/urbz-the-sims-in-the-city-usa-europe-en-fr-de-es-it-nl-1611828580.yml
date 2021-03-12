@@ -1,0 +1,6 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Urbz, The - Sims in the City (USA, Europe)
+    (En,Fr,De,Es,It,Nl).gba
+libretro: {}
+system: {}

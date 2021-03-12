@@ -1,0 +1,6 @@
+dolphin: {}
+game:
+  main_file: /home/kevin/media/Emulation/Games/Nintendo GameCube/Legend of Zelda,
+    The - The Wind Waker (Europe) (En,Fr,De,Es,It).iso
+  platform: '0'
+system: {}

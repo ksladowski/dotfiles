@@ -1,0 +1,6 @@
+dolphin: {}
+game:
+  main_file: /home/kevin/media/Emulation/Games/Nintendo GameCube/Star Fox - Assault
+    (USA).iso
+  platform: '0'
+system: {}

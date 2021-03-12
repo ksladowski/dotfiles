@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/GT Advance 2 - Rally Racing (USA).gba
+libretro: {}
+system: {}

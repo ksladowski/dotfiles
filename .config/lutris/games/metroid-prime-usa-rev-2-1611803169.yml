@@ -1,0 +1,6 @@
+dolphin: {}
+game:
+  main_file: /home/kevin/media/Emulation/Games/Nintendo GameCube/Metroid Prime (USA)
+    (Rev 2).iso
+  platform: '0'
+system: {}

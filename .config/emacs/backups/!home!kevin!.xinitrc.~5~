@@ -1,0 +1,5 @@
+numlockx &
+syncthing &
+picom &
+~/.fehbg &
+exec emacs

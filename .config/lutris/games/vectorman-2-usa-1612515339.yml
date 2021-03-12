@@ -1,0 +1,5 @@
+game:
+  core: genesis_plus_gx
+  main_file: Sega Genesis/Vectorman 2 (USA).md
+libretro: {}
+system: {}

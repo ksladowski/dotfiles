@@ -1,0 +1,6 @@
+game:
+  core: mednafen_psx
+  main_file: /home/kevin/media/Emulation/Games/Sony Playstation/Rayman 2 - The Great
+    Escape (USA) (En,Fr,Es) (Track 2).bin
+libretro: {}
+system: {}

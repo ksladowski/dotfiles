@@ -1,0 +1,6 @@
+dolphin: {}
+game:
+  main_file: /home/kevin/media/Emulation/Games/Nintendo GameCube/Metroid Prime 2 -
+    Echoes (USA).iso
+  platform: '0'
+system: {}

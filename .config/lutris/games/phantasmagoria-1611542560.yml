@@ -1,0 +1,5 @@
+game:
+  game_id: phantasmagoria
+  path: ~/media/Emulation/DOS/SCARY
+scummvm: {}
+system: {}

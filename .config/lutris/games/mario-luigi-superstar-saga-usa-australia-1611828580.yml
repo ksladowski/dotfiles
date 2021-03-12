@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Mario & Luigi - Superstar Saga (USA, Australia).gba
+libretro: {}
+system: {}

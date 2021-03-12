@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Tetris Worlds (USA).gba
+libretro: {}
+system: {}

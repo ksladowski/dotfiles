@@ -1,0 +1,7 @@
+* Default
+** emacs
+ - path :: ~/.config/emacs
+** cs537
+ - path :: ~/git/cs537
+** music-by-vote
+ - path :: ~/git/music-by-vote

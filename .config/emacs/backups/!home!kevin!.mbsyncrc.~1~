@@ -1,0 +1,76 @@
+
+IMAPStore kevm@sladowski.us-remote
+Host imap.secureserver.net
+Port 993
+User kevm@sladowski.us
+PassCmd "pass mw-kevm@sladowski.us"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore kevm@sladowski.us-local
+Subfolders Verbatim
+Path /home/kevin/.local/share/mail/kevm@sladowski.us/
+Inbox /home/kevin/.local/share/mail/kevm@sladowski.us/INBOX
+
+Channel kevm@sladowski.us
+Expunge Both
+Master :kevm@sladowski.us-remote:
+Slave :kevm@sladowski.us-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+IMAPStore sladowski@wisc.edu-remote
+Host outlook.office365.com
+Port 993
+User sladowski@wisc.edu
+PassCmd "pass mw-sladowski@wisc.edu"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore sladowski@wisc.edu-local
+Subfolders Verbatim
+Path /home/kevin/.local/share/mail/sladowski@wisc.edu/
+Inbox /home/kevin/.local/share/mail/sladowski@wisc.edu/INBOX
+
+Channel sladowski@wisc.edu
+Expunge Both
+Master :sladowski@wisc.edu-remote:
+Slave :sladowski@wisc.edu-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+IMAPStore kevs1198@gmail.com-remote
+Host imap.gmail.com
+Port 993
+User kevs1198@gmail.com
+PassCmd "pass mw-kevs1198@gmail.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore kevs1198@gmail.com-local
+Subfolders Verbatim
+Path /home/kevin/.local/share/mail/kevs1198@gmail.com/
+Inbox /home/kevin/.local/share/mail/kevs1198@gmail.com/INBOX
+
+Channel kevs1198@gmail.com
+Expunge Both
+Master :kevs1198@gmail.com-remote:
+Slave :kevs1198@gmail.com-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+

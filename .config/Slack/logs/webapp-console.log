@@ -1,0 +1,190 @@
+[02/11/21, 23:09:04:836] info: 
+╔════════════════════════════════════════════════════════════════════════════════╗
+║      Slack 4.11.3, linux 5.10.11-arch1-1 on x64 at 02/11/21, 23:09:04:836      ║
+╚════════════════════════════════════════════════════════════════════════════════╝ 
+[02/11/21, 23:09:04:836] info: Configured logger via 
+{
+  "identifierOverride": "webapp-console",
+  "logLevel": "info",
+  "numberOfInstances": 2
+}
+[02/11/21, 23:09:04:836] info: Predefined values for process 
+{
+  "NODE_ENV": "production",
+  "platform": "linux",
+  "type": "browser",
+  "PACKAGE_MANIFEST.productName": "Slack",
+  "PACKAGE_MANIFEST.version": "4.11.3",
+  "PACKAGE_MANIFEST.commit": "2924c08",
+  "PACKAGE_MANIFEST.branch": "HEAD",
+  "PACKAGE_MANIFEST.useSentry": true
+}
+[02/11/21, 23:09:04:836] info: Starting Sentry 
+[02/11/21, 23:09:04:836] warn: (electron) crashReporter.start is deprecated in the renderer process. Call it from the main process instead. 
+[02/11/21, 23:09:04:836] info: Creating desktop interface object 
+[02/11/21, 23:09:04:837] info: Exposing context bridge 
+[02/11/21, 23:09:04:837] warn: TELEMETRY You tried to get a team-specific telemeter but didn’t provide enough context and are getting the generic telemeter instead which is likely not what you want. 
+[02/11/21, 23:09:04:837] info: Store: UPSERT_WEB_CONTENTS {
+  "id": 1,
+  "state": "loaded"
+} 
+[02/11/21, 23:09:04:837] info: Store: RECORD_PERFORMANCE_TIMING {
+  "phase": 2,
+  "interval": 1623
+} 
+[02/11/21, 23:09:04:837] info: Store: MAIN_WINDOW_SHOWN  
+[02/11/21, 23:09:04:837] info: Store: UPDATE_SETTINGS {
+  "mainWindowSettings": {
+    "fullScreen": false,
+    "maximized": false,
+    "bounds": {
+      "x": 448,
+      "y": 216,
+      "width": 1024,
+      "height": 768
+    }
+  }
+} 
+[02/11/21, 23:09:04:837] info: Store: CLEAR_NOTIFICATIONS  
+[02/11/21, 23:09:04:840] warn: %cElectron Security Warning (enableBlinkFeatures) font-weight: bold; This renderer process has additional "enableBlinkFeatures"
+  enabled. This exposes users of this app to some security risk. If you do not
+  need this feature, you should disable it.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. 
+[02/11/21, 23:09:04:841] warn: %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+    Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+    this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. 
+[02/11/21, 23:09:04:841] info: Store: UPSERT_WEB_CONTENTS {
+  "id": 1,
+  "type": "app",
+  "history": "[REDACTED]"
+} 
+[02/11/21, 23:09:05:054] info: Network status check {
+  "elapsed_time_ms": 368,
+  "navigator_online": true,
+  "api_test": "online"
+} 
+[02/11/21, 23:09:05:055] info: Store: SET_NETWORK_STATUS online 
+[02/11/21, 23:09:05:792] info: Store: UPDATE_SETTINGS {
+  "mainWindowSettings": {
+    "fullScreen": false,
+    "maximized": false,
+    "bounds": {
+      "x": 12,
+      "y": 624,
+      "width": 936,
+      "height": 564
+    }
+  }
+} 
+[02/11/21, 23:09:08:887] info: Store: QUIT_APP  
+[02/11/21, 23:09:08:887] info: Store: DOWNLOADS_CLEANED_UP  
+[02/12/21, 16:22:38:211] info: 
+╔════════════════════════════════════════════════════════════════════════════════╗
+║      Slack 4.11.3, linux 5.10.11-arch1-1 on x64 at 02/12/21, 16:22:38:211      ║
+╚════════════════════════════════════════════════════════════════════════════════╝ 
+[02/12/21, 16:22:38:211] info: Configured logger via 
+{
+  "identifierOverride": "webapp-console",
+  "logLevel": "info",
+  "numberOfInstances": 2
+}
+[02/12/21, 16:22:38:212] info: Predefined values for process 
+{
+  "NODE_ENV": "production",
+  "platform": "linux",
+  "type": "browser",
+  "PACKAGE_MANIFEST.productName": "Slack",
+  "PACKAGE_MANIFEST.version": "4.11.3",
+  "PACKAGE_MANIFEST.commit": "2924c08",
+  "PACKAGE_MANIFEST.branch": "HEAD",
+  "PACKAGE_MANIFEST.useSentry": true
+}
+[02/12/21, 16:22:38:212] info: Starting Sentry 
+[02/12/21, 16:22:38:212] warn: (electron) crashReporter.start is deprecated in the renderer process. Call it from the main process instead. 
+[02/12/21, 16:22:38:212] info: Creating desktop interface object 
+[02/12/21, 16:22:38:212] info: Exposing context bridge 
+[02/12/21, 16:22:38:212] warn: TELEMETRY You tried to get a team-specific telemeter but didn’t provide enough context and are getting the generic telemeter instead which is likely not what you want. 
+[02/12/21, 16:22:38:212] info: Store: UPSERT_WEB_CONTENTS {
+  "id": 1,
+  "state": "loaded"
+} 
+[02/12/21, 16:22:38:212] info: Store: RECORD_PERFORMANCE_TIMING {
+  "phase": 2,
+  "interval": 658
+} 
+[02/12/21, 16:22:38:212] info: Store: MAIN_WINDOW_SHOWN  
+[02/12/21, 16:22:38:213] info: Store: UPDATE_SETTINGS {
+  "mainWindowSettings": {
+    "fullScreen": false,
+    "maximized": false,
+    "bounds": {
+      "x": 12,
+      "y": 624,
+      "width": 936,
+      "height": 564
+    }
+  }
+} 
+[02/12/21, 16:22:38:213] info: Store: CLEAR_NOTIFICATIONS  
+[02/12/21, 16:22:38:215] warn: %cElectron Security Warning (enableBlinkFeatures) font-weight: bold; This renderer process has additional "enableBlinkFeatures"
+  enabled. This exposes users of this app to some security risk. If you do not
+  need this feature, you should disable it.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. 
+[02/12/21, 16:22:38:215] warn: %cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security
+    Policy set or a policy with "unsafe-eval" enabled. This exposes users of
+    this app to unnecessary security risks.
+
+For more information and help, consult
+https://electronjs.org/docs/tutorial/security.
+This warning will not show up
+once the app is packaged. 
+[02/12/21, 16:22:38:217] info: Store: UPSERT_WEB_CONTENTS {
+  "id": 1,
+  "type": "app",
+  "history": "[REDACTED]"
+} 
+[02/12/21, 16:22:39:115] info: Network status check {
+  "elapsed_time_ms": 782,
+  "navigator_online": true,
+  "api_test": "online"
+} 
+[02/12/21, 16:22:39:117] info: Store: SET_NETWORK_STATUS online 
+[02/12/21, 16:22:39:244] info: Store: UPDATE_SETTINGS {
+  "mainWindowSettings": {
+    "fullScreen": false,
+    "maximized": false,
+    "bounds": {
+      "x": 1930,
+      "y": 622,
+      "width": 1576,
+      "height": 564
+    }
+  }
+} 
+[02/12/21, 16:22:40:628] info: Store: UPDATE_SETTINGS {
+  "mainWindowSettings": {
+    "fullScreen": false,
+    "maximized": false,
+    "bounds": {
+      "x": 1930,
+      "y": 34,
+      "width": 776,
+      "height": 1152
+    }
+  }
+} 
+[02/12/21, 16:22:43:713] info: Store: QUIT_APP  
+[02/12/21, 16:22:43:713] info: Store: DOWNLOADS_CLEANED_UP  

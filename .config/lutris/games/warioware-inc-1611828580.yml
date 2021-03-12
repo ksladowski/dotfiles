@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/WarioWare, Inc. - Mega Microgame$! (USA).gba
+libretro: {}
+system: {}

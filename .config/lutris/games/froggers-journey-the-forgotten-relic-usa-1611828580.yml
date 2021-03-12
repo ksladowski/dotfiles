@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Frogger's Journey - The Forgotten Relic (USA).gba
+libretro: {}
+system: {}

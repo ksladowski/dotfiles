@@ -1,0 +1,6 @@
+game:
+  core: mupen64plus_next
+  main_file: /home/kevin/media/Emulation/Games/Nintendo 64/Legend of Zelda, The -
+    Majora's Mask (USA).n64
+libretro: {}
+system: {}

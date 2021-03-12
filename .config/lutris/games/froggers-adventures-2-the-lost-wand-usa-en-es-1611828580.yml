@@ -1,0 +1,6 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Frogger's Adventures 2 - The Lost Wand (USA)
+    (En,Es).gba
+libretro: {}
+system: {}

@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Mega Man Zero 3 (USA).gba
+libretro: {}
+system: {}

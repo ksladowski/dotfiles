@@ -1,0 +1,11 @@
+# GIMP gimp-clone-tool options
+
+(brush "2. Block 01")
+(dynamics "Dynamics Off")
+(pattern "Pine")
+(palette "Color History")
+(brush-size 51)
+(brush-aspect-ratio 3.1578947368421053)
+(brush-hardness 0.94999998807907104)
+
+# end of gimp-clone-tool options

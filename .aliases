@@ -1,0 +1,58 @@
+#aliases
+
+#package management - arch - pacman
+alias pacs='sudo pacman -S'
+alias pacr='sudo pacman -Rs' 
+alias pacrq='pacman -Ss' 
+alias pacq='pacman -Qs' 
+alias pacinfo='pacman -Qi'
+alias pacrinfo='pacman -Si'
+alias pacup='sudo pacman -Syu'
+
+#package management - arch - yay
+alias yays='yay -S'
+alias yayr='yay -Rs'
+alias yayrq='yay -Ss'
+alias yayq='yay -Qs'
+alias yayinfo='yay -Qi'
+alias yayrinfo='yay -Si'
+alias yayup='yay -Syu'
+alias yayfi='yay -Fy'
+
+#programs
+alias v='nvim'
+alias se='sudoedit'
+alias mail='neomutt'
+
+#dotfile and config management
+alias dots='/usr/bin/git --git-dir=$HOME/git/dotfiles/ --work-tree=$HOME'
+
+#ssh
+alias ssh-cs='ssh -Y sladowski@best-linux.cs.wisc.edu'
+alias ssh-cae='ssh -Y sladowski@best-tux.cae.wisc.edu'
+alias ssh-usb='ssh markofcorn@lw981.usbx.me'
+alias mnt-cs='sshfs sladowski@best-linux.cs.wisc.edu:/u/s/l/sladowski ~/cs'
+
+#navigation
+alias ls='ls --color=auto'
+alias lsa='ls -a --color=auto'
+alias lsl='ls -l --color=auto'
+alias lsal='ls -al --color=auto'
+alias cls='clear && ls'
+alias hist='history'
+
+#searching
+alias grep='grep --color=auto'
+alias -g gp='| grep -i'
+
+#file management
+alias mkdir='mkdir -p'
+alias dirsize='du -bsh'
+
+#power
+alias halt='sudo halt'
+alias poweroff='sudo poweroff'
+alias reboot='sudo reboot'
+
+#network
+alias ping8='ping 8.8.8.8'

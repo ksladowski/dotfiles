@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Mega Man Zero 2 (USA).gba
+libretro: {}
+system: {}

@@ -1,0 +1,227 @@
+T 1613772012 19*	Now talking on 22#red-invites
+T 1613772012 22*	Topic for 22#red-invites is: :: #red-invites :: Read this https://interviewfor.red | Don't discuss the interview or its topics. Don’t PM anyone. Don’t chat DURING your interview. Don't highlight OPs, unless prompted. | HOME CONNECTION ONLY | No E.T.A’s | Questions? -> #red-interviewprep | Position? PM Gatekeeper with !position
+T 1613772012 22*	Topic for 22#red-invites set by 26Gord!18308@Gord.interviewer.redacted.ch (24Tue Feb  2 17:27:39 2021)
+T 1613772012 -18ChanServ-	[#red-invites] Welcome to #red-invites :: Please make sure you have read http://interviewfor.red and the topic in this room :: You must queue up in here. No idling. :: If you have any questions join #red-interviewprep.
+T 1613772213 20<markofcorn>30	!queue https://www.speedtest.net/result/10960316421.png
+T 1613772214 24*	Received a CTCP 24VERSION from 18Gatekeeper
+T 1613772354 24*	moonbound has quit (Quit: Leaving)
+T 1613773022 23*	bigcripe77 (bigcripe77@red-t4t.6ng.2qr9r0.IP23) has joined
+T 1613773217 20<markofcorn>30	!position
+T 1613773227 18<MrInterBugs18>	wrong chat :P
+T 1613773235 18<elasticgaper18>	Everyones done it at one point
+T 1613773238 20<markofcorn>30	Yeah my bad lol
+T 1613773250 18<bigcripe7718>	!queue https://www.speedtest.net/result/10960371456.png
+T 1613773257 18<MrInterBugs18>	imagine the spam if it was in this chat lmao
+T 1613773363 23*	Vertgear (Vertgear@red-h43.glb.f6t5nv.IP23) has joined
+T 1613773410 18<Vertgear18>	!queue https://www.speedtest.net/result/10960386212.png
+T 1613773845 24*	boss_time has quit (Quit: )
+T 1613774603 18<elasticgaper18>	I hope the interviews start soon
+T 1613774878 18<otaku61918>	same
+T 1613774887 18<elasticgaper18>	what pos you in?
+T 1613774898 18<otaku61918>	6
+T 1613774903 18<elasticgaper18>	Nice
+T 1613777705 24*	Vertgear has quit (Quit: Leaving)
+T 1613778849 18<Loloke18>	i'll come back tomorrow... :)
+T 1613778853 18<Loloke18>	bye
+T 1613778872 24*	Loloke has quit (Quit: )
+T 1613779169 24*	MrInterBugs has quit (Quit: )
+T 1613779937 24*	tidirius has quit (Quit: My MacBook has gone to sleep. ZZZzzz…)
+T 1613780074 18<elasticgaper18>	People dropping out a lot
+T 1613780232 18<otaku61918>	welp ive been sitting here for 12+ hours too
+T 1613780345 18<elasticgaper18>	Yikes
+T 1613782104 23*	stephanandre (manjaro-use@red-42e.n7j.5audsv.IP23) has joined
+T 1613782137 18<stephanandre18>	!queue https://www.speedtest.net/result/10960823626
+T 1613782583 23*	manjaro-user (manjaro-use@red-s71.1d6.g0hq9l.IP23) has joined
+T 1613782584 22*	26Gatekeeper sets ban on 18manjaro-user!*@*
+T 1613782584 22*	26Gatekeeper has kicked 18manjaro-user from 22#red-invites (24Please choose a different nick (does not expire))
+T 1613782591 24*	stephanandre has quit (Ping timeout: 121 seconds)
+T 1613783485 22*	26Gatekeeper removes ban on 18manjaro-user!*@*
+T 1613785642 24*	elasticgaper has quit (Connection closed)
+T 1613867468 19*	Now talking on 22#red-invites
+T 1613867468 22*	Topic for 22#red-invites is: :: #red-invites :: Read this https://interviewfor.red | Don't discuss the interview or its topics. Don’t PM anyone. Don’t chat DURING your interview. Don't highlight OPs, unless prompted. | HOME CONNECTION ONLY | No E.T.A’s | Questions? -> #red-interviewprep | Position? PM Gatekeeper with !position
+T 1613867468 22*	Topic for 22#red-invites set by 26Gord!18308@Gord.interviewer.redacted.ch (24Tue Feb  2 17:27:39 2021)
+T 1613867468 -18ChanServ-	[#red-invites] Welcome to #red-invites :: Please make sure you have read http://interviewfor.red and the topic in this room :: You must queue up in here. No idling. :: If you have any questions join #red-interviewprep.
+T 1613867579 20<markofcorn>30	!queue https://www.speedtest.net/result/10965963605.png
+T 1613867580 24*	Received a CTCP 24VERSION from 18Gatekeeper
+T 1613955680 19*	Now talking on 22#red-invites
+T 1613955680 22*	Topic for 22#red-invites is: :: #red-invites :: Read this https://interviewfor.red | Don't discuss the interview or its topics. Don’t PM anyone. Don’t chat DURING your interview. Don't highlight OPs, unless prompted. | HOME CONNECTION ONLY | No E.T.A’s | Questions? -> #red-interviewprep | Position? PM Gatekeeper with !position
+T 1613955680 22*	Topic for 22#red-invites set by 26Gord!18308@Gord.interviewer.redacted.ch (24Tue Feb  2 17:27:39 2021)
+T 1613955680 -18ChanServ-	[#red-invites] Welcome to #red-invites :: Please make sure you have read http://interviewfor.red and the topic in this room :: You must queue up in here. No idling. :: If you have any questions join #red-interviewprep.
+T 1613955702 FiSHLiM plugin unloaded
+T 1614011694 19*	Now talking on 22#red-invites
+T 1614011694 22*	Topic for 22#red-invites is: :: #red-invites :: Read this https://interviewfor.red | Don't discuss the interview or its topics. Don’t PM anyone. Don’t chat DURING your interview. Don't highlight OPs, unless prompted. | HOME CONNECTION ONLY | No E.T.A’s | Questions? -> #red-interviewprep | Position? PM Gatekeeper with !position
+T 1614011694 22*	Topic for 22#red-invites set by 26Gord!18308@Gord.interviewer.redacted.ch (24Tue Feb  2 17:27:39 2021)
+T 1614011694 -18ChanServ-	[#red-invites] Welcome to #red-invites :: Please make sure you have read http://interviewfor.red and the topic in this room :: You must queue up in here. No idling. :: If you have any questions join #red-interviewprep.
+T 1614011783 20<markofcorn>30	!queue https://www.speedtest.net/result/10974661524.png
+T 1614011785 24*	Received a CTCP 24VERSION from 18Gatekeeper
+T 1614011807 23*	lazyE (chatzilla@red-fkl.iet.t84hfq.IP23) has joined
+T 1614011816 18<lazyE18>	!queue https://www.speedtest.net/result/10974657381.png
+T 1614012202 22*	26Gatekeeper removes ban on 18zura!*@*
+T 1614014558 24*	zurablah has quit (Quit: Leaving)
+T 1614016487 23*	SquidXL (squidxl@red-ce6.17e.cth94d.IP23) has joined
+T 1614017089 22*	26Gatekeeper sets ban on 18*!*@red-ce6.17e.cth94d.IP
+T 1614017089 22*	26Gatekeeper has kicked 18SquidXL from 22#red-invites (24No idling. You may not stay in this channel without !queueing. (expires in 14m 59s))
+T 1614017990 22*	26Gatekeeper removes ban on 18*!*@red-ce6.17e.cth94d.IP
+T 1614019988 23*	St_Arcus (St_Arcus@red-v18.5n2.3uq6tr.IP23) has joined
+T 1614020033 18<St_Arcus18>	!queue https://www.speedtest.net/result/10975411101
+T 1614022941 18<saesq_18>	!queue https://www.speedtest.net/result/10974317409.png
+T 1614022941 18<Gatekeeper18>	saesq_: You are already enqueued or in an interview.
+T 1614025604 23*	Jacky (gazelle@red-e5h.ge2.fd7j10.IP23) has joined
+T 1614025734 18<Jacky18>	!queue https://www.speedtest.net/result/10975866466.png
+T 1614027533 23*	Paulso (Paulso@red-6md.5qh.q088vn.IP23) has joined
+T 1614027571 18<Paulso18>	!queue https://www.speedtest.net/result/10975989436.png
+T 1614028464 23*	gkubed (gkubed@red-96t.vt5.k4pqao.IP23) has joined
+T 1614028494 24*	gkubed (gkubed@red-96t.vt5.k4pqao.IP24) has left ("totally not idling")
+T 1614029716 23*	lidua (lidua@red-ter.kqm.q9bhqu.IP23) has joined
+T 1614029798 18<lidua18>	!queue https://www.speedtest.net/result/10969817864
+T 1614029857 18<lidua18>	!queue https://www.speedtest.net/result/10976153655
+T 1614032156 24*	Fibonacci has quit (Ping timeout: 121 seconds)
+T 1614032159 24*	Greenstar has quit (Ping timeout: 121 seconds)
+T 1614032193 24*	Saturn has quit (Ping timeout: 121 seconds)
+T 1614032194 24*	Nocturne has quit (Ping timeout: 121 seconds)
+T 1614032195 24*	Zeitgeist has quit (Ping timeout: 121 seconds)
+T 1614032209 24*	Saltbutter has quit (Ping timeout: 121 seconds)
+T 1614032209 24*	pineapple has quit (Ping timeout: 121 seconds)
+T 1614032209 24*	Carl has quit (Ping timeout: 121 seconds)
+T 1614032237 18<C4T4MITE18>	oh dang
+T 1614032273 23*	VinylDuck (textual@red-hhv.081.ql03lh.IP23) has joined
+T 1614032279 23*	Greenstar (46924@Greenstar.moderator.redacted.ch23) has joined
+T 1614032280 22*	26ChanServ gives channel operator status to 18Greenstar
+T 1614032281 24*	VinylDuck has quit (Quit: Textual IRC Client: www.textualapp.com)
+T 1614032301 23*	Saltbutter (10550@Saltbutter.moderator.redacted.ch23) has joined
+T 1614032301 22*	26ChanServ gives channel operator status to 18Saltbutter
+T 1614032319 18<lidua18>	what is happening
+T 1614032344 18<C4T4MITE18>	idk some mass timeout
+T 1614032352 23*	pineapple (pineapple@red-vv3.57h.b1lin2.IP23) has joined
+T 1614032352 22*	26Gatekeeper sets ban on 18*!*@red-vv3.57h.b1lin2.IP
+T 1614032352 22*	26Gatekeeper has kicked 18pineapple from 22#red-invites (24Please use your home connection. (does not expire))
+T 1614032435 23*	Carl (11007@Carl.admin.redacted.ch23) has joined
+T 1614032435 22*	26ChanServ sets mode 24+a on 22#red-invites Carl
+T 1614032435 22*	26ChanServ gives channel operator status to 18Carl
+T 1614032518 23*	Zeitgeist (20090@Zeitgeist.moderator.redacted.ch23) has joined
+T 1614032518 22*	26ChanServ gives channel operator status to 18Zeitgeist
+T 1614032540 23*	Fibonacci (45391@Fibonacci.moderator.redacted.ch23) has joined
+T 1614032540 22*	26ChanServ gives channel operator status to 18Fibonacci
+T 1614032651 24*	dolphonia has quit (Quit: Leaving)
+T 1614032728 23*	Nocturne (21815@Nocturne.moderator.redacted.ch23) has joined
+T 1614032728 22*	26ChanServ gives channel operator status to 18Nocturne
+T 1614032744 23*	Saturn (31580@Saturn.developer.redacted.ch23) has joined
+T 1614032744 22*	26ChanServ gives channel operator status to 18Saturn
+T 1614033252 22*	26Gatekeeper removes ban on 18*!*@red-vv3.57h.b1lin2.IP
+T 1614033470 23*	gkubed (gkubed@red-96t.vt5.k4pqao.IP23) has joined
+T 1614033476 18<gkubed18>	!queue
+T 1614033548 23*	Vertgear (Vertgear@red-h43.glb.f6t5nv.IP23) has joined
+T 1614033589 18<gkubed18>	!queue https://www.speedtest.net/result/10976385155
+T 1614033624 18<Vertgear18>	!queue https://www.speedtest.net/result/10976386949.png
+T 1614033665 24*	Vertgear has quit (Quit: Leaving)
+T 1614033705 24*	gkubed (gkubed@red-96t.vt5.k4pqao.IP24) has left ("Leaving")
+T 1614033900 23*	maple876 (nick@red-db6.lv2.ri50ra.IP23) has joined
+T 1614033925 23*	gkubed (gkubed@red-96t.vt5.k4pqao.IP23) has joined
+T 1614033939 18<saesq_18>	!queue https://www.speedtest.net/result/10974317409.png
+T 1614033939 18<Gatekeeper18>	saesq_: You are already enqueued or in an interview.
+T 1614033942 18<gkubed18>	!queue https://www.speedtest.net/result/10976385155.png
+T 1614034011 18<gkubed18>	!queue https://www.speedtest.net/result/10976409705.png
+T 1614034078 18<maple87618>	!queue https://www.speedtest.net/result/10976410899.png
+T 1614034511 24*	gkubed (gkubed@red-96t.vt5.k4pqao.IP24) has left ("Leaving")
+T 1614035448 23*	lance (lance@red-5mf.5t0.0i4l6d.IP23) has joined
+T 1614035491 24*	lance (lance@red-5mf.5t0.0i4l6d.IP24) has left
+T 1614035969 24*	saesq_ has quit (Quit: Leaving)
+T 1614036885 24*	lidua has quit (Quit: Leaving)
+T 1614036902 23*	lancerer (lancerer@red-aov.ear.gm9194.IP23) has joined
+T 1614036917 18<lancerer18>	!queue https://www.speedtest.net/result/10976499110
+T 1614037170 24*	lancerer has quit (Ping timeout: 121 seconds)
+T 1614037181 23*	lancerer (lancerer@red-aov.ear.gm9194.IP23) has joined
+T 1614037220 18<lancerer18>	!position
+T 1614037303 18<lancerer18>	!queue https://www.speedtest.net/result/10976499110
+T 1614037405 18<lancerer18>	!queue https://www.speedtest.net/result/10976596187
+T 1614037536 23*	gkubed (gkubed@red-96t.vt5.k4pqao.IP23) has joined
+T 1614037611 18<gkubed18>	!queue https://www.speedtest.net/result/10976607965.png
+T 1614037916 24*	lancerer has quit (Ping timeout: 121 seconds)
+T 1614037927 23*	lancerer (lancerer@red-aov.ear.gm9194.IP23) has joined
+T 1614038169 24*	lancerer has quit (Ping timeout: 121 seconds)
+T 1614038183 23*	CHeZZ (CHeZZ@red-bm5.34p.l6l689.IP23) has joined
+T 1614038186 23*	lancerer (lancerer@red-aov.ear.gm9194.IP23) has joined
+T 1614038218 18<CHeZZ18>	!queue https://www.speedtest.net/result/10976059778.png
+T 1614038428 24*	lancerer has quit (Ping timeout: 121 seconds)
+T 1614038443 23*	lancerer (lancerer@red-aov.ear.gm9194.IP23) has joined
+T 1614038775 24*	lancerer has quit (Ping timeout: 121 seconds)
+T 1614038786 23*	lancerer (lancerer@red-aov.ear.gm9194.IP23) has joined
+T 1614039028 24*	lancerer has quit (Ping timeout: 121 seconds)
+T 1614039256 23*	lancerer (lance@red-aov.ear.gm9194.IP23) has joined
+T 1614039338 18<lancerer18>	!queue https://www.speedtest.net/result/10976701205.png
+T 1614039610 18<CHeZZ18>	!queue https://www.speedtest.net/result/10976059778.png
+T 1614039640 24*	ChanServ has quit (*.net *.split)
+T 1614039640 24*	zed has quit (*.net *.split)
+T 1614039640 24*	Gatekeeper has quit (*.net *.split)
+T 1614039640 24*	Veritas has quit (*.net *.split)
+T 1614039640 24*	Greenstar has quit (*.net *.split)
+T 1614039640 24*	Nocturne has quit (*.net *.split)
+T 1614039640 24*	Saltbutter has quit (*.net *.split)
+T 1614039640 24*	Fibonacci has quit (*.net *.split)
+T 1614039640 24*	Saturn has quit (*.net *.split)
+T 1614039640 24*	Zeitgeist has quit (*.net *.split)
+T 1614039640 24*	Carl has quit (*.net *.split)
+T 1614039711 18<C4T4MITE18>	not looking good for an interview anytime soon haha
+T 1614039729 18<CHeZZ18>	what ?
+T 1614039751 18<C4T4MITE18>	gatekeeper quit. so i dont think theres a queue anymore
+T 1614039799 18<CHeZZ18>	oh that why i got kicked out the que then. i was 9/9 now nothing..
+T 1614039803 18<lancerer18>	guys when i ask my position in gatekeeper conf i get " Gatekeeper :No such nick/channel" 
+T 1614039814 18<CHeZZ18>	yeah same here
+T 1614039815 18<lancerer18>	ah not alone :)
+T 1614039816 18<C4T4MITE18>	yeah theres some techincal difficulties it looks like
+T 1614039820 23*	ChanServ (services@services.int23) has joined
+T 1614039820 23*	zed (1@zed.sysop.redacted.ch23) has joined
+T 1614039820 23*	Carl (11007@Carl.admin.redacted.ch23) has joined
+T 1614039820 23*	Fibonacci (45391@Fibonacci.moderator.redacted.ch23) has joined
+T 1614039820 23*	Saturn (31580@Saturn.developer.redacted.ch23) has joined
+T 1614039820 23*	Gatekeeper (gatekeeper@Gatekeeper.bot.redacted.ch23) has joined
+T 1614039820 23*	Saltbutter (10550@Saltbutter.moderator.redacted.ch23) has joined
+T 1614039820 23*	Zeitgeist (20090@Zeitgeist.moderator.redacted.ch23) has joined
+T 1614039820 23*	Veritas (10283@Veritas.sysop.redacted.ch23) has joined
+T 1614039820 23*	Greenstar (46924@Greenstar.moderator.redacted.ch23) has joined
+T 1614039820 23*	Nocturne (21815@Nocturne.moderator.redacted.ch23) has joined
+T 1614039820 22*	26*.scratch-network.net sets mode 24+a on 22#red-invites ChanServ
+T 1614039820 22*	26*.scratch-network.net sets mode 24+q on 22#red-invites zed
+T 1614039820 22*	26*.scratch-network.net sets mode 24+a on 22#red-invites Carl
+T 1614039820 22*	26*.scratch-network.net gives channel half-operator status to 18Gatekeeper
+T 1614039820 22*	26*.scratch-network.net sets mode 24+q on 22#red-invites Veritas
+T 1614039820 22*	26*.scratch-network.net gives channel operator status to 18ChanServ zed Carl Fibonacci Saturn Saltbutter Zeitgeist Veritas Greenstar Nocturne
+T 1614039823 18<C4T4MITE18>	i was position 1 too :'(
+T 1614039832 18<CHeZZ18>	!queue https://www.speedtest.net/result/10976059778.png
+T 1614039833 23*	guimielm (guimielm@red-fgk.v79.d8ko28.IP23) has joined
+T 1614039866 18<lancerer18>	!queue https://www.speedtest.net/result/10976596187
+T 1614039886 18<C4T4MITE18>	!queue https://www.speedtest.net/result/10976730902.png
+T 1614039895 18<lancerer18>	!queue https://www.speedtest.net/result/10976731107.png
+T 1614039898 18<C4T4MITE18>	oh sweet. still 1
+T 1614039932 18<CHeZZ18>	!queue https://www.speedtest.net/result/10976732390.png
+T 1614039955 18<CHeZZ18>	im nr 3 now.. and my earlirt speed test was to old..
+T 1614039982 18<guimielm18>	!queue https://www.speedtest.net/result/10976660024
+T 1614040058 18<guimielm18>	!position
+T 1614040061 18<lancerer18>	CATA pls notify when your interview starts
+T 1614040097 18<C4T4MITE18>	youll see it in here. and theres no chatting in here whilst in an interview so i cant mate
+T 1614040108 18<lancerer18>	ok thx
+T 1614040115 18<C4T4MITE18>	np
+T 1614040135 18<C4T4MITE18>	also itll be in batches, odds are at least 4 at a time
+T 1614040146 18<lancerer18>	ok
+T 1614040209 18<guimielm18>	Hey frens. Each interview is about 1 to 2 hours and there is only one interviewer?
+T 1614040252 18<CHeZZ18>	the time here in sweden is 01.30 at night... so we se how long i can be awake haha :D
+T 1614040262 18<Paulso18>	I don't know I just figure it is time to patiently wait and see what happens :P
+T 1614040345 18<gkubed18>	!queue https://www.speedtest.net/result/10976755749.png
+T 1614040423 22*	26Gatekeeper sets ban on 18*!*@red-db6.lv2.ri50ra.IP
+T 1614040423 22*	26Gatekeeper has kicked 18maple876 from 22#red-invites (24No idling. You may not stay in this channel without !queueing. (expires in 14m 59s))
+T 1614040423 22*	26Gatekeeper sets ban on 18*!*@red-fkl.iet.t84hfq.IP
+T 1614040423 22*	26Gatekeeper has kicked 18lazyE from 22#red-invites (24No idling. You may not stay in this channel without !queueing. (expires in 14m 59s))
+T 1614040425 22*	26Gatekeeper sets ban on 18*!*@red-e5h.ge2.fd7j10.IP
+T 1614040425 22*	26Gatekeeper has kicked 18Jacky from 22#red-invites (24No idling. You may not stay in this channel without !queueing. (expires in 14m 59s))
+T 1614040425 22*	26Gatekeeper sets ban on 18*!*@red-6md.5qh.q088vn.IP
+T 1614040425 22*	26Gatekeeper has kicked 18Paulso from 22#red-invites (24No idling. You may not stay in this channel without !queueing. (expires in 14m 59s))
+T 1614040427 22*	26Gatekeeper sets ban on 18*!*@red-v18.5n2.3uq6tr.IP
+T 1614040427 22*	26Gatekeeper has kicked 18St_Arcus from 22#red-invites (24No idling. You may not stay in this channel without !queueing. (expires in 14m 59s))
+T 1614040427 22*	26Gatekeeper sets ban on 18*!*@red-hau.tm1.t1r84g.IP
+T 1614040427 19*	You have been kicked from 22#red-invites by 26Gatekeeper (20No idling. You may not stay in this channel without !queueing. (expires in 14m 59s))
+T 1614041744 FiSHLiM plugin unloaded
+T 1614991260 19*	Now talking on 22#red-invites
+T 1614991260 22*	Topic for 22#red-invites is: :: #red-invites :: Read this https://interviewfor.red | Don't discuss the interview or its topics. Don’t PM anyone. Don’t chat DURING your interview. Don't highlight OPs, unless prompted. | HOME CONNECTION ONLY | No E.T.A’s | Questions? -> #red-interviewprep | Position? PM Gatekeeper with !position
+T 1614991260 22*	Topic for 22#red-invites set by 26Gord!18308@Gord.interviewer.redacted.ch (24Tue Feb  2 17:27:39 2021)
+T 1614991261 -18ChanServ-	[#red-invites] Welcome to #red-invites :: Please make sure you have read http://interviewfor.red and the topic in this room :: You must queue up in here. No idling. :: If you have any questions join #red-interviewprep.
+T 1614991275 FiSHLiM plugin unloaded

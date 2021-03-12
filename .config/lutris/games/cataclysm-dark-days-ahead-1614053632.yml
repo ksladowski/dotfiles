@@ -1,0 +1,4 @@
+game:
+  exe: /usr/bin/cataclysm-tiles
+linux: {}
+system: {}

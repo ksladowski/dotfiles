@@ -1,0 +1,6 @@
+game:
+  core: genesis_plus_gx
+  main_file: /home/kevin/media/Emulation/Games/Sega Genesis/Daimakaimura ~ Ghouls'n
+    Ghosts (World) (Rev A).md
+libretro: {}
+system: {}

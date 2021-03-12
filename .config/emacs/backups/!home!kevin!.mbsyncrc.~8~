@@ -1,0 +1,74 @@
+IMAPAccount gmail
+Host imap.gmail.com
+User kevs1198@gmail.com
+PassCmd "bw get password smtp.gmail.com"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Subfolders Verbatim
+Path ~/Mail/Gmail/
+Inbox ~/Mail/Gmail/Inbox
+
+Channel gmail
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail" "[Gmail]/Trash"
+Create Both
+SyncState *
+
+
+IMAPAccount slad
+Host imap.secureserver.net
+User kevm@sladowski.us
+PassCmd "bw get password smtpout.secureserver.net"
+SSLType IMAPS
+PipelineDepth 5
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore slad-remote
+Account slad
+
+MaildirStore slad-local
+Subfolders Verbatim
+Path ~/Mail/Slad/
+Inbox ~/Mail/Slad/Inbox
+
+Channel slad
+Master :slad-remote:
+Slave :slad-local:
+Patterns *
+Expunge None
+CopyArrivalDate yes
+Sync All
+Create Both
+SyncState *
+
+
+IMAPAccount wisc
+Host outlook.office365.com
+User sladowski@wisc.edu
+PassCmd "bw get password login.wisc.edu"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore wisc-remote
+Account wisc
+
+MaildirStore wisc-local
+Subfolders Verbatim
+Path ~/Mail/Wisc/
+Inbox ~/Mail/Wisc/Inbox
+
+Channel wisc
+Master :wisc-remote:
+Slave :wisc-local:
+Patterns *
+Expunge None
+CopyArrivalDate yes
+Sync All
+Create Both
+SyncState *

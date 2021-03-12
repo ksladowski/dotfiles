@@ -1,0 +1,4 @@
+game:
+  exe: /usr/bin/freeciv-gtk3
+linux: {}
+system: {}

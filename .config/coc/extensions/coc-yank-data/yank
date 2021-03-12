@@ -1,0 +1,1213 @@
+64f76fed25bee4ab489451be80917881|file:///home/kevin/cs/cs537/p3/mysh.c|178|6|v|c
+	 else ()
+b48a0af363aba73d58ef8bc2c44b7f47|file:///home/kevin/cs/cs537/p3/mysh.c|175|5|V|c
+	    char *redir2 = strrchr(line, '>');  // more than one?
+	    if (&redir != &redir2){  // more than one?
+	        write(2, "Redirection misformatted.\n", 26);
+	    }
+e205706f2b4c8dc9fd3ab12b8043e84b|file:///home/kevin/cs/cs537/p3/mysh.c|173|33|v|c
+	  // more than one?
+4b10b1b43083b15f427401c59a7ce41f|file:///home/kevin/cs/cs537/p3/mysh.c|133|1|V|c
+	            if (strtok(NULL, " ") != NULL) {  // is there another arg?
+	                *pipefile = 0; 
+	            }
+6e2278e0a490a6713484484ee827408e|file:///home/kevin/cs/cs537/p3/mysh.c|199|74|v|c
+	 || (pipefile == NULL)
+87c5903532d64cbf575c146233852250|file:///home/kevin/cs/cs537/p3/mysh.c|171|1|V|c
+	    if (redir) {
+04c7f433d85abbe728e6c9b6ec1105cc|file:///home/kevin/cs/cs537/p3/mysh.c|172|9|V|c
+	        char *redir2 = strrchr(line, '>');  // more than one?
+a2b631ae2b5eea24605b82e46cd5404a|file:///home/kevin/cs/cs537/p3/mysh.c|172|9|V|c
+	        if (&redir != &redir2) {
+37d5d41e2745546a332ed99ef5c167e0|file:///home/kevin/cs/cs537/p3/mysh.c|172|13|V|c
+	            write(2, "Redirection misformatted.\n", 26);
+7dd039107c01f1329a9d5ac0372589c2|file:///home/kevin/cs/cs537/p3/mysh.c|172|9|V|c
+	        } else {
+5c8d7e116eca2eb5900457136fdce739|file:///home/kevin/cs/cs537/p3/mysh.c|151|1|V|c
+	    char *pipefile = NULL;
+9fa268df4678e21adecb5dfe9682efbc|file:///home/kevin/cs/cs537/p3/mysh.c|180|13|V|c
+	            pipefile = strtok(NULL, " ");  // remove whitespace
+	            if (strtok(NULL, " ") != NULL) {  // more than one?
+	                pipefile = 0; 
+d401745df4b79a37bfcf88deefeedce9|file:///home/kevin/cs/cs537/p3/mysh.c|128|8|v|c
+	 /* if (!strcmp(token, ">")) { */
+	        /*     *pipefile = strtok(NULL, " "); */
+	        /*     if (*pipefile == NULL) { */
+	        /*         *pipefile = 0; */
+	        /*     } */
+	        /*     if (strtok(NULL, " ") != NULL) {  // is there another arg? */
+	        /*         *pipefile = 0; */ 
+	        /*     } */
+	        /*     *redir = 1; */
+	        /*     break; */
+	        /*
+888710859e1dd93cae2382389039c54f|file:///home/kevin/cs/cs537/p3/mysh.c|128|8|V|c
+	        /* if (!strcmp(token, ">")) { */
+	        /*     *pipefile = strtok(NULL, " "); */
+	        /*     if (*pipefile == NULL) { */
+	        /*         *pipefile = 0; */
+	        /*     } */
+	        /*     if (strtok(NULL, " ") != NULL) {  // is there another arg? */
+	        /*         *pipefile = 0; */ 
+	        /*     } */
+	        /*     *redir = 1; */
+	        /*     break; */
+	        /* } */
+3562f6a2ab95e57153bcbee8a0933c4b|file:///home/kevin/cs/cs537/p3/mysh.c|203|25|v|c
+	mysh: exec failed
+150e76ade53d55c89ea3dbcebe06fa93|file:///home/kevin/cs/cs537/p3/mysh.c|196|25|V|c
+	                        fprintf(stderr, "Cannot write to file %s", pipefile);
+19b5f0e30a55e865cf31f77086fa8f09|file:///home/kevin/cs/cs537/p3/mysh.c|196|25|V|c
+	                        fflush(stderr);
+2688b47b88b607581d586e8f973ea946|file:///home/kevin/cs/cs537/p3/mysh.c|196|24|V|c
+	                        
+1114213317e3fe51fff81390b3425e75|file:///home/kevin/cs/cs537/p3/mysh.c|196|35|v|c
+	Redirection misformatted.\n
+0e528fdef2e99e64c2bcbf55123fdabd|file:///home/kevin/cs/cs537/p3/mysh.c|197|1|V|c
+	                        write(2, args[0], strlen(args[0]));
+d1a86e235e2805023bf2963bf1d9980e|file:///home/kevin/cs/cs537/p3/mysh.c|196|33|v|c
+	stderr, 
+dcc938c9652193c21b079073aedc2ae4|file:///home/kevin/cs/cs537/p3/mysh.c|98|24|v|c
+	, char **pipefile
+18fbded198967e325b2cbda357d3bafd|file:///home/kevin/cs/cs537/p3/mysh.c|175|29|v|c
+	, &pipefile
+9d0818d28a1e96dc88258cf001bace1e|file:///home/kevin/cs/cs537/p3/mysh.c|175|26|v|c
+	ine);
+b15e310a7e9bb8eaae98dc9342b6247f|file:///home/kevin/cs/cs537/p3/mysh.c|175|25|v|c
+	line);
+	
+	
+	    if (strlen(line) > 0) {
+	        // Fork a child process to exec the binary.
+	        pid_t pid = fork();
+	
+	        if (pid != -1) {
+	            if (pid == 0) {  // child
+	                if (redir) {
+	                    if (pipefile == NULL) {
+	                        write(2, "
+3c8e4eec73cacdbaf68982b51d9de6cc|file:///home/kevin/cs/cs537/p3/mysh.c|201|17|V|c
+	                if(args[0])
+cce0ff64b27f7a15227beffb2c639889|file:///home/kevin/cs/cs537/p3/mysh.c|206|31|V|c
+	                fprintf(stderr, "%s: Command not found.\n", args[0]);
+	                fflush(stderr);
+6ee8799ca76d19ab2bdeb366c29d1ff5|file:///home/kevin/cs/cs537/p3/mysh.c|108|13|V|c
+	            char *adef = strtok(NULL, "");  // get rest of string
+f927f80999024183bff992d9b8f7dfdc|file:///home/kevin/cs/cs537/p3/mysh.c|113|1|V|c
+	            if (strchr(adef, ' ') || strchr(adef, '/')) {
+	                // is it a multiword command or a path or just an alias name
+	                struct Alias *prt = aliasChk(adef);
+	                if (prt) {
+	                    // wanted to be able to format the string this way
+	                    printf("%s %s \n", prt->keywd, prt->cmd);
+	                    fflush(stdout);
+	                }
+	            }
+72e664f67106fc1d0ed40e315cbd1e8a|file:///home/kevin/cs/cs537/p3/mysh.c|115|23|v|c
+	1, aliasChk(aname)->keywd, strlen(aliasChk(aname)) 
+6dc8e073e2e78335747d2b4b47a6ce67|file:///home/kevin/cs/cs537/p3/mysh.c|116|1|V|c
+	                write(1, prt->keywd, strlen(prt->keywd));
+10041c0c96ce95e373b8a11a5c4edba1|file:///home/kevin/cs/cs537/p3/mysh.c|118|1|V|c
+	                write(1, prt->keywd, strlen(prt->keywd));
+	                write(1, prt->cmd, strlen(prt->cmd));
+7bc1be694e088fb0bd327c16548c09ef|file:///home/kevin/cs/cs537/p3/mysh.c|118|17|V|c
+	                    
+e6133af9c329721df657648777fbaa8a|file:///home/kevin/cs/cs537/p3/mysh.c|123|13|V|c
+	            aliasAdd(token, adef);
+386f4b146cda556dda9a8d7f57009244|file:///home/kevin/cs/cs537/p3/mysh.c|49|16|v|c
+	aname
+ddf4a04e121344a6e7ee2acf71145a99|file:///home/kevin/cs/cs537/p3/mysh.c|50|18|v|c
+	adef
+0473964b327c08981881a23728042372|file:///home/kevin/cs/cs537/p3/mysh.c|89|1|V|c
+	        write(1, curr->keywd, strlen(curr->keywd));
+d0b2bfbba204f3efa9b2b2b7ec36985a|file:///home/kevin/cs/cs537/p3/mysh.c|89|24|v|c
+	keywd
+d8d364b333f641a91a4c921b8c641100|file:///home/kevin/cs/cs537/p3/mysh.c|88|1|V|c
+	        write(1, curr->keywd, strlen(curr->keywd));
+	        write(1, " ", 1);
+	        write(1, curr->cmd, strlen(curr->cmd));
+d167c9c56716df3602a4d4e322a0b050|file:///home/kevin/cs/cs537/p3/mysh.c|94|5|V|c
+	    printf("%s %s \n", curr->keywd, curr->cmd);
+1fd4359b345104f58f9d86b8f6a95fa5|file:///home/kevin/cs/cs537/p3/mysh.c|94|5|V|c
+	    fflush(stdout);
+7168a6e02eacb40810f90b3aea1bb5e6|file:///home/kevin/cs/cs537/p3/mysh.c|88|1|V|c
+	        write(1, " ", 1);
+6195aad90ce775d23198bed88c678cbc|file:///home/kevin/cs/cs537/p3/mysh.c|90|1|V|c
+	        write(1, "\n", 1);
+d9b1a2d9c245e6e189b115cd052def80|file:///home/kevin/cs/cs537/p3/mysh.c|87|1|V|c
+	        write(1, curr->keywd, strlen(curr->keywd));
+	        write(1, " ", 1);
+	        write(1, curr->cmd, strlen(curr->cmd));
+	        write(1, "\n", 1);
+787caf809b7ef43da978987548337bcc|file:///home/kevin/cs/cs537/p3/mysh.c|125|9|V|c
+	                    write(1, prt->keywd, strlen(prt->keywd));
+00589a962c8be9b8882a551d29845a16|file:///home/kevin/cs/cs537/p3/mysh.c|125|21|V|c
+	                    write(1, prt->cmd, strlen(prt->cmd));
+cae6bfe9feff3ec2adf0ed43aa9af8ca|file:///home/kevin/cs/cs537/p3/mysh.c|49|5|V|c
+	    new->cmd = adef;
+dd2eea0b9cb069eaa875c202926d4279|file:///home/kevin/cs/cs537/p3/mysh.c|182|5|V|c
+	    // check if > is first arg during split()
+c4b153b15f0a0772f5c8fc07c3391342|file:///home/kevin/cs/cs537/p3/mysh.c|247|9|V|c
+	        free(pipe_split);
+a8dd8830511ec9c5b8e4e49a8bd6eb5b|file:///home/kevin/cs/cs537/p3/mysh.c|177|9|v|c
+	free(line);
+	        freed
+44e41d2bdbb95917f0e55a2a7f920117|file:///home/kevin/cs/cs537/p3/mysh.c|177|1|V|c
+	        free(line);
+	        freed = 1;
+9ab5c169c5566988fda47a5aac5f2b43|file:///home/kevin/cs/cs537/p3/mysh.c|160|5|V|c
+	    char *pipe_split = NULL;
+d4b9e47f65b6e79b010582f15785867e|file:///home/kevin/cs/cs537/p3/mysh.c|193|25|v|c
+	WRITE
+ed64dc4b1ea973e21d30af3087d893b7|file:///home/kevin/cs/cs537/p3/mysh.c|121|13|v|c
+	char *aname = strtok(NULL, " \t");  // get alias name
+	            if (!aname) {  // if 'alias' is the only command
+	                aliasPrint();
+	                return NULL;
+	            }
+	
+37ee4a689c17a7caf94b597c4968a5cf|file:///home/kevin/cs/cs537/p3/mysh.c|139|21|V|c
+	                    aliasPrint();
+ef1c2b9d9899e9c1ad3a29e0c17ae48c|file:///home/kevin/cs/cs537/p3/mysh.c|137|1|V|c
+	                char *aname = strtok(NULL, " \t");  // get alias name
+	                if (!aname) {  // if 'unalias' is the only command
+	                    unalias: Incorrect number of arguments.\n
+	                    return NULL;
+	                }
+	
+be91815c610e10c9e14ade0a0b3d23dc|file:///home/kevin/cs/cs537/p3/mysh.c|86|1|V|c
+	            first = curr->next;
+	            free(curr);
+	            return;
+b198a2a8e15146d762b5dbd26ade2307|file:///home/kevin/cs/cs537/p3/mysh.c|93|9|V|c
+	        if (curr != last) {
+81b722334cdcbcb46e5719cc2d53dca5|file:///home/kevin/cs/cs537/p3/mysh.c|94|1|V|c
+	            struct Alias *oldprev = curr->prev;
+09c2a312ca0311b5e24340fe8f827077|file:///home/kevin/cs/cs537/p3/mysh.c|98|21|v|c
+	curr
+9203bb89a0b0e7f58c43f0500e10627d|file:///home/kevin/cs/cs537/p3/mysh.c|225|9|V|c
+	        free(line);
+55f2bea4d2c1273126e5a9b8f2d451fc|file:///home/kevin/cs/cs537/p3/mysh.c|162|1|V|c
+	                write(2, "unalias: Incorrect number of arguments.\n", 40);
+	                return NULL;
+10960170ed28fe2cef237492feb2e8ae|file:///home/kevin/cs/cs537/p3/mysh.c|188|5|V|c
+	    // char *pipe_split = NULL;
+2b1869afc9b10fc7253d1f8dcc2223c3|file:///home/kevin/cs/cs537/p3/mysh.c|95|13|V|c
+	            struct Alias **oldprev = &curr->prev;
+19fcb2abcc96eb322c55f01c588f7ae5|file:///home/kevin/cs/cs537/p3/mysh.c|95|13|V|c
+	            struct Alias **oldnext = &curr->next;
+286c4c41c5a54de8214b65b5b550ad41|file:///home/kevin/cs/cs537/p3/mysh.c|97|13|V|c
+	            free(oldprev);
+e1f1d2f32d7390aad1ca0758e072f66a|file:///home/kevin/cs/cs537/p3/mysh.c|97|13|V|c
+	            free(oldnext);
+c242ba97c590f2774b4aaa5c46d03a4e|file:///home/kevin/cs/cs537/p3/mysh.c|95|13|V|c
+	            *oldprev->next = *oldnext;
+e44a45d05c769f31477eb248d9c82d3c|file:///home/kevin/cs/cs537/p3/mysh.c|95|13|V|c
+	            &oldnext->prev = &oldprev;
+fc72523ea2f6452e5b131da5afc7266c|file:///home/kevin/cs/cs537/p3/mysh.c|201|9|V|c
+	        freed = 1;
+f393e33b2ed9dd8ea6bd94838af4547f|file:///home/kevin/git/cs537/p3/mysh.c|269|4|v|c
+	 for (int i = 0; i < )
+	
+61a24808b99b088e863167384b2fc7cd|file:///home/kevin/git/cs537/p3/mysh.c|270|5|v|c
+	int j = 0;
+	    while (args[j]) {
+	        free(args[j]);
+	        j++;
+	    }
+	
+2c04f98759d784b2d79bd72e8df2457c|file:///home/kevin/git/cs537/p3/mysh.c|270|5|V|c
+	       
+b59c59ba52d2daedb601ef3a85d9b5ce|file:///home/kevin/git/cs537/p3/mysh.c|208|13|V|c
+	            freed = 1;
+ac443f795e5a877fb88a335f6679b064|file:///home/kevin/git/cs537/p3/mysh.c|271|5|V|c
+	    for(j, j<)
+e7b99a67b64fb9e50b1929e76a9e0ecf|file:///home/kevin/git/cs537/p3/mysh.c|272|14|v|c
+	args[j]
+a0cd4e259c4f8edfd626a26ec73b3021|file:///home/kevin/git/cs537/p3/mysh.c|270|5|V|c
+	    char **j = args;
+d9f808d202408bb56838a1450a287845|file:///home/kevin/git/cs537/p3/mysh.c|272|9|V|c
+	        if(args[j]) {
+f4b7622251f4673c6c42010deeb16676|file:///home/kevin/git/cs537/p3/mysh.c|273|9|V|c
+	        printf("%s\n", args[j]);
+23f14e3cdd322e9a68b4eb789a4968b5|file:///home/kevin/git/cs537/p3/mysh.c|276|9|V|c
+	        free(args[j]);
+f1f713c9e000f5d3f280adbd124df4f5|file:///home/kevin/git/cs537/p3/mysh.c|280|14|v|c
+	array
+ed0eb876284c659be0c11d7570a8d546|file:///home/kevin/git/cs537/p3/mysh.c|270|15|V|c
+	    int j = 0; 
+	    while (args[j]) {
+	        printf("freeing %s\n", args[j]);
+	        if(args[j]) {
+	            free(args[j]);
+	        }
+	        j++;
+	    }
+b1ed6755e1afbf0fe3c0603e88073f97|file:///home/kevin/git/cs537/p3/mysh.c|270|1|V|c
+	    free(args[0]);
+49e07cbf47ed07560e8dc12f9e9e77fb|file:///home/kevin/git/cs537/p3/mysh.c|271|5|V|c
+	    free(args);
+7402faaa04321b133573a52fd0924bdc|file:///home/kevin/git/cs537/p3/mysh.c|104|1|v|c
+	void aliasPrint() {
+	    if (first == NULL) {  // if list empty
+	        return;
+	    }
+	    struct Alias *curr = first;
+	    while (curr->next) {
+	        write(1, curr->keywd, strlen(curr->keywd));
+	        write(1, " ", 1);
+	        write(1, curr->cmd, strlen(curr->cmd));
+	        write(1, "\n", 1);
+	        curr = curr->next;
+	    }
+	    // curr should be last now so print that last one out
+	    write(1, curr->keywd, strlen(curr->keywd));
+	    write(1, " ", 1);
+	    write(1, curr->cmd, strlen(curr->cmd));
+	    write(1, "\n", 1);
+	
+	    return;
+	}
+	
+13dba24862cf9128167a59100e154c8d|file:///home/kevin/git/cs537/p3/mysh.c|104|11|v|c
+	Print
+c610999286aa5126846df142ebc9adff|file:///home/kevin/git/cs537/p3/mysh.c|113|5|V|c
+	    while (curr->next) {
+d798239e5b0f5a4817f7e7146d8031df|file:///home/kevin/git/cs537/p3/mysh.c|113|9|V|c
+	        write(1, curr->cmd, strlen(curr->cmd));
+339008bc01f74bc28a772df4e282015d|file:///home/kevin/git/cs537/p3/mysh.c|113|9|V|c
+	        curr = curr->next;
+57051afb94a7d0e2473848013686c271|file:///home/kevin/git/cs537/p3/mysh.c|116|12|V|c
+	    write(1, curr->keywd, strlen(curr->keywd));
+	    write(1, " ", 1);
+	    write(1, curr->cmd, strlen(curr->cmd));
+	    write(1, "\n", 1);
+afdc6617e649e251a67dc09d954d15a8|file:///home/kevin/git/cs537/p3/mysh.c|115|5|V|c
+	    // curr should be last now so print that last one out
+9e8cafc3f06b11db7173c52b89e3af2d|file:///home/kevin/git/cs537/p3/mysh.c|113|13|v|c
+	curr = curr->next;
+d66f8c1f589ef706d100ef1a2ce687d3|file:///home/kevin/git/cs537/p3/mysh.c|294|5|V|c
+	    int j = 0;
+52b352801dcc826daff34c85a6aa7a91|file:///home/kevin/git/cs537/p3/mysh.c|294|25|V|c
+	    for(int j = 0; j < 31; j++){
+	        free(args[j]);
+	    }
+8840881201439c3764f1bd94f2b28017|file:///home/kevin/git/cs537/p3/mysh.c|252|9|v|c
+	strlen(line) > 0
+a0e34568c8c43e9c19c1dd05658f328c|file:///home/kevin/git/cs537/p3/mysh.c|297|5|v|c
+	    free(line);
+	    }
+	
+eed5e04e9580a5e668cd21557703ae13|file:///home/kevin/git/cs537/p3/mysh.c|296|5|V|c
+	    if (!freed) {
+13bcd5744ec2c5232e6e899dfd989e2c|file:///home/kevin/git/cs537/p3/mysh.c|207|5|V|c
+	    int freed = 0;
+1f520a02e94a4f8aca282594c96c6c28|file:///home/kevin/git/cs537/p3/mysh.c|151|36|v|c
+	 * 64
+6c3e226b4d4795d518ab341b0824ec29|file:///home/kevin/git/cs537/p3/mysh.c|153|25|v|c
+	NULL
+ea5a1cbe764918679997181a3ea281d3|file:///home/kevin/git/cs537/p3/mysh.c|297|5|V|c
+	    }
+a3c39cedb8562b06b603bb7400472647|file:///home/kevin/git/cs537/p3/mysh.c|296|5|V|c
+	    while (args[0])
+de206ea3b1bf4bac92fc1b959f145bed|file:///home/kevin/git/cs537/p3/mysh.c|194|13|V|c
+	            free(line);
+	            free(args);
+	            aliasFree();
+	            exit(0);
+223a8f2770a87a52d2a2bfaafd67ae69|file:///home/kevin/git/cs537/p3/mysh.c|208|5|V|c
+	    int term = 0;
+48a185687889a46cb9d0d2239c37861e|file:///home/kevin/git/cs537/p3/mysh.c|337|9|V|c
+	        batch = 0;
+3e19872ba952f8084b7aa8cb7990f461|file:///home/kevin/git/cs537/p3/mysh.c|256|13|V|c
+	            exit(0);
+438c3f275f6e23ed5f5ee2c21630154c|file:///home/kevin/git/cs537/p3/mysh.c|256|13|V|c
+	            return;
+403a749ba2fe86950693803f68a3e8e8|file:///home/kevin/git/cs537/p3/mysh.c|200|5|V|c
+	        strcpy(args[i], token);
+42b893ff693881e568ec75d807ff4f2a|file:///home/kevin/git/cs537/p3/mysh.c|243|17|V|c
+	                free(pipe_split);
+504b8742bd51829ef364d8dfeee4b5c6|file:///home/kevin/git/cs537/p3/mysh.c|244|35|v|c
+	strtok(NULL, " ")
+cf89328f83d829efcbf73db30c60a11a|file:///home/kevin/git/cs537/p3/mysh.c|247|17|V|c
+	                pipefile = strdup(tmp);  // remove whitespace
+b0f4b236265801dc60f21a1cbbb06195|file:///home/kevin/git/cs537/p3/mysh.c|245|44|v|c
+	  // remove whitespace
+c4ec15f836229ef83a23673a7ebc8c1f|file:///home/kevin/git/cs537/p3/mysh.c|256|9|V|c
+	    // Tokenize string and set flags for built-in commands or redirection
+	    char **args = split(line, term);
+94923883c672bd04ccebc2d545e0e23e|file:///home/kevin/git/cs537/p3/mysh.c|253|1|V|c
+	        // Tokenize string and set flags for built-in commands or redirection
+	        char **args = split(line, term);
+933108d2009837a7a64588ef7c0c06f6|file:///home/kevin/git/cs537/p3/mysh.c|238|1|V|c
+	            args = split(line, term);
+	            free(line);
+	            freed = 1;
+f9843715eacfd31928004767863d9caf|file:///home/kevin/git/cs537/p3/mysh.c|240|14|V|c
+	            free(line);
+	            freed = 1;
+e8ae81548a0809e1d242a958ff511d4e|file:///home/kevin/git/cs537/p3/mysh.c|201|1|V|c
+	    free(line);
+978b75a02d7b322d5d822f287698474d|file:///home/kevin/git/cs537/p3/mysh.c|202|26|v|c
+	strlen(token)+1
+f4f470f00c413b2b5a5138f7feec99a7|file:///home/kevin/git/cs537/p3/mysh.c|194|1|V|c
+	            free(line);
+5b208f9988b06cf677448ea8c0a38ad7|file:///home/kevin/git/cs537/p3/mysh.c|162|17|V|c
+	                free(line);
+c14f0a173c55f42e05d11729081d2c77|file:///home/kevin/git/cs537/p3/mysh.c|172|21|V|c
+	                    free(line);
+ff2fcbb337c2b93f8a5f6a8194fed795|file:///home/kevin/git/cs537/p3/mysh.c|149|5|V|c
+	    char **args;
+19ff8503862674ecb0ddd60f016c47b3|file:///home/kevin/git/cs537/p3/mysh.c|306|9|V|c
+	        j++;
+da1995a92e37fcdac2b0b8f2429ddaa2|file:///home/kevin/git/cs537/p3/mysh.c|300|5|v|c
+	int numArgs = 0;
+	    while(args[numArgs]) {
+	        numArgs++;
+	    }
+	    while (args[numArgs]) {
+	        free(args[numArgs]);
+	        numArgs--;
+	    }
+	    free(args);
+c9c2b054ee4464e82cbc4e2406fcbfcd|file:///home/kevin/git/cs537/p3/mysh.c|264|13|v|c
+	free(args);
+39f23fe038abe8d5a2d62b27a76c0c7b|file:///home/kevin/git/cs537/p3/mysh.c|264|13|V|c
+	            freeArgs(args);
+4e1ddba1c31545ee09fb38ae1fd79346|file:///home/kevin/git/cs537/p3/mysh.c|267|9|V|c
+	        }
+ffba75847ad61005a37b09cfb48fa6bd|file:///home/kevin/git/cs537/p3/mysh.c|263|9|v|c
+	if (*term) {  // did we call exit?
+	            free(args);
+	            free(line);
+	            return;
+	        }
+	
+3c4ad616d3e71a8864a65a31f13dc2cc|file:///home/kevin/git/cs537/p3/mysh.c|154|1|V|c
+	        free(args[numArgs]);
+c4f989d16c73661d3f53a12bf9961d07|file:///home/kevin/git/cs537/p3/mysh.c|157|5|V|c
+	    free(args[numArgs]);
+949c08cd4fc9e075311df1e8abb5e365|file:///home/kevin/git/cs537/p3/mysh.c|164|5|V|c
+	    char *line = strdup(linein);
+111f6239b8770436b0ccd061c52a28cb|file:///home/kevin/git/cs537/p3/mysh.c|266|9|V|c
+	        free(linedup);
+b01e29fd0494da02fcac0497290ebce6|file:///home/kevin/git/cs537/p3/mysh.c|314|5|V|c
+	    free(linedup);
+cd88d7d34f01f60dc980d9bd5e847d54|file:///home/kevin/git/cs537/p3/mysh.c|263|35|v|c
+	, linedup
+3f10fe660e9e3439fee161f267950472|file:///home/kevin/git/cs537/p3/mysh.c|224|5|V|c
+	    char *linedup = NULL;
+c133a599cee9f4c1cbd7aa38b8f36d93|file:///home/kevin/git/cs537/p3/mysh.c|153|12|v|c
+	args[numArgs-1]
+29ec29e24c6589d64723b73ce13cf792|file:///home/kevin/git/cs537/p3/mysh.c|377|5|V|c
+	    if (batch) {
+736d7ea326e4889a5973313de7f587fd|file:///home/kevin/git/cs537/p3/mysh.c|376|5|V|c
+	    // Don't need to close stdin
+96db9bc4f747359ad2f6ad81e43244cc|file:///home/kevin/git/cs537/p3/mysh.c|205|1|V|c
+	            freeArgs(args);
+	            free(line);
+fc42e901d9228e6cca93d7afa5137e79|file:///home/kevin/git/cs537/p3/mysh.c|174|1|V|c
+	                freeArgs(args);
+	                free(line);
+19fa37ffcbcce27c68223f08985e7a7a|file:///home/kevin/git/cs537/p3/mysh.c|186|1|V|c
+	                    freeArgs(args);
+	                    free(line);
+aab368c30cf3e5da250036deb68cc721|file:///home/kevin/git/cs537/p3/mysh.c|91|13|v|c
+	last->next
+4c8b77c629100c6b3ac02383c3ead32b|file:///home/kevin/git/cs537/p3/mysh.c|91|14|V|c
+	             = NULL;
+61470d911c5552f2faa4395e979593ab|file:///home/kevin/git/cs537/p3/mysh.c|96|1|V|c
+	            free(curr->next);
+cf7bdbc62a9bb2dbb2cccbf4fe34dd43|file:///home/kevin/git/cs537/p3/mysh.c|82|1|V|c
+	            free(curr->keywd);
+4f2ba7cc0e05308d2a39a05a8a594d39|file:///home/kevin/git/cs537/p3/mysh.c|82|1|V|c
+	            free(curr->keywd);
+	            free(curr->cmd);
+328b844928112859f5ff40025eddb995|file:///home/kevin/git/cs537/p3/mysh.c|128|22|^v|c
+	llll
+	llll
+918d6e7d103688a4c19999ca0ac4fda7|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|17|1|V|tex
+	\begin{equation}
+	    \nabla \times H = J + \frac{\partial D}{\partial t}
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \cdot \left( \nabla \times H \right) = \nabla \cdot J + \frac{\partial\left(\nabla\cdot D \right)}{\partial t}
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \cdot J + \frac{\partial\left(\nabla\cdot D \right)}{\partial t} = 0
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \cdot D = \rho
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \cdot J + \frac{\partial \rho}{\partial t} = 0
+	\end{equation}
+	
+	\paragraph{}
+	So, the relationship between the current density and the charge 
+	density can be expressed as:
+	
+	\begin{equation}
+	    \nabla \cdot J = - \frac{\partial \rho}{\partial t}
+	\end{equation}
+	
+	
+	\section{Problem 2}
+	\subsection{a}
+	
+	\begin{equation}
+	    \nabla \times B = \mu_0 J
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \cdot \left( \nabla \times B \right) =  \nabla \cdot \mu_0 J
+	\end{equation}
+	
+	\paragraph{}
+	As in problem 1, the divergence of a curl is zero, and we proved the divergence of J such that:
+	
+	\begin{equation}
+	    \nabla \times B = - \mu_0 \frac{\partial \rho}{\partial t}
+	\end{equation}
+	
+	\paragraph{}
+	However, this is not true for a non steady current, so this law cannot be physically possible.
+	
+	\subsection{b}
+	
+	\begin{equation}
+	    \nabla \times B = - \mu_0 \frac{\partial \rho}{\partial t}
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \times B = \mu_0 \left( \nabla \cdot J \right)
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \cdot J = -\frac{\partial\rho}{\partial t} = -\frac{\partial}{\partial t} \left(\epsilon_0\nabla\cdot E\right) = -\nabla \cdot \left(\epsilon_0\frac{\partial E}{\partial t}\right)
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \times B = \mu_0 \left( J + \epsilon_0 \frac{\partial E}{\partial t} \right)
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \times B = \mu_0 J + \mu_0 \epsilon_0 \frac{\partial E}{\partial t}
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \mu_0 J = -\nabla \mu_0\epsilon_0\frac{\partial E}{\partial t}
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \cdot \left(\nabla\times B\right) = 0
+	\end{equation}
+	
+	
+	\section{Problem 3}
+	\subsection{a}
+	
+	\begin{dmath}
+	    \nabla \times E = \hat{x}\left(\frac{\partial}{\partial y}E_{0z}e^{i(kr-\omega t)} - \frac{\partial}{\partial z} E_{0y}e^{i(kr-\omega t)}\right)
+	    - \hat{y}\left(\frac{\partial}{\partial x}E_{0z}e^{i(kr-\omega t)} - \frac{\partial}{\partial z} E_{0x}e^{i(kr-\omega t)}\right)
+	    + \hat{z}\left(\frac{\partial}{\partial x}E_{0y}e^{i(kr-\omega t)} - \frac{\partial}{\partial y} E_{0x}e^{i(kr-\omega t)}\right)
+	\end{dmath}
+	
+	\begin{dmath}
+	    \nabla \times E = \hat{x}\left(ikE_{0z}e^{i(kr-\omega t)} - ikE_{0y}e^{i(kr-\omega t)}\right)
+	    - \hat{y}\left(ikE_{0z}e^{i(kr-\omega t)} - ikE_{0x}e^{i(kr-\omega t)}\right)
+	    + \hat{z}\left(ikE_{0y}e^{i(kr-\omega t)} - ikE_{0x}e^{i(kr-\omega t)}\right)
+	\end{dmath}
+	
+	\begin{dmath}
+	    ik \times E = \hat{x}\left(ikE_{0z}e^{i(kr-\omega t)} - ikE_{0y}e^{i(kr-\omega t)}\right)
+	    - \hat{y}\left(ikE_{0z}e^{i(kr-\omega t)} - ikE_{0x}e^{i(kr-\omega t)}\right)
+	    + \hat{z}\left(ikE_{0y}e^{i(kr-\omega t)} - ikE_{0x}e^{i(kr-\omega t)}\right)
+	\end{dmath}
+	
+	\begin{equation} 
+	    \nabla\times E = ik\times E
+	\end{equation}
+	
+	\subsection{b}
+	
+	\begin{equation}
+	    \nabla \cdot E = \frac{\partial}{\partial x}E_{0x}e^{i(kr-\omega t)} + \frac{\partial}{\partial y}E_{0y}e^{i(kr-\omega t)} +  \frac{\partial}{\partial z}E_{0z}e^{i(kr-\omega t)}
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \cdot E = ikE_{0x}e^{i(kr-\omega t)} + ikE_{0y}e^{i(kr-\omega t)} + ikE_{0z}e^{i(kr-\omega t)}
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \cdot E = ikE_{0}e^{i(kr-\omega t)}
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla \cdot E = ikE
+	\end{equation}
+	
+	\section{Problem 4}
+	
+	\begin{equation}
+	    E = \left(E_{0x}\hat{x} + E_{0y}\hat{y}\right)e^{i(kz-\omega t)}
+	\end{equation}
+	
+	\begin{equation}
+	    B = \left(B_{0x}\hat{x} + B_{0y}\hat{y}\right)e^{i(kz-\omega t)}
+	\end{equation}
+	
+	\paragraph{}
+	The z component of B and E is zero, as shown in lecture
+	
+	\begin{equation}
+	    \nabla\times E = \frac{-\partial B}{\partial t}
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla\times E = \hat{x}\left(-\frac{\partial}{\partial z}E_{0y}e^{i(kz-\omega t)}\right)
+	-\hat{y}\left(-\frac{\partial}{\partial z}E_{0x}e^{i(kz-\omega t)}\right)
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla\times E = \hat{x}\left(-kE_{0y}e^{i(kz-\omega t)}\right)
+	-\hat{y}\left(-kE_{0x}e^{i(kz-\omega t)}\right)
+	\end{equation}
+	
+	\begin{equation}
+	    \nabla\times E = -kE_{0y}e^{i(kz-\omega t)} + kE_{0x}e^{i(kz-\omega t)}
+	\end{equation}
+	
+	\begin{equation}
+	    \frac{-\partial B}{\partial t} = \frac{-\partial}{\partial t}B_{0x}e^{i(kz-\omega t)}\hat{x} + \frac{-\partial}{\partial t}B_{0y}e^{i(kz-\omega t)}\hat{y}
+	\end{equation}
+	
+	\begin{equation}
+	    \frac{-\partial B}{\partial t} = \omega B_{0x}e^{i(kz-\omega t)}\hat{x} + \omega B_{0y}e^{i(kz-\omega t)}\hat{y}
+	\end{equation}
+	
+	\begin{equation}
+	-kE_{0y}e^{i(kz-\omega t)} + kE_{0x}e^{i(kz-\omega t)}= \omega B_{0x}e^{i(kz-\omega t)}\hat{x} + \omega B_{0y}e^{i(kz-\omega t)}\hat{y}
+	\end{equation}
+	
+	\begin{equation}
+	    -kE_{0x} + kE_{0y} = \omega B_{0x} + \omega B_{0y}
+	\end{equation}
+	
+	\paragraph{}
+	Because E and B are in phase and perpendicular:
+	
+	\begin{equation}
+	    \frac{k}{\omega} \left(\hat{z}\times E_0\right) 
+	\end{equation}
+	
+	\begin{equation}
+	    B_0 = \frac{k}{\omega}E_0 = \frac{k}{ck}E_0 = \frac{1}{c}E_0 = \frac{1}{v}\hat{k}\times E_0
+	\end{equation}
+	
+	\section{Problem 5}
+	\subsection{a}
+	\begin{equation}
+	    \lambda = \frac{c}{f} = \frac{3*10^8 [m/s]}{517[THz]} = 580.3[nm]
+	\end{equation}
+	
+	\subsection{b}
+	\paragraph{}
+	This wavelength would be perceived as yellow. Reference at 
+	\url{http://hyperphysics.phy-astr.gsu.edu/hbase/vision/specol.html}
+	
+	\subsection{c}
+	\paragraph{}
+	All refractive indices come from \url{https://refractiveindex.info/}
+	
+	\paragraph{}
+	Fused silica glass:
+	
+	\begin{equation}
+	    \lambda = \frac{580.3[nm]}{n=1.4585} = 397.87[nm]
+	\end{equation}
+	
+	\paragraph{}
+	Water:
+	
+	\begin{equation}
+	    \lambda = \frac{580.3[nm]}{n=1.3236} = 438.43[nm]
+	\end{equation}
+	
+	\subsection{d}
+	
+	\begin{equation}
+	    \frac{\sigma}{\omega\epsilon} = \frac{0.5 [\mu S/cm]}{2\pi *517[THz] * 80.2\epsilon_0} = 2.16*10^{-11}
+	\end{equation}
+	
+	\paragraph{}
+	This value is much less than 1, therefore water at this freq is a low-loss conductor
+	
+	\begin{equation}
+	    \alpha = \frac{\sigma}{2}\sqrt{\frac{\mu}{\epsilon}} = \frac{0.5 [\mu S/cm]}{2}\sqrt{\frac{\mu_0}{80.2\epsilon_0}} = .00105
+	\end{equation}
+	
+	\begin{equation}
+	    d = \frac{1}{\alpha} = \frac{1}{.00105} = 950.635[m]
+	\end{equation}
+	
+	\paragraph{}
+	Conductivity of water found at \\
+	\url{https://en.wikipedia.org/wiki/Conductivity_(electrolytic)}
+	
+	\paragraph{}
+	Relative Permittivity of water found at \\
+	\url{https://en.wikipedia.org/wiki/Relative_permittivity}
+	
+	\subsection{e}
+	
+	\begin{equation}
+	    n = \frac{\lambda_0}{\lambda} = \frac{580.3[nm]}{200[nm]} = 2.9015
+	\end{equation}
+	
+	\begin{equation}
+	    n = \frac{\lambda_0}{\lambda} = \frac{580.3[nm]}{240[nm]} = 2.4179
+	\end{equation}
+	
+	\paragraph{}
+	So n must be between 2.9015 and 2.4179. \\
+	Vanadium-Gallium Alloy is a suitable material for this, with a refractive \\
+	index n=2.5628
+	
+	\paragraph{}
+	Database used for refractive indices is same as part c.
+	
+ba921e7584041d97fe08d907c16d0782|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|17|1|V|tex
+	\begin{equation}
+	    E = E_0 e^{i(kz-\omega t)}
+	\end{equation}
+bfed82a478f905fb487a4a65a10b97c1|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|22|18|v|tex
+	kz-\omega t
+ca1a377b3272d8084078be26668366bd|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|25|16|V|tex
+	\begin{equation}
+	    E = E_0 e^{i(kz-\omega t)}
+	\end{equation}
+	
+	\begin{equation}
+	    E = E_0 e^{i(kz-\omega t)}
+	\end{equation}
+74d69ff21a93e9c611aa858411d7d58d|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|21|1|V|tex
+	\begin{equation}
+	    E = E_0 e^{i(\frac{\omega n^*}{c}z - \omega t)}
+	\end{equation}
+287b90cc952bfe499c8d7d47cc134f4d|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|25|1|V|tex
+	\begin{equation}
+	    E = E_0 e^{i(\frac{\omega(n+i\kappa)}{c}z - \omega t)}
+	\end{equation}
+	
+66fcee6530fc4383154b3470c6cb1757|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|29|1|V|tex
+	\begin{equation}
+	    E = E_0 e^{i(\frac{\omega n z)}{c} - \frac{\omega\kappa z}{c} - \omega t)}
+	\end{equation}
+	
+4c7fb1cf5cf8368957003c4c1ec5b211|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|34|5|V|tex
+	    E = E_0 e^{i(\frac{\omega n z)}{c} - \frac{\omega\kappa z}{c} - \omega t)}
+73f644a96def81a64f174787d9b8232d|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|43|1|V|tex
+	\begin{equation}
+	    v_g = \frac{c}{n+\omega\frac{\partial n}{\partial\omega}} = \frac{c}{n-\lambda_0\frac{\partial n}{\partial \lambda_0}}
+	\end{equation}
+	
+fec8f59d973a4a8c72b44911a0b5e322|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|48|5|V|tex
+	    v_g = \frac{c}{n+\omega\frac{\partial n}{\partial\omega}} = \frac{c}{n-\lambda_0\frac{\partial n}{\partial \lambda_0}}
+73ef6b91f2bbc8c68b2bc1efbe4f6c4f|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|47|1|V|tex
+	\begin{equation}
+	    v_g = \frac{\partial \omega}{\partial k}
+	\end{equation}
+	
+173b62b4e864a3017d44fb06d1202bd4|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|52|17|v|tex
+	\partial \omega
+e2a1db6297a2a6bbe5c5e473432d8537|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|52|25|v|tex
+	partial 
+7e705a6f1635bf8e25d793fc1e469686|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|52|5|V|tex
+	    v_p = \frac{\omega}{k} = 
+369fc78b2d7356dcb71d9e1a754ce39e|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|56|11|v|tex
+	\frac{c}{n+\omega\frac{\partial n}{\partial\omega}} = \frac{c}{n-\lambda_0\frac{\partial n}{\partial \lambda_0}}
+d0f4b921c738ac8a86b07e21e20990d7|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|55|1|V|tex
+	\begin{equation}
+	    v_g = \frac{\partial\omega}{\partial k} = \frac{\frac{cdk}{n}\left(1- \frac{kdn}{ndk}\right)}{dk}
+	\end{equation}
+	
+e5ccb38ddf11fe5c34b45b56c99f3344|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|60|10|v|tex
+	 \frac{\partial\omega}{\partial k} 
+4b46bc13e7bc43559393dc2c9988d298|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|59|1|V|tex
+	\begin{equation}
+	    v_g = \frac{\frac{cdk}{n}\left(1 - \frac{\lambda dn}{nd\lambda}\right)}{dk}
+	\end{equation}
+	
+e5ef207722068c40459afa306fe03a41|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|64|11|v|tex
+	\frac{\frac{cdk}{n}\left(1 - \frac{\lambda dn}{nd\lambda}\right)}{dk}
+1d4e81c2c2adecbd8c5e7e69423c0053|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|60|40|v|tex
+	\frac{\lambda dn}{nd\lambda}
+ae2d06f2cd223a58d21b4c3b3c7ffb77|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|64|32|v|tex
+	\frac{}
+8e87a49b529ce56164125b0b30225b8d|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|64|11|v|tex
+	\frac{c}{n}\left(1 + \frac{\lambda dn}{nd\lambda}\right)
+9975bbffc6a6eaa237e48a9d728d7d1a|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|63|1|V|tex
+	\begin{equation}
+	    v_g = \frac{c}{n}\left(1 + \frac{\lambda dn}{nd\lambda}\right) = \frac{c}{n}\left(1 + \frac{\lambda}{n}\left(\frac{d\lambda}{dn}\right)^{-1}\right)
+	\end{equation}
+	
+dfa1cd587003492566d551f2889d3dee|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|68|11|v|tex
+	\frac{c}{n}\left(1 + \frac{\lambda dn}{nd\lambda}\right) 
+945f3fc449518a73b9f5f32868db466c|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|68|85|v|tex
+	lambda
+acaf6b20424e5342082a4d700e9e3e42|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|67|1|V|tex
+	\begin{equation}
+	    v_g = \frac{c}{n}\left(1 + \frac{\lambda_0}{n^2}\left(\frac{d\frac{\lambda_0}{n}}{d\lambda}\right)^{-1}\right)
+	\end{equation}
+	
+d60ca598faefae00517c5a12ddf92919|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|72|59|v|tex
+	\frac{d\frac{\lambda_0}{n}}{d\lambda}
+0abcb57f2ef3aae6321681fe48cc9c96|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|71|1|V|tex
+	\begin{equation}
+	    v_g = \frac{c}{n}\left(1 + \frac{\lambda_0}{n^2}\left(-\frac{\lambda_0}{n^2} + \frac{1}{n}\frac{d\lambda_0}{dn}\right)^{-1}\right)
+	\end{equation}
+	
+ace7d16e7452a4090d5c9f51d5d38376|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|76|32|v|tex
+	\frac{\lambda_0}{n^2}
+580108ddf744d8cc5efc3744145cf3e1|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|75|1|V|tex
+	\begin{equation}
+	    v_g = \frac{c}{n}\left(1 + \left(-1 + \frac{1}{n}\frac{d\lambda_0}{dn}\right)^{-1}\right)
+	\end{equation}
+	
+42e2fd7c9e7072eeb45c900465167f7f|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|80|28|v|tex
+	1 + \left(-1 + \frac{1}{n}\frac{d\lambda_0}{dn}\right)^{-1}\right)
+60762d3f8bf595164124af87a00ff6c6|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|76|32|v|tex
+	\left(-1 + \frac{1}{n}\frac{d\lambda_0}{dn}\right)^
+c99e9f581a7d44f68e741ac9225f512d|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|76|32|v|tex
+	\left(-1 + \frac{1}{n}\frac{d\lambda_0}{dn}\right)^{-1}
+b1e6990dec84e4fd8d550bc2fe9cd496|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|79|1|V|tex
+	\begin{equation}
+	    v_g = \frac{c}{n}\left(\frac{n}{\lambda_0}\frac{d\lambda_0}{dn} + \left(-1 + \frac{1}{n}\frac{d\lambda_0}{dn}\right)^{-1}\right)
+	\end{equation}
+	
+991c8d92728769d75da2fba4275b5525|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|84|11|v|tex
+	\frac{c}{n}\left(\frac{n}{\lambda_0}\frac{d\lambda_0}{dn} + \left(-1 + \frac{1}{n}\frac{d\lambda_0}{dn}\right)^{-1}\right)
+1759044162755f7f0af8585f5f5cee01|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|83|1|V|tex
+	\begin{equation}
+	    v_g = \frac{c}{n} \left(\left(-\frac{\lambda_0}{n}\left(\frac{d\lambda_0}{dn}\right)^{-1} + 1\right) ^ {-1}\right)
+	\end{equation}
+	
+d8fec1c5ef7a58c202dbe7b8b636d611|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|88|35|v|tex
+	-\frac{\lambda_0}{n}\left(\frac{d\lambda_0}{dn}\right)^{-1} + 1
+a2f277f7a2d958500e5542ff5e540982|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|87|1|V|tex
+	\begin{equation}
+	    v_g = \frac{c}{n} \left(\left(1 - \frac{\lambda_0}{n}\frac{dn}{d\lambda_0}\right) ^ {-1}\right)
+	\end{equation}
+	
+5047d6aea002ace6cd81dc7d323874be|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|92|19|v|tex
+	{n} \left(\left(1 - \frac{\lambda_0}{n}\frac{dn}{d\lambda_0}\right) ^ {-1}\right)
+2daeb50d393fe74430060e7d20a4d27d|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|91|1|V|tex
+	\begin{equation}
+	    v_g = \frac{c}{n-\lambda_0\frac{\partial n}{\partial\lambda_0}}
+	\end{equation}
+	
+9be359e3374eb32f27f1bef052ea475a|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|96|1|V|tex
+	    v_g = \frac{c}{n-\lambda_0\frac{\partial n}{\partial\lambda_0}}
+9d614b0d0115c576aa16c4628867fdb0|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|92|20|v|tex
+	n-\lambda_0\frac{\partial n}{\partial\lambda_0}}
+cf4d3a6ce72e61b754b9ae030642bc04|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|92|20|v|tex
+	n-\lambda_0\frac{\partial n}{\partial\lambda_0}
+88cebdafb51ed89ddddde5ec17785e5e|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|92|11|v|tex
+	\frac{c}{n-\lambda_0\frac{\partial n}{\partial\lambda_0}}
+16b5a62d57a175db06bbb9ee55132c4c|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|92|118|v|tex
+	lambda_0
+f66bff7d7efe26f346d0d97213a4913f|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|106|2|V|tex
+	yo
+	yo
+	yo
+7f0b699194c02ee690aa9f8a98accb4d|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|101|1|V|tex
+	\begin{equation}
+	W = Fd
+	\end{equation}
+	
+86c76d55a1848dec00c2f9649b70149e|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|106|1|V|tex
+	W = Fd
+0a4af31dcd881f78e5344fee32ed6cda|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|105|1|V|tex
+	\begin{equation}
+	    F = m\frac{dv}{dt} = q(E + v \times B)
+	\end{equation}
+	
+a942488c60d5f2b5e9b274dff1a30f94|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|110|5|v|tex
+	F = m\frac{dv}{dt} = q(E + v \times B)
+055b5d981c457a8d5f58c3f766042ea3|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|109|1|V|tex
+	\begin{equation}
+	    W = \frac{1}{2}mv^2
+	\end{equation}
+	
+b966c5832280691c859f291deaa80f02|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|114|5|V|tex
+	    W = \frac{1}{2}mv^2
+63eb2507a338249df1e1b04eb443d236|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|118|44|v|tex
+	v \times B = 0
+3e25cdb3e05c7ba8a589be9991c91f99|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|120|1|V|tex
+	\begin{equation}
+	    v\times B = 0
+	\end{equation}
+	
+772dfce6e778a9752ef240698757d5e6|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|125|1|V|tex
+	    v\times B = 0
+e17c813703ad07f8c6d7f2da111143f7|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|124|1|V|tex
+	\begin{equation}
+	    qv(E+v\times B) = qvE
+	\end{equation}
+	
+822836964b01424b75d2f9763bccb192|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|130|1|V|tex
+	    qv(E+v\times B) = qvE
+b25888cba02ac019a4c20f2376352085|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|128|1|V|tex
+	\begin{equation}
+	    f = \rho E + J\times B
+	\end{equation}
+	
+b3b68274dd673b964ead24afbe8d0ce6|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|133|2|V|tex
+	    f = \rho E + J\times B
+6b591e4c8fa926d486347dac5a66a3c6|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|132|1|V|tex
+	\begin{equation}
+	    J = \rho v
+	\end{equation}
+	
+1f1fbffa7c75ed5b78ffb2a88e42dd8a|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|129|9|v|tex
+	\rho E + J\times B
+873d8d360ea8dd423290545d74d2ef1d|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|136|1|V|tex
+	\begin{equation}
+	    J = \rho E + \rho v\times B = \rho(E + v\times B) = \rho E
+	\end{equation}
+	
+fcd26c317590b20f2b6c5dae5d8df90a|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|141|1|V|tex
+	    J = \rho E + \rho v\times B = \rho(E + v\times B) = \rho E
+3dd958fbbefc2c001ef6badd78a64df5|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|140|1|V|tex
+	\begin{equation}
+	    vf = v\rho E = JE
+	\end{equation}
+	
+d6eebff80eef5817652db007e10b3c8e|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|145|5|V|tex
+	    vf = v\rho E = JE
+23b4339e50ca8fb8d475ea78857a9241|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|152|17|v|tex
+	Re[E] Re[H] = Re\left[E_0\right]
+	
+0af5f624c169f0a5f378958cae05a8f6|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|152|17|v|tex
+	Re[E] Re[H] = Re\left[E_0\right]
+7d6b63bb61e496617cd91f040baac32c|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|151|1|V|tex
+	\begin{equation}
+	    E\times H = E_0 e^{-i\omega t} H_0 e^{-e\omega t} = E_0 H_0 e^{-2i\omega t}
+	\end{equation}
+	
+392fbf6b1843956e3cc1aa663a4e6127|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|156|1|V|tex
+	    E\times H = E_0 e^{-i\omega t} H_0 e^{-e\omega t} = E_0 H_0 e^{-2i\omega t}
+f802ac2b89eb643d8df071ef1fdbb0ff|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|152|61|v|tex
+	E_0 H_0 e^{-2i\omega t}
+	
+8df2721935c9baa5d18c95a8980ef9d8|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|159|1|V|tex
+	\begin{equation}
+	E_0 H_0 e^{-2i\omega t} \neq E_0 H_0
+	\end{equation}
+	
+50bec7baa651625b05534333035573f2|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|164|1|V|tex
+	E_0 H_0 e^{-2i\omega t} \neq E_0 H_0
+541bf2f6be4cfc33d92aaeb3c5cccc3b|file:///home/kevin/documents/ece434/hw3/hw2_sladowski.tex|167|1|V|tex
+	\subsection{b}
+e6ef47edfebe2d9df35ccbaa6d4d509a|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|170|1|V|tex
+	\begin{equation}
+	    <S> = \frac{1}{2}Re[EH*] = \frac{1}{2}E_0 H_0
+	\end{equation}
+	
+67b8b14c6f72ae3bf9689c1d7ea4a861|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|175|9|v|tex
+	= \frac{1}{2}Re[EH*] 
+045f6c44c8e8ff8a288aa90f60b10ba6|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|174|1|V|tex
+	\begin{equation}
+	    <S> = \frac{1}{2}E_0 H_0 = \frac{1}{2}E_0 \frac{B}{\mu} = \frac{1}{2}E_0 \frac{E_0}{c\mu}
+	\end{equation}
+	
+7312672cd42860286fc17583aced5c71|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|179|22|v|tex
+	E_0 H_0 = \frac{1}{2}E_0 \frac{B}{\mu} = \frac{1}{2}E_0 \frac{E_0}{c\mu}
+adb6d0f79f08e2718dcc4d3aff04e40d|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|179|42|v|tex
+	= \frac{1}{2}E_0^2\frac{1}{\sqrt{\frac{1}{\mu\epsilon}}\mu}
+44fc5e1d22daf9f0f9c7031e768a4bd0|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|179|102|v|tex
+	= \frac{1}{2}E_0^2\frac{1}{\sqrt{\frac{\mu^2}{\mu\epsilon}}}
+34ce75b63ee3f02584445be91e2dca96|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|183|9|v|tex
+	= \frac{1}{2}E_0^2\frac{1}{\sqrt{\frac{\mu^2}{\mu\epsilon}}} 
+5d16f803d4223ccafb7af745df136f29|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|183|70|v|tex
+	= \frac{1}{2}E_0^2\frac{1}{\sqrt{\frac{\mu}{\epsilon}}} 
+aad404a4fdf8eefc217fde5f764c3b86|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|183|153|v|tex
+	\sqrt{\frac{\mu}{\epsilon}}
+05b048d7242cb7b8b57cfa3b1d65ecea|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|183|154|v|tex
+	gamma
+7bc3fee5d8bad7a6e8cbb12b673b530f|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|183|126|v|tex
+	= \frac{1}{2}E_0^2\frac{1}{\eta} 
+fe8b19334b0a42af91c3b7fcc89cac42|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|193|1|V|tex
+	\subsection{a}
+3a0ed21b21f336aada2e50e41acd0f93|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|197|1|V|tex
+	\begin{equation}
+	    I_N = \frac{I_0}{2}cos^{2N}\left(\frac{90}{N}\right)
+	\end{equation}
+	
+68db47cb254d00af2762a1d8ead6e78c|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|205|5|V|tex
+	    I_max = \frac{I_0}{2}cos^{2N}\left(\frac{90}{N}\right)
+8c0eb4bc7ace6c8e143574d99e4456fd|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|198|32|v|tex
+	\left(\frac{90}{N}\right)
+09e8f44cc677e417a53e5ae6d1bbcf25|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|169|12|v|tex
+	\frac{1}{T} \int EHdt 
+21f76a76ea7859cc8a07260bda86c9a2|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|168|1|V|tex
+	\begin{equation}
+	    <EH> = \frac{1}{T} \int EHdt = \frac{1}{T} \int E_0 e^{-i\omega t} H_0 e^{-i\omega t}
+	\end{equation}
+	
+a895b4d0c884df5edf98684fe32fd42b|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|173|35|v|tex
+	EHdt = \frac{1}{T} \int E_0 e^{-i\omega t} H_0 e^{-i\omega t}
+8ac570f5b2439a58c94df5027ba2ed1d|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|173|12|v|tex
+	\frac{E_0 H_0}{T} \int e^{-2i\omega t}dt 
+3bebc12a8e12c54f08d45d7c5beda7ad|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|172|1|V|tex
+	\begin{equation}
+	    <EH> = \frac{E_0 H_0}{T} \int e^{-2i\omega t}dt = \frac{E_0 H_0 \omega}{2\pi} \int e^{-2i\omega t}dt 
+	\end{equation}
+	
+f91009c28751d01e8f4763518a3ec16a|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|177|40|v|tex
+	\int e^{-2i\omega t}dt 
+b7718f6c50a4b412a725a1db92af1138|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|176|1|V|tex
+	\begin{equation}
+	    <EH> = \frac{E_0 H_0 \omega}{2\pi} \frac{i}{2\omega} 
+	\end{equation}
+	
+eb4ea8e3273f0ce4038963891aae0823|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|168|1|V|tex
+	\begin{equation}
+	    <EH> = \frac{1}{T} \int EHdt = \frac{1}{T} \int E_0 e^{-i\omega t} H_0 e^{-i\omega t}dt
+	\end{equation}
+	
+	\begin{equation}
+	    <EH> = \frac{E_0 H_0}{T} \int e^{-2i\omega t}dt = \frac{E_0 H_0 \omega}{2\pi} \int e^{-2i\omega t}dt 
+	\end{equation}
+	
+	\begin{equation}
+	    <EH> = \frac{E_0 H_0 \omega}{2\pi} \frac{i}{2\omega} 
+	\end{equation}
+	
+	\begin{equation}
+	    <EH> = \frac{E_0 H_0 \omega}{2\pi} \frac{i}{2\omega} 
+	\end{equation}
+	
+	\begin{equation}
+	    EH* = E_0 e^{-i\omega t} H_0 e^{i\omega t}
+	\end{equation}
+14f5913bcda30348dc200e96aa372bde|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|181|18|v|tex
+	E_0 H_0 \omega
+be5b0be41cebeda4bccd801376faa6fe|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|172|1|v|tex
+	\begin{equation}
+	    <EH> = \frac{E_0 H_0}{T} \int e^{-2i\omega t}dt = \frac{E_0 H_0 \omega}{2\pi} \int e^{-2i\omega t}dt 
+	\end{equation}
+	
+	\begin{equation}
+	    <EH> = \frac{E_0 H_0 \omega}{2\pi} \frac{i}{2\omega} 
+	\end{equation}
+	
+	\begin{equation}
+	    <EH> = \frac{1}{2} \frac{i}{2\omega} 
+	\end{equation}
+	
+	\begin{equation}
+	    EH* = E_0 e^{-i\omega t} H_0 e^{i\omega t}
+	\end{equation}
+	
+791076aeb8e3307371d9ad251a966ccb|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|169|5|V|tex
+	    <S> = \frac{1}{T} \int EHdt = \frac{1}{T} \int E_0 e^{-i\omega t} H_0 e^{-i\omega t}dt
+72acd27c1038fd03dff4c607032b9443|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|172|1|v|tex
+	\begin{equation}
+	    <EH> = \frac{E_0 H_0}{T} \int e^{-2i\omega t}dt = \frac{E_0 H_0 \omega}{2\pi} \int e^{-2i\omega t}dt 
+	\end{equation}
+	
+	\begin{equation}
+	    <EH> = \frac{E_0 H_0 \omega}{2\pi} \frac{i}{2\omega} 
+	\end{equation}
+	
+	\begin{equation}
+	    <EH> = \frac{1}{2} \frac{i}{2\omega} 
+	\end{equation}
+	
+	\begin{equation}
+	    EH* = E_0 e^{-i\omega t} H_0 e^{i\omega t}
+	\end{equation}
+	
+	
+ac0e1be1638963aba48b14518226e5f6|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|169|5|V|tex
+	    <EH> = \frac{1}{T} \int EHdt = \frac{1}{T} \int E_0 e^{-i\omega t} H_0 e^{-i\omega t}dt
+2b7bf43f100f763b14a910d3497047fb|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|169|11|v|tex
+	Ecos{\omega t} - jEsin{\omega t}
+db553e189604f50927898de6d7b4cbcf|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|168|1|V|tex
+	\begin{equation}
+	    <S> = Ecos{\omega t} - jEsin{\omega t} \times Hcos{\omega t} + jHsin{\omega t}
+	\end{equation}
+	
+91d95fd83841e3a1a8b408398e755f41|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|173|81|v|tex
+	 - jEHcos{\omega t}sin{\omega t}
+43ab3a0a3bc228a47f0ad5fd3b2ec8a7|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|172|1|V|tex
+	\begin{equation}
+	    <S> = EHcos^2{\omega t} - 2jEHcos{\omega t}sin{\omega t} + jEHsin^2{\omega t}
+	\end{equation}
+	
+bade2c664742f326750b2c3c6221f99d|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|177|13|v|tex
+	cos^2{\omega t} 
+2158ed6c2797795f12fbdc70fbeb76ea|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|177|76|v|tex
+	sin^2{\omega t}
+b2d58d714d5fbe4a42b23fd05a518e31|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|183|1|V|tex
+	\begin{equation}
+	    <S> = \frac{1}{2}EH + jEH - jEH
+	\end{equation}
+	
+983b886f65c11b2828a080a269aae79a|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|217|9|v|tex
+	\frac{1}{2}\frac{1}{\eta}|E_0|^2
+0225045e3e423a88aeeff67da5650495|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|217|44|v|tex
+	\frac{1}{2}\frac{1}{\sqrt{\frac{\mu}{\epsilon}}}|E_0|^2
+331f727813e3ec554168310ce589ee34|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|217|119|v|tex
+	1}{\sqrt{\frac{\mu}{\epsilon}
+fb21cade23c28e803d0463387749c79f|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|216|1|V|tex
+	\begin{equation}
+	    I = \frac{1}{2}\frac{1}{\eta}|E_0|^2 = \frac{1}{2}\frac{1}{\sqrt{\frac{\mu}{\epsilon}}}|E_0|^2 = \frac{1}{2}\frac{\sqrt{\epsilon_0 \epsilon}}{\sqrt{\mu_0^2}}|E_0|^2
+	\end{equation}
+	
+adc68c9a2ec4aa96ecaed236ada2c38c|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|221|9|v|tex
+	\frac{1}{2}\frac{1}{\eta}|E_0|^2 
+f425867da40054fd375e3c2ffe27f075|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|221|9|v|tex
+	\frac{1}{2}\frac{1}{\sqrt{\frac{\mu}{\epsilon}}}|E_0|^2 
+baaa1c40ec0d944a9a6b321505836772|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|221|9|v|tex
+	\frac{1}{2}\frac{n\sqrt{\epsilon_0^2}}{\sqrt{\mu_0^2}}|E_0|^2
+a78ab6f883a6c93c567ec2736742c84f|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|221|91|v|tex
+	\sqrt{
+ea756bc333f33d3e4daf0af34f23eaee|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|231|1|v|tex
+	\begin{equation}
+	    I_0, I_1 = \frac{I_0}{2}, I_2 = I_1cos^2(\theta)
+	\end{equation}
+	
+9338eaef606c228c665f92bef0cb1e50|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|227|1|V|tex
+	\begin{equation}
+	    I_0, I_1 = \frac{I_0}{2}, I_2 = I_1cos^2(\theta), I_3 = I_2cos^2(\theta)
+	\end{equation}
+	
+08f545affbca069f6ca18e7ce89d3d9a|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|232|5|V|tex
+	    I_0, I_1 = \frac{I_0}{2}, I_2 = I_1cos^2(\theta), I_3 = I_2cos^2(\theta)
+d77881bf1778be9e314bf6dd0aafd552|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|235|1|V|tex
+	\begin{equation}
+	    \frac{dI_3}{d\theta} = 2sin(2\theta)cos(2\theta) = 0
+	\end{equation}
+	
+5f3fbbb062997e3e62d922c9278f74ce|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|240|1|V|tex
+	    \frac{dI_3}{d\theta} = 2sin(2\theta)cos(2\theta) = 0
+5c2e682b80d60da175aa750171b7e90a|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|239|1|V|tex
+	\begin{equation}
+	    sin(4\theta)
+	\end{equation}
+	
+9968d0c9a8b5a2279d773b0eb9717f63|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|244|5|V|tex
+	    sin(4\theta)
+24142dd70648e828155f52c2b103ec9a|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|243|1|V|tex
+	\begin{equation}
+	    4\theta = \pi
+	\end{equation}
+	
+306da837fa9399f1125ffea31d6d5442|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|248|1|V|tex
+	    4\theta = \pi
+18daee01fc6e54aacd7f4c2eef60ff4d|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|248|33|v|tex
+	degrees
+dd630ed9186db569debfcd8d511cdcad|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|231|1|V|tex
+	\begin{equation}
+	    I_3 = \frac{I_0}{2}cos^2\theta sin^2\theta
+	\end{equation}
+	
+601f47d749f75be2fc792196954c4116|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|254|19|v|tex
+	 sin^2\theta
+53b6f27e5ea237f71e3ccb1add5808a1|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|253|1|V|tex
+	\begin{equation}
+	    I_4 = I_3cos^2(90-(\theta_1 + \theta_2))
+	\end{equation}
+	
+8a8ececa82fec7d41367cb70cd1de580|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|258|5|V|tex
+	    I_4 = I_3cos^2(90-(\theta_1 + \theta_2))
+3f2c769870b32bf3887f19cb3c422563|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|257|1|V|tex
+	\begin{equation}
+	    \frac{dI_4}{d\theta} = 0 = 4\frac{I_0}{2}cos^3\theta sin(2\theta) cos(3\theta)
+	\end{equation}
+	
+523a784dbbb90584b767512ae354ae1d|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|262|2|V|tex
+	    \frac{dI_4}{d\theta} = 0 = 4\frac{I_0}{2}cos^3\theta sin(2\theta) cos(3\theta)
+a1c3aea0be962a0a12a0def6960625a5|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|258|83|v|tex
+	 = 0
+98c8322a539e06b90144d7c839d9c2e9|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|261|1|V|tex
+	\begin{equation}
+	    \theta = \theta_1 = \theta_2 = \frac{\pi}{6}
+	\end{equation}
+	
+aebea15a23b7283a259a334adfeb6481|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|266|1|V|tex
+	    \theta = \theta_1 = \theta_2 = \frac{\pi}{6}
+d25a4aaa797ccd5f799c287fc8ea5434|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|265|1|V|tex
+	\begin{equation}
+	    I_4 = \left(\frac{I_0}{2}cos^2(\theta_1)cos^2(\theta_2)\right)cos^2(90-\theta_1-\theta_2)
+	\end{equation}
+	
+b4349f1ec148658a5f0454e944063268|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|270|66|v|tex
+	_1-\theta_2
+4ffda95d7e5344fdbcb7a7cf51efc4a9|file:///home/kevin/documents/ece434/hw3/hw3_sladowski.tex|269|1|V|tex
+	\begin{equation}
+	    I_4 = \left(\frac{I_0}{2}cos^4(\theta)\right)cos^2(90-2\theta)
+	\end{equation}
+	
+99fce7a7027392f26f4bbd6d915dda76|file:///home/kevin/documents/ece434/hw1/hw1_sladowski.tex|21|1|V|tex
+	\includegraphics[width=0.5\textwidth]{p1a.jpg}
+d03d590cf92c17ab26a9a538b03cc542|file:///home/kevin/.config/emacs/backups/%21home%21kevin%21.config%21emacs%21config.org.~3~|4|1|V|
+	* Packages 
+	** Set up use-package
+	Initializing package repos. If an error occurs when installing something, run M-x list-packages to pull down updates to the repo
+	#+begin_src emacs-lisp
+	(require 'package)
+	
+	(setq package-archives '(("org"       . "http://orgmode.org/elpa/") ; define repos
+	                         ("gnu"       . "http://elpa.gnu.org/packages/")
+	                         ("melpa"     . "https://melpa.org/packages/")))
+	#+end_src
+	
+	Make sure use-package is installed and up to date
+	#+begin_src emacs-lisp
+	(package-initialize)
+	(unless package-archive-contents
+	 (package-refresh-contents))
+	
+	;; use-package
+	(unless (package-installed-p 'use-package)
+	  (package-install 'use-package))
+	
+	(require 'use-package)
+	(setq use-package-always-ensure t) 
+	#+end_src
+b326b5062b2f0e69046810717534cb09|file:///home/kevin/.config/syncthing/config.xml|118|23|v|xml
+	true
+ed47e9aadb4ba2f0269f3adb3394a4a9|file:///home/kevin/.xinitrc|7|6|v|
+	exwm
+7f93e3bf1b78feb5b7d0fbfbc0557c67|file:///home/kevin/.xinitrc|1|1|V|
+	setxkbmap -option ctrl:nocaps &
+47f3f476774ddd4baa221dfc84c8d3ef|file:///home/kevin/.xinitrc|1|1|V|
+	xcape -e 'Control_L=Escape' &
+9b022505e57eae1e61e8df0968b2be12|file:///var/tmp/udevmonXXEnv1jH.yaml|1|1|V|yaml
+	-sdf JOB:intercept -g $DEVNODE | caps2esc -m 1 | uinput -d $DEVNODE
+4aed0b1cb47575aaebffd87a82100251|file:///var/tmp/udevmonXXEnv1jH.yaml|1|3|V|yaml
+	  DEVICE:
+d456d6659a8e9962b8622e9dc7fc6753|file:///var/tmp/udevmonXXEnv1jH.yaml|1|5|V|yaml
+	    EVENTS:
+cb354ea96f12e907035277deecaad165|file:///var/tmp/udevmonXXEnv1jH.yaml|1|7|V|yaml
+	      EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
+614ebc78cee85089bc646fda22c177a7|file:///dev/shm/pass.SERUJcIOFHmbp/EZ4azU-smtp.gmail.com.txt|2|1|V|text
+	host: smtp.gmail.com
+	user: kevs1198@gmail.com
+	port: 465
+a717ff46d479f91c07fa7bcc62e286b5|file:///home/kevin/git/cs506-spr2021/.git/COMMIT_EDITMSG|1|20|v|gitcommit
+	first commit
+27cf1e36682fb645e2f4943bbe54f7be|file:///home/kevin/git/cs506-spr2021/.git/rebase-merge/git-rebase-todo|1|1|v|gitrebase
+	pick
+c6f16e31aa2af6605b0c611fe2c8f6ec|file:///home/kevin/git/cs506-spr2021/.git/COMMIT_EDITMSG|3|1|V|gitcommit
+	module 5 subtask 1 second commit
+3627052b2c6dd1cca2b3957d9c651777|file:///home/kevin/git/cs506-spr2021/.git/COMMIT_EDITMSG|1|1|V|gitcommit
+	module 5 subtask 1 squashed

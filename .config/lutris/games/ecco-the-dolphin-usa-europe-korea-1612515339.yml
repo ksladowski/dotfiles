@@ -1,0 +1,5 @@
+game:
+  core: genesis_plus_gx
+  main_file: Sega Genesis/Ecco the Dolphin (USA, Europe, Korea).md
+libretro: {}
+system: {}

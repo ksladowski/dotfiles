@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Frogger Advance - The Great Quest (USA).gba
+libretro: {}
+system: {}

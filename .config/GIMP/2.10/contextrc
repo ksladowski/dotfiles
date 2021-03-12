@@ -1,0 +1,14 @@
+# GIMP user context
+
+(tool "gimp-operation-tool")
+(paint-info "gimp-paintbrush")
+(brush "2. Block 01")
+(dynamics "Dynamics Off")
+(mybrush "100% Opaque")
+(pattern "Pine")
+(gradient "FG to BG (RGB)")
+(palette "Color History")
+(font "Adobe Times Bold")
+(tool-preset "Core Pointer")
+
+# end of user context

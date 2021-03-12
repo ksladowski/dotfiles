@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Kirby - Nightmare in Dream Land (USA).gba
+libretro: {}
+system: {}

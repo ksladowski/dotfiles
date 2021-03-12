@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Mario Kart - Super Circuit (USA).gba
+libretro: {}
+system: {}

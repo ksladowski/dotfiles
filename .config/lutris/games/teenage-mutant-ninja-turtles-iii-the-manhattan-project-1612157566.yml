@@ -1,0 +1,6 @@
+game:
+  core: mesen
+  main_file: /home/kevin/media/Emulation/Games/Nintendo Entertainment System/Teenage
+    Mutant Ninja Turtles III - The Manhattan Project (USA).nes
+libretro: {}
+system: {}

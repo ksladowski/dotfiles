@@ -1,0 +1,6 @@
+game:
+  core: mesen
+  main_file: /home/kevin/media/Emulation/Games/Nintendo Entertainment System/Double
+    Dragon III - The Sacred Stones (USA).nes
+libretro: {}
+system: {}

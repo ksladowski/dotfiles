@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Donkey Kong Country 2 (USA, Australia).gba
+libretro: {}
+system: {}

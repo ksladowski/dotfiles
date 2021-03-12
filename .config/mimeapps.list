@@ -1,0 +1,10 @@
+[Default Applications]
+x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
+x-scheme-handler/discord-471872241299226636=discord-471872241299226636.desktop
+x-scheme-handler/discord-712465656758665259=discord-712465656758665259.desktop
+x-scheme-handler/discord-402572971681644545=discord-402572971681644545.desktop
+
+[Added Associations]
+image/png=feh.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;

@@ -1,0 +1,37 @@
+{
+    "id": "rct2.tms1",
+    "authors": ["Chris Sawyer", "Simon Foster"],
+    "version": "1.0",
+    "originalId": "0A188E81|TMS1    |344683F1",
+    "sourceGame": ["rct2", "rct1"],
+    "objectType": "scenery_small",
+    "properties": {
+        "price": 13,
+        "removalPrice": -5,
+        "cursor": "CURSOR_TREE_DOWN",
+        "height": 36,
+        "shape": "4/4",
+        "isStackable": true
+    },
+    "images": ["$RCT2:OBJDATA/TMS1.DAT[0..3]"],
+    "strings": {
+        "name": {
+            "en-GB": "Toadstool",
+            "fr-FR": "Champignon vénéneux",
+            "de-DE": "Giftpilz",
+            "es-ES": "Seta",
+            "it-IT": "Fungo velenoso",
+            "nl-NL": "Paddenstoel",
+            "sv-SE": "Giftsvamp",
+            "ko-KR": "독버섯",
+            "zh-CN": "伞菌;毒菌",
+            "zh-TW": "傘菌;毒菌",
+            "pt-BR": "Cogumelo Venenoso",
+            "cs-CZ": "Muchomůrka",
+            "ja-JP": "毒キノコ",
+            "pl-PL": "Muchomor",
+            "ru-RU": "Поганка",
+            "eo-OO": "Fungo"
+        }
+    }
+}

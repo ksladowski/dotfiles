@@ -1,0 +1,6 @@
+caps2esc -m 1 &
+numlockx &
+syncthing &
+picom &
+~/.fehbg &
+exec emacs

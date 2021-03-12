@@ -1,0 +1,38 @@
+{
+  "about_get_books_msg_again": false,
+  "add books dialog dir": "/home/kevin/downloads",
+  "change cover dialog": "/home/kevin/downloads",
+  "database location dialog": "/home/kevin/media/Books",
+  "notified-version-updates": {
+    "__class__": "set",
+    "__value__": [
+      "5.13"
+    ]
+  },
+  "recursive book import root dir dialog": "/home/kevin/media/Syncthing/Witcher Series",
+  "s_r_search_mode": 0,
+  "sort_history": [
+    [
+      "authors",
+      false
+    ],
+    [
+      "authors",
+      true
+    ],
+    [
+      "series",
+      true
+    ],
+    [
+      "authors",
+      true
+    ],
+    [
+      "timestamp",
+      false
+    ]
+  ],
+  "welcome_wizard_device": "kobo_vox",
+  "welcome_wizard_was_run": true
+}

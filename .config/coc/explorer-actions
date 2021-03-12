@@ -1,0 +1,8 @@
+delete
+addFile
+open:vsplit:intelligent
+open:vsplit:plain
+open
+cd
+collapse
+addDirectory

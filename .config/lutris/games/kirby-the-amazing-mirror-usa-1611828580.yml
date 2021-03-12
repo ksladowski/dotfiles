@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Kirby & the Amazing Mirror (USA).gba
+libretro: {}
+system: {}

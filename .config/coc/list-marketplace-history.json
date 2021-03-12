@@ -1,0 +1,17 @@
+{
+  "L2hvbWUva2V2aW4vLmNvbmZpZy9xdGlsZQ==": [
+    "python",
+    "jedi",
+    "gcc"
+  ],
+  "L2hvbWUva2V2aW4vZG9jdW1lbnRzL2VjZTQzNC9odzE=": [
+    "vimtex"
+  ],
+  "L2hvbWUva2V2aW4vY3MvY3M1MzcveHY2": [
+    "ccls"
+  ],
+  "L2hvbWUva2V2aW4vY3MvY3M1Mzc=": [
+    "ccls",
+    "clangd"
+  ]
+}

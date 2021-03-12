@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Sims, The - Bustin' Out (USA, Europe) (En,Fr,De,Es,It,Nl).gba
+libretro: {}
+system: {}

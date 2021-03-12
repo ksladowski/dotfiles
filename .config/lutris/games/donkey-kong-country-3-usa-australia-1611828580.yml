@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Donkey Kong Country 3 (USA, Australia).gba
+libretro: {}
+system: {}

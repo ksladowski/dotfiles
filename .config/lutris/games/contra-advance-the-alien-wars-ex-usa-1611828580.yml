@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Contra Advance - The Alien Wars EX (USA).gba
+libretro: {}
+system: {}

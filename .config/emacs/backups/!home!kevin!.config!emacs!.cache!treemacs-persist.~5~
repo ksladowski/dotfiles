@@ -1,0 +1,5 @@
+* Default
+** emacs
+ - path :: ~/.config/emacs
+** cs537
+ - path :: ~/git/cs537

@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Super Mario Advance (USA, Europe).gba
+libretro: {}
+system: {}

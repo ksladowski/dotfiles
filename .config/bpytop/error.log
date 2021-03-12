@@ -1,0 +1,27 @@
+11/02/21 (22:54:57) | ERROR: Data collection thread failed with exception: Sign not allowed in string format specifier
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 2909, in _runner
+    collector._draw()
+  File "/usr/bin/bpytop", line 3937, in _draw
+    ProcBox._draw_fg()
+  File "/usr/bin/bpytop", line 2689, in _draw_fg
+    label = (f'{THEME.title}{Fx.b}{Mv.to(y, x)}{"Pid:":>7} {"Program:" if prog_len > 8 else "Prg:":<{prog_len}}' + (f'{"Arguments:":<{arg_len-4}}' if arg_len else "") +
+ValueError: Sign not allowed in string format specifier
+11/02/21 (22:54:58) | WARNING: Exiting with errorcode (1). Runtime 0:00:01 
+
+11/02/21 (22:55:20) | ERROR: Data collection thread failed with exception: Sign not allowed in string format specifier
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 2909, in _runner
+    collector._draw()
+  File "/usr/bin/bpytop", line 3937, in _draw
+    ProcBox._draw_fg()
+  File "/usr/bin/bpytop", line 2689, in _draw_fg
+    label = (f'{THEME.title}{Fx.b}{Mv.to(y, x)}{"Pid:":>7} {"Program:" if prog_len > 8 else "Prg:":<{prog_len}}' + (f'{"Arguments:":<{arg_len-4}}' if arg_len else "") +
+ValueError: Sign not allowed in string format specifier
+11/02/21 (22:55:20) | WARNING: Exiting with errorcode (1). Runtime 0:00:01 
+
+14/02/21 (20:21:38) | ERROR: Input thread failed with exception: [Errno 5] Input/output error
+Traceback (most recent call last):
+  File "/usr/bin/bpytop", line 919, in _get_key
+    input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
+OSError: [Errno 5] Input/output error

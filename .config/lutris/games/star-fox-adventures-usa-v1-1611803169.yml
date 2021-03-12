@@ -1,0 +1,6 @@
+dolphin: {}
+game:
+  main_file: /home/kevin/media/Emulation/Games/Nintendo GameCube/Star Fox Adventures
+    (USA) (v1.00).iso
+  platform: '0'
+system: {}

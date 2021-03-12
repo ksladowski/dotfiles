@@ -1,0 +1,854 @@
+[02/11/21, 23:09:02:764] info: 
+╔════════════════════════════════════════════════════════════════════════════════╗
+║      Slack 4.11.3, linux 5.10.11-arch1-1 on x64 at 02/11/21, 23:09:02:762      ║
+╚════════════════════════════════════════════════════════════════════════════════╝ 
+[02/11/21, 23:09:02:766] info: Configured logger via 
+{
+  "logLevel": "info",
+  "numberOfInstances": 1
+}
+[02/11/21, 23:09:02:766] info: Predefined values for process 
+{
+  "NODE_ENV": "production",
+  "platform": "linux",
+  "type": "browser",
+  "PACKAGE_MANIFEST.productName": "Slack",
+  "PACKAGE_MANIFEST.version": "4.11.3",
+  "PACKAGE_MANIFEST.commit": "2924c08",
+  "PACKAGE_MANIFEST.branch": "HEAD",
+  "PACKAGE_MANIFEST.useSentry": true
+}
+[02/11/21, 23:09:02:818] info: Could not load previous electron version 
+[02/11/21, 23:09:02:922] info: Store: persist/PERSIST 
+[02/11/21, 23:09:02:926] info: getIsUpdateSupported: Updates are not supported 
+{
+  "version": "4.11.3",
+  "reasons": [
+    "using Linux"
+  ],
+  "distribution": "DDL",
+  "executable": "/usr/lib/electron"
+}
+[02/11/21, 23:09:02:926] info: Store: UPDATE_SETTINGS 
+{
+  "locale": "en-US"
+}
+[02/11/21, 23:09:02:928] info: Migrating from redux-persist@v4 
+[02/11/21, 23:09:02:929] info: Finished migrating state 
+{
+  "keys": [
+    "_persist"
+  ],
+  "version": 1
+}
+[02/11/21, 23:09:02:930] info: Store: persist/REHYDRATE 
+{
+  "_persist": "Persistence version: 1"
+}
+[02/11/21, 23:09:02:931] info: Store: RECORD_PERFORMANCE_TIMING 
+{
+  "phase": 0,
+  "interval": 17
+}
+[02/11/21, 23:09:02:933] info: Store: INITIALIZE 
+{
+  "resourcePath": "/usr/share/slack/app.asar",
+  "silent": true,
+  "bootFragments": []
+}
+[02/11/21, 23:09:02:935] info: persistUuid:: Generated uuid 
+{
+  "uuid": "8e8ae9db-96b9-5252-b8ad-ec2047d1a982"
+}
+[02/11/21, 23:09:02:936] info: persistUuid:: Uuid persisted successfully 
+[02/11/21, 23:09:02:948] info: Starting Sentry 
+[02/11/21, 23:09:02:974] warn: Failed to install protocol handler for slack:// links 
+[02/11/21, 23:09:02:979] info: getLinuxDistro: osInfo 
+{
+  "stdoutValue": "1.4 Arch \"Arch Linux\" rolling n/a\n",
+  "osInfo": [
+    ""
+  ]
+}
+[02/11/21, 23:09:02:980] warn: Couldn't get Linux distro info from lsb_release, trying fallback to get Linux distro info 
+{
+  "error": {
+    "stack": "Error: Missing OS or release info\n    at getLinuxDistro (/usr/share/slack/app.asar/dist/main.bundle.js:2:2098378)",
+    "message": "Missing OS or release info"
+  },
+  "stackFrameString": "[{\"columnNumber\":2098378,\"lineNumber\":2,\"fileName\":\"/usr/share/slack/app.asar/dist/main.bundle.js\",\"functionName\":\"getLinuxDistro\",\"source\":\"    at getLinuxDistro (/usr/share/slack/app.asar/dist/main.bundle.js:2:2098378)\"}]"
+}
+[02/11/21, 23:09:02:984] info: getLinuxDistro: getos 
+{
+  "res": {
+    "os": "linux",
+    "dist": "Arch Linux",
+    "release": "rolling"
+  }
+}
+[02/11/21, 23:09:02:985] info: Store: READY 
+{
+  "resourcePath": "/usr/share/slack/app.asar",
+  "silent": true,
+  "bootFragments": [],
+  "appVersion": "4.11.3",
+  "is64Bit": true,
+  "isGpuCompositionAvailable": true,
+  "isTitleBarHidden": false,
+  "platform": "linux",
+  "platformVersion": {
+    "major": 5,
+    "minor": 10,
+    "build": 11
+  },
+  "releaseChannel": "prod",
+  "developerMenuOverride": false,
+  "uuid": "8e8ae9db-96b9-5252-b8ad-ec2047d1a982",
+  "sessionId": "OGU4YWU5ZGItOTZiOS01MjUyLWI4YWQtZWMyMDQ3ZDFhOTgyXzE2MTMxMDY1NDI5MzY=",
+  "distribution": "DDL",
+  "linux": {
+    "os": "Arch Linux",
+    "name": "Arch Linux rolling",
+    "release": "rolling",
+    "codename": ""
+  }
+}
+[02/11/21, 23:09:02:994] info: initializeApplicationEpic: Welcome to Slack 4.11.3 x64 
+[02/11/21, 23:09:02:998] info: AutoLoginEpic: Checking for autologin. 
+[02/11/21, 23:09:02:999] info: getIsUpdateSupported: Updates are not supported 
+{
+  "version": "4.11.3",
+  "reasons": [
+    "using Linux"
+  ],
+  "distribution": "DDL",
+  "executable": "/usr/lib/electron"
+}
+[02/11/21, 23:09:03:026] info: Store: SET_ACCESSIBILITY_SUPPORT_ENABLED 
+[02/11/21, 23:09:03:026] info: Store: CREATE_WINDOW 
+{
+  "type": "main"
+}
+[02/11/21, 23:09:03:027] info: Store: UPDATE_SETTINGS 
+{
+  "isSignedIntoSlackOrg": false
+}
+[02/11/21, 23:09:03:031] info: Store: UPDATE_SETTINGS 
+{
+  "useHwAcceleration": true,
+  "launchOnStartup": false,
+  "PrefSSBFileDownloadPath": "/home/kevin/Downloads",
+  "hasRunApp": true
+}
+[02/11/21, 23:09:03:033] info: System configuration information 
+{
+  "info": {
+    "total_memory_in_gb": 31,
+    "gpuFeatures": {
+      "2d_canvas": "enabled",
+      "gpu_compositing": "enabled",
+      "multiple_raster_threads": "enabled_on",
+      "oop_rasterization": "disabled_off",
+      "opengl": "enabled_on",
+      "protected_video_decode": "unavailable_off",
+      "rasterization": "disabled_software",
+      "skia_renderer": "enabled_on",
+      "video_decode": "disabled_software",
+      "vulkan": "disabled_off",
+      "webgl": "enabled",
+      "webgl2": "enabled"
+    },
+    "cpu_model": "Intel(R) Core(TM) i7-4770K CPU @ 3.50GHz",
+    "cpu_logical_core": 8,
+    "cpu_clock_speed": 3890,
+    "gpuDevice": [
+      {
+        "active": true,
+        "cudaComputeCapabilityMajor": 0,
+        "deviceId": 4108,
+        "driverVendor": "Nvidia",
+        "driverVersion": "460.39",
+        "vendorId": 4318
+      }
+    ],
+    "machine_model_name": "unknown",
+    "machine_model_version": "unknown"
+  }
+}
+[02/11/21, 23:09:03:041] info: Store: TOKEN_FILE_PROCESSED 
+[02/11/21, 23:09:03:042] info: AutoLoginEpic: Processing token file for autologin. 
+[02/11/21, 23:09:03:042] info: AutoLoginEpic: Completed autologin processing — successfully logged in 0 workspaces. 
+[02/11/21, 23:09:03:042] info: AutoLoginEpic: Setting default sign-in team to null 
+[02/11/21, 23:09:03:042] info: Store: AUTOLOGIN_TEAMS_COMPLETE 
+[02/11/21, 23:09:03:043] info: Store: UPDATE_SETTINGS 
+{
+  "defaultSigninTeam": null
+}
+[02/11/21, 23:09:03:055] info: MainWindowEpics: Setting main window ID 
+{
+  "id": 1
+}
+[02/11/21, 23:09:03:057] info: Store: WINDOW_CREATED 
+{
+  "type": "main",
+  "id": 1,
+  "frame": {
+    "isHtmlFullScreen": false,
+    "isFullScreen": false,
+    "isMinimized": false,
+    "isMaximized": false,
+    "isVisible": false,
+    "isFocused": false,
+    "bounds": {
+      "x": 560,
+      "y": 300,
+      "width": 800,
+      "height": 600
+    }
+  }
+}
+[02/11/21, 23:09:03:059] info: validateBoundsForDisplay: Bounds {"width":1024,"height":768,"x":448,"y":216} not contained in Display with workArea {"x":1920,"y":0,"width":1600,"height":1200} 
+[02/11/21, 23:09:03:061] info: Watching for keyboard layout changes 
+[02/11/21, 23:09:03:064] info: Store: RECORD_PERFORMANCE_TIMING 
+{
+  "phase": 1,
+  "interval": 128
+}
+[02/11/21, 23:09:03:065] info: Store: UPDATE_SETTINGS 
+{
+  "keyboardLayout": "us"
+}
+[02/11/21, 23:09:03:067] info: registerLifeCycleEvents: Registering webContents:1 
+[02/11/21, 23:09:03:067] info: Store: UPSERT_WEB_CONTENTS 
+{
+  "id": 1,
+  "state": "unloaded"
+}
+[02/11/21, 23:09:03:682] info: Finished download of spellcheck dictionary 
+{
+  "code": "en-US"
+}
+[02/11/21, 23:09:03:683] info: Spellcheck dictionary initialized 
+{
+  "code": "en-US"
+}
+[02/11/21, 23:09:04:068] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "bounds": {
+      "x": 448,
+      "y": 216,
+      "width": 1024,
+      "height": 768
+    },
+    "isMaximized": false
+  },
+  "fromEvent": true
+}
+[02/11/21, 23:09:04:077] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "bounds": {
+      "x": 448,
+      "y": 216,
+      "width": 1024,
+      "height": 768
+    },
+    "isMaximized": false
+  },
+  "fromEvent": true
+}
+[02/11/21, 23:09:04:680] info: registerLifeCycleEvents: webContents:1 from 'unloaded' to 'loaded' took 1613 ms 
+[02/11/21, 23:09:04:681] info: Store: UPSERT_WEB_CONTENTS 
+{
+  "id": 1,
+  "state": "loaded"
+}
+[02/11/21, 23:09:04:682] info: initializeMainWindowEpic: Showing main window 
+{
+  "maximized": false,
+  "shouldHide": false,
+  "fullScreen": false
+}
+[02/11/21, 23:09:04:684] info: Store: RECORD_PERFORMANCE_TIMING 
+{
+  "phase": 2,
+  "interval": 1623
+}
+[02/11/21, 23:09:04:685] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "isVisible": true
+  },
+  "fromEvent": true
+}
+[02/11/21, 23:09:04:685] info: Store: MAIN_WINDOW_SHOWN 
+[02/11/21, 23:09:04:689] info: Store: UPDATE_SETTINGS 
+{
+  "mainWindowSettings": {
+    "fullScreen": false,
+    "maximized": false,
+    "bounds": {
+      "x": 448,
+      "y": 216,
+      "width": 1024,
+      "height": 768
+    }
+  }
+}
+[02/11/21, 23:09:04:690] info: Store: CLEAR_NOTIFICATIONS 
+[02/11/21, 23:09:04:721] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "isFocused": true
+  },
+  "fromEvent": true
+}
+[02/11/21, 23:09:04:834] info: registerLifeCycleEvents: webContents:1 is type 'app' 
+[02/11/21, 23:09:04:834] info: Store: UPSERT_WEB_CONTENTS 
+{
+  "id": 1,
+  "type": "app",
+  "history": "[REDACTED]"
+}
+[02/11/21, 23:09:04:838] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "isVisible": true,
+    "isFocused": true
+  },
+  "fromEvent": true
+}
+[02/11/21, 23:09:05:054] info: Store: SET_NETWORK_STATUS online
+[02/11/21, 23:09:05:718] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "bounds": {
+      "x": 12,
+      "y": 624,
+      "width": 936,
+      "height": 564
+    },
+    "isMaximized": false
+  },
+  "fromEvent": true
+}
+[02/11/21, 23:09:05:726] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "bounds": {
+      "x": 12,
+      "y": 624,
+      "width": 936,
+      "height": 564
+    },
+    "isMaximized": false
+  },
+  "fromEvent": true
+}
+[02/11/21, 23:09:05:791] info: Store: UPDATE_SETTINGS 
+{
+  "mainWindowSettings": {
+    "fullScreen": false,
+    "maximized": false,
+    "bounds": {
+      "x": 12,
+      "y": 624,
+      "width": 936,
+      "height": 564
+    }
+  }
+}
+[02/11/21, 23:09:07:922] info: Store: persist/FLUSH 
+[02/11/21, 23:09:08:882] info: Main window closed, consider it a quit action 
+{
+  "runFromTray": true,
+  "keepAppInTaskbar": false
+}
+[02/11/21, 23:09:08:882] info: Store: QUIT_APP 
+[02/11/21, 23:09:08:884] info: EpicHelpers: Flushing cookie store 
+[02/11/21, 23:09:08:884] info: Disposing basic_auth_handler_BasicAuthHandler… 
+[02/11/21, 23:09:08:884] info: Disposing tray_handler_TrayHandler… 
+[02/11/21, 23:09:08:885] info: Disposing app_menu_AppMenu… 
+[02/11/21, 23:09:08:885] info: Store: DOWNLOADS_CLEANED_UP 
+[02/11/21, 23:09:08:885] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "isVisible": false
+  },
+  "fromEvent": true
+}
+[02/11/21, 23:09:08:888] info: registerLifeCycleEvents: webContents:1 from 'loaded' to 'page-closed' took 4054 ms 
+[02/11/21, 23:09:08:889] info: Store: UPSERT_WEB_CONTENTS 
+{
+  "id": 1,
+  "state": "page-closed"
+}
+[02/11/21, 23:09:08:900] info: Telling native-keymap to ignore all future events as we are quitting 
+[02/11/21, 23:09:08:901] info: Store: REMOVE_WEB_CONTENTS 
+{
+  "id": 1
+}
+[02/11/21, 23:09:08:903] info: Store: REMOVE_WINDOW 1
+[02/11/21, 23:09:08:906] info: EpicHelpers: Flushing local-settings.json 
+[02/11/21, 23:09:08:906] info: LocalSettings: Setting useHwAcceleration to true 
+[02/11/21, 23:09:08:916] info: Store: persist/FLUSH 
+[02/11/21, 23:09:08:919] error: Tried to close the main window but it does not exist 
+[02/11/21, 23:09:08:921] info: 
++-------------------+-------------+
+| FLUSH_COOKIES     | 21.794687ms |
+|-------------------+-------------+
+| FLUSH_STORE       | 0.879811ms  |
+|-------------------+-------------+
+| REMOVE_DICT       | 0.481883ms  |
+|-------------------+-------------+
+| FLUSH_TELEMETRY   | 2.057997ms  |
+|-------------------+-------------+
+| CLOSE_MAIN_WINDOW | 0.225979ms  |
+|-------------------+-------------+
+| TOTAL             | 36.719802ms |
++-------------------+-------------+ 
+[02/11/21, 23:09:08:922] info: quitApplicationEpic: Finished, calling app.quit 
+[02/12/21, 16:22:37:144] info: 
+╔════════════════════════════════════════════════════════════════════════════════╗
+║      Slack 4.11.3, linux 5.10.11-arch1-1 on x64 at 02/12/21, 16:22:37:143      ║
+╚════════════════════════════════════════════════════════════════════════════════╝ 
+[02/12/21, 16:22:37:145] info: Configured logger via 
+{
+  "logLevel": "info",
+  "numberOfInstances": 1
+}
+[02/12/21, 16:22:37:145] info: Predefined values for process 
+{
+  "NODE_ENV": "production",
+  "platform": "linux",
+  "type": "browser",
+  "PACKAGE_MANIFEST.productName": "Slack",
+  "PACKAGE_MANIFEST.version": "4.11.3",
+  "PACKAGE_MANIFEST.commit": "2924c08",
+  "PACKAGE_MANIFEST.branch": "HEAD",
+  "PACKAGE_MANIFEST.useSentry": true
+}
+[02/12/21, 16:22:37:303] info: Store: persist/PERSIST 
+[02/12/21, 16:22:37:305] info: getIsUpdateSupported: Updates are not supported 
+{
+  "version": "4.11.3",
+  "reasons": [
+    "using Linux"
+  ],
+  "distribution": "DDL",
+  "executable": "/usr/lib/electron"
+}
+[02/12/21, 16:22:37:306] info: Store: UPDATE_SETTINGS 
+{
+  "locale": "en-US"
+}
+[02/12/21, 16:22:37:310] info: Store: persist/REHYDRATE 
+{
+  "appTeams": "[DEPRECATED]",
+  "bookmarks": "[REDACTED]",
+  "dialog": "[REDACTED]",
+  "downloads": "No downloads",
+  "enterprise": "No Enterprise orgs",
+  "settings": {
+    "isSignedIntoSlackOrg": false,
+    "locale": "en-US",
+    "notificationMethod": null,
+    "releaseChannelOverride": null
+  },
+  "teams": "[DEPRECATED]",
+  "webapp": "[REDACTED]",
+  "workspaces": "Not signed in to any workspaces",
+  "workspacesMeta": "Selected workspace: null",
+  "_persist": "Persistence version: 1"
+}
+[02/12/21, 16:22:37:312] info: Store: RECORD_PERFORMANCE_TIMING 
+{
+  "phase": 0,
+  "interval": 13
+}
+[02/12/21, 16:22:37:313] info: Store: INITIALIZE 
+{
+  "resourcePath": "/usr/share/slack/app.asar",
+  "bootFragments": []
+}
+[02/12/21, 16:22:37:314] info: getInstanceUuid:: Read existing uuid from persisted location 
+{
+  "uuid": "8e8ae9db-96b9-5252-b8ad-ec2047d1a982"
+}
+[02/12/21, 16:22:37:322] info: Starting Sentry 
+[02/12/21, 16:22:37:353] warn: Failed to install protocol handler for slack:// links 
+[02/12/21, 16:22:37:373] info: getLinuxDistro: osInfo 
+{
+  "stdoutValue": "1.4 Arch \"Arch Linux\" rolling n/a\n",
+  "osInfo": [
+    ""
+  ]
+}
+[02/12/21, 16:22:37:374] warn: Couldn't get Linux distro info from lsb_release, trying fallback to get Linux distro info 
+{
+  "error": {
+    "stack": "Error: Missing OS or release info\n    at getLinuxDistro (/usr/share/slack/app.asar/dist/main.bundle.js:2:2098378)",
+    "message": "Missing OS or release info"
+  },
+  "stackFrameString": "[{\"columnNumber\":2098378,\"lineNumber\":2,\"fileName\":\"/usr/share/slack/app.asar/dist/main.bundle.js\",\"functionName\":\"getLinuxDistro\",\"source\":\"    at getLinuxDistro (/usr/share/slack/app.asar/dist/main.bundle.js:2:2098378)\"}]"
+}
+[02/12/21, 16:22:37:378] info: getLinuxDistro: getos 
+{
+  "res": {
+    "os": "linux",
+    "dist": "Arch Linux",
+    "release": "rolling"
+  }
+}
+[02/12/21, 16:22:37:378] info: Store: READY 
+{
+  "resourcePath": "/usr/share/slack/app.asar",
+  "bootFragments": [],
+  "appVersion": "4.11.3",
+  "is64Bit": true,
+  "isGpuCompositionAvailable": true,
+  "isTitleBarHidden": false,
+  "platform": "linux",
+  "platformVersion": {
+    "major": 5,
+    "minor": 10,
+    "build": 11
+  },
+  "releaseChannel": "prod",
+  "developerMenuOverride": false,
+  "uuid": "8e8ae9db-96b9-5252-b8ad-ec2047d1a982",
+  "sessionId": "OGU4YWU5ZGItOTZiOS01MjUyLWI4YWQtZWMyMDQ3ZDFhOTgyXzE2MTMxNjg1NTczMTQ=",
+  "distribution": "DDL",
+  "linux": {
+    "os": "Arch Linux",
+    "name": "Arch Linux rolling",
+    "release": "rolling",
+    "codename": ""
+  }
+}
+[02/12/21, 16:22:37:395] info: initializeApplicationEpic: Welcome to Slack 4.11.3 x64 
+[02/12/21, 16:22:37:399] info: AutoLoginEpic: Checking for autologin. 
+[02/12/21, 16:22:37:401] info: getIsUpdateSupported: Updates are not supported 
+{
+  "version": "4.11.3",
+  "reasons": [
+    "using Linux"
+  ],
+  "distribution": "DDL",
+  "executable": "/usr/lib/electron"
+}
+[02/12/21, 16:22:37:443] info: Store: SET_ACCESSIBILITY_SUPPORT_ENABLED 
+[02/12/21, 16:22:37:444] info: Store: CREATE_WINDOW 
+{
+  "type": "main"
+}
+[02/12/21, 16:22:37:444] info: Store: UPDATE_SETTINGS 
+{
+  "isSignedIntoSlackOrg": false
+}
+[02/12/21, 16:22:37:447] info: Store: UPDATE_SETTINGS 
+{
+  "useHwAcceleration": true
+}
+[02/12/21, 16:22:37:466] info: System configuration information 
+{
+  "info": {
+    "total_memory_in_gb": 31,
+    "gpuFeatures": {
+      "2d_canvas": "enabled",
+      "gpu_compositing": "enabled",
+      "multiple_raster_threads": "enabled_on",
+      "oop_rasterization": "disabled_off",
+      "opengl": "enabled_on",
+      "protected_video_decode": "unavailable_off",
+      "rasterization": "disabled_software",
+      "skia_renderer": "enabled_on",
+      "video_decode": "disabled_software",
+      "vulkan": "disabled_off",
+      "webgl": "enabled",
+      "webgl2": "enabled"
+    },
+    "cpu_model": "Intel(R) Core(TM) i7-4770K CPU @ 3.50GHz",
+    "cpu_logical_core": 8,
+    "cpu_clock_speed": 3651,
+    "gpuDevice": [
+      {
+        "active": true,
+        "cudaComputeCapabilityMajor": 0,
+        "deviceId": 4108,
+        "driverVendor": "Nvidia",
+        "driverVersion": "460.39",
+        "vendorId": 4318
+      }
+    ],
+    "machine_model_name": "unknown",
+    "machine_model_version": "unknown"
+  }
+}
+[02/12/21, 16:22:37:474] info: Store: TOKEN_FILE_PROCESSED 
+[02/12/21, 16:22:37:474] info: AutoLoginEpic: Processing token file for autologin. 
+[02/12/21, 16:22:37:475] info: AutoLoginEpic: Completed autologin processing — successfully logged in 0 workspaces. 
+[02/12/21, 16:22:37:475] info: AutoLoginEpic: Setting default sign-in team to null 
+[02/12/21, 16:22:37:475] info: Store: AUTOLOGIN_TEAMS_COMPLETE 
+[02/12/21, 16:22:37:475] info: Store: UPDATE_SETTINGS 
+{
+  "defaultSigninTeam": null
+}
+[02/12/21, 16:22:37:500] info: MainWindowEpics: Setting main window ID 
+{
+  "id": 1
+}
+[02/12/21, 16:22:37:502] info: Store: WINDOW_CREATED 
+{
+  "type": "main",
+  "id": 1,
+  "frame": {
+    "isHtmlFullScreen": false,
+    "isFullScreen": false,
+    "isMinimized": false,
+    "isMaximized": false,
+    "isVisible": false,
+    "isFocused": false,
+    "bounds": {
+      "x": 12,
+      "y": 624,
+      "width": 936,
+      "height": 564
+    }
+  }
+}
+[02/12/21, 16:22:37:504] info: validateBoundsForDisplay: Bounds {"x":12,"y":624,"width":936,"height":564} not contained in Display with workArea {"x":1920,"y":0,"width":1600,"height":1200} 
+[02/12/21, 16:22:37:507] info: Watching for keyboard layout changes 
+[02/12/21, 16:22:37:512] info: Store: RECORD_PERFORMANCE_TIMING 
+{
+  "phase": 1,
+  "interval": 193
+}
+[02/12/21, 16:22:37:513] info: registerLifeCycleEvents: Registering webContents:1 
+[02/12/21, 16:22:37:514] info: Store: UPSERT_WEB_CONTENTS 
+{
+  "id": 1,
+  "state": "unloaded"
+}
+[02/12/21, 16:22:38:161] info: registerLifeCycleEvents: webContents:1 from 'unloaded' to 'loaded' took 647 ms 
+[02/12/21, 16:22:38:162] info: Store: UPSERT_WEB_CONTENTS 
+{
+  "id": 1,
+  "state": "loaded"
+}
+[02/12/21, 16:22:38:163] info: initializeMainWindowEpic: Showing main window 
+{
+  "maximized": false,
+  "shouldHide": false,
+  "fullScreen": false
+}
+[02/12/21, 16:22:38:164] info: Store: RECORD_PERFORMANCE_TIMING 
+{
+  "phase": 2,
+  "interval": 658
+}
+[02/12/21, 16:22:38:165] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "isVisible": true
+  },
+  "fromEvent": true
+}
+[02/12/21, 16:22:38:165] info: Store: MAIN_WINDOW_SHOWN 
+[02/12/21, 16:22:38:169] info: Store: UPDATE_SETTINGS 
+{
+  "mainWindowSettings": {
+    "fullScreen": false,
+    "maximized": false,
+    "bounds": {
+      "x": 12,
+      "y": 624,
+      "width": 936,
+      "height": 564
+    }
+  }
+}
+[02/12/21, 16:22:38:170] info: Store: CLEAR_NOTIFICATIONS 
+[02/12/21, 16:22:38:208] info: registerLifeCycleEvents: webContents:1 is type 'app' 
+[02/12/21, 16:22:38:209] info: Store: UPSERT_WEB_CONTENTS 
+{
+  "id": 1,
+  "type": "app",
+  "history": "[REDACTED]"
+}
+[02/12/21, 16:22:38:214] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "isVisible": true,
+    "isFocused": false
+  },
+  "fromEvent": true
+}
+[02/12/21, 16:22:39:116] info: Store: SET_NETWORK_STATUS online
+[02/12/21, 16:22:39:176] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "bounds": {
+      "x": 1930,
+      "y": 622,
+      "width": 1576,
+      "height": 564
+    },
+    "isMaximized": false
+  },
+  "fromEvent": true
+}
+[02/12/21, 16:22:39:178] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "bounds": {
+      "x": 1930,
+      "y": 622,
+      "width": 1576,
+      "height": 564
+    },
+    "isMaximized": false
+  },
+  "fromEvent": true
+}
+[02/12/21, 16:22:39:243] info: Store: UPDATE_SETTINGS 
+{
+  "mainWindowSettings": {
+    "fullScreen": false,
+    "maximized": false,
+    "bounds": {
+      "x": 1930,
+      "y": 622,
+      "width": 1576,
+      "height": 564
+    }
+  }
+}
+[02/12/21, 16:22:40:560] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "bounds": {
+      "x": 1930,
+      "y": 34,
+      "width": 776,
+      "height": 1152
+    },
+    "isMaximized": false
+  },
+  "fromEvent": true
+}
+[02/12/21, 16:22:40:562] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "bounds": {
+      "x": 1930,
+      "y": 34,
+      "width": 776,
+      "height": 1152
+    },
+    "isMaximized": false
+  },
+  "fromEvent": true
+}
+[02/12/21, 16:22:40:627] info: Store: UPDATE_SETTINGS 
+{
+  "mainWindowSettings": {
+    "fullScreen": false,
+    "maximized": false,
+    "bounds": {
+      "x": 1930,
+      "y": 34,
+      "width": 776,
+      "height": 1152
+    }
+  }
+}
+[02/12/21, 16:22:42:311] info: Store: persist/FLUSH 
+[02/12/21, 16:22:42:901] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "isFocused": true
+  },
+  "fromEvent": true
+}
+[02/12/21, 16:22:42:989] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "isFocused": false
+  },
+  "fromEvent": true
+}
+[02/12/21, 16:22:43:366] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "isFocused": true
+  },
+  "fromEvent": true
+}
+[02/12/21, 16:22:43:708] info: Main window closed, consider it a quit action 
+{
+  "runFromTray": true,
+  "keepAppInTaskbar": false
+}
+[02/12/21, 16:22:43:709] info: Store: QUIT_APP 
+[02/12/21, 16:22:43:710] info: EpicHelpers: Flushing cookie store 
+[02/12/21, 16:22:43:710] info: Disposing basic_auth_handler_BasicAuthHandler… 
+[02/12/21, 16:22:43:710] info: Disposing tray_handler_TrayHandler… 
+[02/12/21, 16:22:43:711] info: Disposing app_menu_AppMenu… 
+[02/12/21, 16:22:43:711] info: Store: DOWNLOADS_CLEANED_UP 
+[02/12/21, 16:22:43:712] info: Store: SET_WINDOW_FRAME 
+{
+  "id": 1,
+  "frame": {
+    "isVisible": false
+  },
+  "fromEvent": true
+}
+[02/12/21, 16:22:43:720] info: registerLifeCycleEvents: webContents:1 from 'loaded' to 'page-closed' took 5511 ms 
+[02/12/21, 16:22:43:720] info: Store: UPSERT_WEB_CONTENTS 
+{
+  "id": 1,
+  "state": "page-closed"
+}
+[02/12/21, 16:22:43:727] info: Telling native-keymap to ignore all future events as we are quitting 
+[02/12/21, 16:22:43:728] info: Store: REMOVE_WEB_CONTENTS 
+{
+  "id": 1
+}
+[02/12/21, 16:22:43:730] info: Store: REMOVE_WINDOW 1
+[02/12/21, 16:22:43:732] info: EpicHelpers: Flushing local-settings.json 
+[02/12/21, 16:22:43:733] info: Store: persist/FLUSH 
+[02/12/21, 16:22:43:737] error: Tried to close the main window but it does not exist 
+[02/12/21, 16:22:43:739] info: 
++-------------------+-------------+
+| FLUSH_COOKIES     | 22.226196ms |
+|-------------------+-------------+
+| FLUSH_STORE       | 0.848647ms  |
+|-------------------+-------------+
+| REMOVE_DICT       | 0.812067ms  |
+|-------------------+-------------+
+| FLUSH_TELEMETRY   | 1.835873ms  |
+|-------------------+-------------+
+| CLOSE_MAIN_WINDOW | 0.305664ms  |
+|-------------------+-------------+
+| TOTAL             | 27.520032ms |
++-------------------+-------------+ 
+[02/12/21, 16:22:43:739] info: quitApplicationEpic: Finished, calling app.quit 

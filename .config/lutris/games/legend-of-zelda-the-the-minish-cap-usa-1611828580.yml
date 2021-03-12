@@ -1,0 +1,5 @@
+game:
+  core: mgba
+  main_file: Nintendo Game Boy Advance/Legend of Zelda, The - The Minish Cap (USA).gba
+libretro: {}
+system: {}

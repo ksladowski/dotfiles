@@ -1,0 +1,5 @@
+game:
+  core: mupen64plus_next
+  main_file: /home/kevin/media/Emulation/Games/Nintendo 64/LEGO Racers (USA) (En,Fr,De,Es,It,Nl,Sv,No,Da,Fi).n64
+libretro: {}
+system: {}

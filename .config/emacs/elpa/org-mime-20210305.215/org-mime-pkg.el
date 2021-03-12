@@ -1,0 +1,2 @@
+;;; Generated package description from /home/kevin/.config/emacs/elpa/org-mime-20210305.215/org-mime.el  -*- no-byte-compile: t -*-
+(define-package "org-mime" "20210305.215" "org html export for text/html MIME emails" '((emacs "25.1") (cl-lib "0.5")) :commit "e5345ae5b61c445979721ecee2a78325cd773a7e" :authors '(("Eric Schulte")) :maintainer '("Chen Bin (redguardtoo)") :keywords '("mime" "mail" "email" "html") :url "http://github.com/org-mime/org-mime")

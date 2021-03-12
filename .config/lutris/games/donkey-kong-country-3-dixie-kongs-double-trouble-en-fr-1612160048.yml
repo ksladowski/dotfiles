@@ -1,0 +1,6 @@
+game:
+  core: mesen-s
+  main_file: /home/kevin/media/Emulation/Games/Super Nintendo Entertainment System/Donkey
+    Kong Country 3 - Dixie Kong's Double Trouble! (USA) (En,Fr).sfc
+libretro: {}
+system: {}
