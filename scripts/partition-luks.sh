@@ -34,10 +34,10 @@ parted --script "$DISK" mkpart primary 1GiB 100%
 BOOTPART="${DISK}1"
 LVMPART="${DISK}2"
 
-mkfs.fat -F32 -n EFI "${EFIPART}"
+mkfs.fat -F32 -n EFI "${BOOTPART}"
 
 if [[ "$ENCRYPTFLAG" == true ]]; then
-    cryptsetup luksFormat $"{LVMPART}" --label CRYPT
+    cryptsetup luksFormat "${LVMPART}" --label CRYPT
     cryptsetup open "${LVMPART}" lvm
 fi
 
