@@ -56,7 +56,7 @@ btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@snapshots
 btrfs subvolume create /mnt/@var_log
-umount -mnt
+umount /mnt
 
 mount -o compress=zstd,subvol=@ /dev/vg/root /mnt
 
