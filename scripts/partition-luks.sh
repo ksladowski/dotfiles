@@ -3,11 +3,13 @@
 set -e
 
 ENCRYPTFLAG=false
+SWAPSIZE="16G"
 
-while getopts e flag
+while getopts es: flag
 do
     case "${flag}" in
         e) ENCRYPTFLAG=true;;
+        s) SWAPSIZE="${OPTARG}";;
     esac
 done
 
@@ -43,7 +45,7 @@ fi
 
 pvcreate /dev/mapper/lvm
 vgcreate vg /dev/mapper/lvm
-lvcreate -L 16G -n swap vg
+lvcreate -L "${SWAPSIZE}" -n swap vg
 lvcreate -l '100%FREE' -n root vg
 
 mkswap -L swap /dev/vg/swap
