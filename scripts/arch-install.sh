@@ -35,14 +35,16 @@ if [[ "$ANSWER" == "y" ]]; then
     ENCRYPTFLAG=true
 fi
 
+PHYSVOL="${LVMPART}"
 if [[ "$ENCRYPTFLAG" == true ]]; then
     cryptsetup luksFormat "${LVMPART}" --label CRYPT
     cryptsetup open "${LVMPART}" lvm
+    PHYSVOL=/dev/mapper/lvm
 fi
 
 # TODO this only works if luks is set up
-pvcreate /dev/mapper/lvm
-vgcreate vg /dev/mapper/lvm
+pvcreate "$PHYSVOL"
+vgcreate vg "$PHYSVOL"
 
 SWAPSIZE=16
 echo "Enter desired swap size in GiB. Default 16"
