@@ -2,7 +2,8 @@
 
 INTREGEX='^[0-9]+$'
 
-set -e
+set -euo pipefail
+trap 'echo "Error at line $LINENO"; exit 1' ERR
 
 echo "=========================================="
 echo "Arch Linux Install Script"
@@ -10,10 +11,10 @@ echo "ksladowski"
 echo "=========================================="
 
 echo "Provide a disk (/dev/sdX)"
-read DISK
+read -r DISK
 
 echo "$DISK will be formatted. Are you sure? [y/N]"
-read ANSWER
+read -r ANSWER
 if [[ "$ANSWER" != "y" ]]; then
     echo "Aborted."
     exit 1
@@ -29,53 +30,69 @@ LVMPART="${DISK}2"
 mkfs.fat -F32 -n EFI "${BOOTPART}"
 
 ENCRYPTFLAG=false
-echo "Use LUKS?"
-read ANSWER
+echo "Use LUKS? [y/N]"
+read -r ANSWER
 if [[ "$ANSWER" == "y" ]]; then
     ENCRYPTFLAG=true
 fi
 
+# Volume group naming (dynamic)
+echo "Enter volume group name (default: vg):"
+read -r VG_NAME
+if [[ -z "$VG_NAME" ]]; then
+  VG_NAME="vg"
+fi
+
+# LUKS mapper name only if encryption requested
 PHYSVOL="${LVMPART}"
 if [[ "$ENCRYPTFLAG" == true ]]; then
+    echo "Enter LUKS mapper name (default: ${VG_NAME}_crypt):"
+    read -r MAPPER_NAME
+    if [[ -z "$MAPPER_NAME" ]]; then
+      MAPPER_NAME="${VG_NAME}_crypt"
+    fi
+
     cryptsetup luksFormat "${LVMPART}" --label CRYPT
-    cryptsetup open "${LVMPART}" lvm
-    PHYSVOL=/dev/mapper/lvm
+    cryptsetup open "${LVMPART}" "${MAPPER_NAME}"
+    PHYSVOL="/dev/mapper/${MAPPER_NAME}"
 fi
 
-# TODO this only works if luks is set up
+# create physical volume and volume group
 pvcreate "$PHYSVOL"
-vgcreate vg "$PHYSVOL"
+vgcreate "$VG_NAME" "$PHYSVOL"
 
-SWAPSIZE=16
 echo "Enter desired swap size in GiB. Default 16"
-read ANSWER
-if ! [[ $ANSWER =~ $INTREGEX ]] ; then
-   echo "Using default 16G swap size." >&2;
+SWAPSIZE=16
+read -r ANSWER
+if [[ $ANSWER =~ $INTREGEX ]]; then
+  SWAPSIZE=$ANSWER
+else
+  echo "Using default ${SWAPSIZE}G swap size."
 fi
 
-lvcreate -L "${SWAPSIZE}" -n swap vg
-mkswap -L swap /dev/vg/swap
+lvcreate -L "${SWAPSIZE}G" -n swap "$VG_NAME"
+mkswap -L swap "/dev/${VG_NAME}/swap"
 
-lvcreate -l '100%FREE' -n root vg
-mkfs.btrfs -L arch /dev/vg/root
+lvcreate -l '100%FREE' -n root "$VG_NAME"
+mkfs.btrfs -L arch "/dev/${VG_NAME}/root"
 
-mount /dev/vg/root /mnt
+mount "/dev/${VG_NAME}/root" /mnt
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@snapshots
 btrfs subvolume create /mnt/@var_log
 umount /mnt
 
-mount -o compress=zstd,subvol=@ /dev/vg/root /mnt
+mount -o compress=zstd,subvol=@ "/dev/${VG_NAME}/root" /mnt
 
 mkdir -p /mnt/{home,snapshots,var/log,boot}
 
-mount -o compress=zstd,noatime,subvol=@home /dev/vg/root /mnt/home
-mount -o compress=zstd,noatime,subvol=@snapshots /dev/vg/root /mnt/snapshots
-mount -o compress=zstd,noatime,subvol=@var_log /dev/vg/root /mnt/var/log
+mount -o compress=zstd,noatime,subvol=@home "/dev/${VG_NAME}/root" /mnt/home
+mount -o compress=zstd,noatime,subvol=@snapshots "/dev/${VG_NAME}/root" /mnt/snapshots
+mount -o compress=zstd,noatime,subvol=@var_log "/dev/${VG_NAME}/root" /mnt/var/log
 mount "$BOOTPART" /mnt/boot
 
-swapon /dev/vg/swap
+swapon "/dev/${VG_NAME}/swap"
 
 echo "Partitioning done"
 echo "Pre-Installation Setup:"
@@ -90,14 +107,13 @@ reflector --verbose --country US --sort rate --save /etc/pacman.d/mirrorlist
 
 echo ""
 echo "Determining processor type"
-CPUINFO=$(dmidecode -t 4)
-if [[ $(CPUINFO) != *AMD* ]]; then
-    echo "Found AMD Processor"
-    MICROCODE_PKG="amd-ucode"
-else if [[ $(CPUINFO) != *Intel* ]]; then
-        echo "Found Intel Processor"
-         MICROCODE_PKG="intel-ucode"
-     fi
+CPUINFO="$(dmidecode -t 4 2>/dev/null || true)"
+if [[ $CPUINFO == *AMD* ]]; then
+  MICROCODE_PKG="amd-ucode"
+elif [[ $CPUINFO == *Intel* ]]; then
+  MICROCODE_PKG="intel-ucode"
+else
+  MICROCODE_PKG=""
 fi
 
 pacstrap -K /mnt \
@@ -112,11 +128,11 @@ pacstrap -K /mnt \
 
 genfstab -U /mnt >> /mnt/etc/fstab
 # replace fmask and dmask for /boot
-awk '/\/boot/ && /fmask=0022,dmask=0022/ {old=$0; sub(/fmask=0022,dmask=0022/,"fmask=0137,dmask=0027"); print "OLD: " old; print "NEW: " $0}' /mnt/etc/fstab
+sed -i 's/fmask=0022,dmask=0022/fmask=0137,dmask=0027/' /mnt/etc/fstab
 
 echo ""
 echo "Hostname:"
-read HOSTNAME
+read -r HOSTNAME
 
 echo "$HOSTNAME" > /mnt/etc/hostname
 cat > /mnt/etc/hosts <<EOF
@@ -125,11 +141,18 @@ cat > /mnt/etc/hosts <<EOF
 127.0.1.1   $HOSTNAME.localdomain $HOSTNAME
 EOF
 
+# Build mkinitcpio HOOKS line depending on encryption
+if [[ "$ENCRYPTFLAG" == true ]]; then
+  MKINIT_HOOKS='(systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt sd-lvm2 filesystems fsck)'
+else
+  MKINIT_HOOKS='(systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-lvm2 filesystems fsck)'
+fi
+
 cat > /mnt/etc/mkinitcpio.conf <<EOF
 MODULES=()
 BINARIES=()
 FILES=()
-HOOKS=(systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt lmv2 filesystems fsck)"
+HOOKS=${MKINIT_HOOKS}
 EOF
 
 cat > /mnt/etc/mkinitcpio.d/linux.preset <<EOF
@@ -140,13 +163,18 @@ default_uki="/boot/EFI/Linux/arch-linux.efi"
 default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
 EOF
 
-ROOTUUID="${blkid -s UUID -o value "$LVMPART"}"
-echo "rd.luks.name=$ROOTUUID=lvm root=/dev/vg-root/root rw quiet bgrt_disable" > /etc/kernel/cmdline
+# Compose kernel cmdline. If encrypted, include rd.luks.name, otherwise only root=...
+if [[ "$ENCRYPTFLAG" == true ]]; then
+  ROOTUUID="$(blkid -s UUID -o value "$LVMPART")"
+  echo "rd.luks.name=${ROOTUUID}=${MAPPER_NAME} root=/dev/${VG_NAME}/root rw quiet bgrt_disable" > /mnt/etc/kernel/cmdline
+else
+  echo "root=/dev/${VG_NAME}/root rw quiet bgrt_disable" > /mnt/etc/kernel/cmdline
+fi
 
 echo ""
 echo "Creating chroot configuration script..."
 
-cat > /mnt/root/configure.sh <<EOF
+cat > /mnt/root/configure.sh <<'EOF'
 
 #!/bin/bash
 set -e
@@ -162,7 +190,7 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 echo ""
 echo "Enter Username:"
-read USERNAME
+read -r USERNAME
 
 useradd -m -G wheel,audio,video,input -s /bin/bash "$USERNAME"
 
@@ -191,4 +219,4 @@ chmod +x /mnt/root/configure.sh
 
 arch-chroot /mnt /root/configure.sh
 
-rm /root/configure.sh
+rm /mnt/root/configure.sh
