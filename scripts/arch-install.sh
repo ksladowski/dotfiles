@@ -30,9 +30,9 @@ mkfs.fat -F32 -n EFI "${BOOTPART}"
 
 ENCRYPTFLAG=false
 echo "Use LUKS?"
-if [[ "$ANSWER" != "y" ]]; then
-    echo "Aborted."
-    exit 1
+read ANSWER
+if [[ "$ANSWER" == "y" ]]; then
+    ENCRYPTFLAG=true
 fi
 
 if [[ "$ENCRYPTFLAG" == true ]]; then
@@ -40,6 +40,7 @@ if [[ "$ENCRYPTFLAG" == true ]]; then
     cryptsetup open "${LVMPART}" lvm
 fi
 
+# TODO this only works if luks is set up
 pvcreate /dev/mapper/lvm
 vgcreate vg /dev/mapper/lvm
 
@@ -77,11 +78,15 @@ swapon /dev/vg/swap
 echo "Partitioning done"
 echo "Pre-Installation Setup:"
 
+echo "Setting timezone"
 timedatectl set-ntp true
 timedatectl set-timezone America/Chicago
 
+echo ""
+echo "Sorting US mirrors by speed"
 reflector --verbose --country US --sort rate --save /etc/pacman.d/mirrorlist
 
+echo ""
 echo "Determining processor type"
 CPUINFO=$(dmidecode -t 4)
 if [[ $(CPUINFO) != *AMD* ]]; then
@@ -96,8 +101,6 @@ fi
 pacstrap -K /mnt \
          base \
          linux \
-         linux-lts \
-         linux-zen \
          linux-firmware\
          vim\
          networkmanager\
@@ -135,12 +138,8 @@ default_uki="/boot/EFI/Linux/arch-linux.efi"
 default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
 EOF
 
-ROOTUUID="${blkid -s UUID -o value $LVMPART}"
+ROOTUUID="${blkid -s UUID -o value "$LVMPART"}"
 echo "rd.luks.name=$ROOTUUID=lvm root=/dev/vg-root/root rw quiet bgrt_disable" > /etc/kernel/cmdline
-
-echo ""
-echo "Default User:"
-read USERNAME
 
 echo ""
 echo "Creating chroot configuration script..."
@@ -152,8 +151,6 @@ set -e
 
 echo "Configuring system inside chroot..."
 
-USERNAME="USERNAME_PLACEHOLDER"
-
 ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 hwclock --systohc
 
@@ -162,7 +159,8 @@ locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 echo ""
-echo "Creating user: $USERNAME"
+echo "Enter Username:"
+read USERNAME
 
 useradd -m -G wheel,audio,video,input -s /bin/bash "$USERNAME"
 
@@ -187,7 +185,6 @@ echo "=========================================="
 
 EOF
 
-sed -i "s|USERNAME_PLACEHOLDER|$USERNAME|" /mnt/root/configure.sh
 chmod +x /mnt/root/configure.sh
 
 arch-chroot /mnt /root/configure.sh
