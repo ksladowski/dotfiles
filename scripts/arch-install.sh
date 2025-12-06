@@ -90,8 +90,8 @@ mount -o compress=zstd,noatime,subvol=/ /dev/mapper/linuxroot /mnt
 mount -o compress=zstd,noatime,subvol=/var /dev/mapper/linuxroot /mnt/var
 mount -o compress=zstd,noatime,subvol=/home /dev/mapper/linuxroot /mnt/home
 mount -o compress=zstd,noatime,subvol=/snapshots /dev/mapper/linuxroot /mnt/snapshots
-mkdir /mnt/efi
-mount -o fmask=0137,dmask=0027 "$BOOTPART" /mnt/efi
+mkdir /mnt/boot
+mount -o fmask=0137,dmask=0027 "$BOOTPART" /mnt/boot
 
 echo ""
 echo "Sorting US mirrors by speed"
@@ -124,7 +124,7 @@ arch-chroot /mnt hwclock --systohc
 echo "KEYMAP=us" > /mnt/etc/vconsole.conf
 
 echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
-arch-chroot locale-gen
+arch-chroot /mnt locale-gen
 echo "LANG=en_US.UTF-8" > /mnt/etc/locale.conf
 
 echo ""
@@ -137,6 +137,8 @@ cat > /mnt/etc/hosts <<EOF
 ::1         localhost
 127.0.1.1   $HOSTNAME.localdomain $HOSTNAME
 EOF
+
+echo "rw quiet bgrt_disable rootflags=subvol=/" >> /mnt/etc/kenel/cmdline
 
 # Build mkinitcpio HOOKS line depending on encryption
 # Include sd-encrypt only if encryption is in effect
@@ -161,6 +163,8 @@ default_uki="/boot/EFI/Linux/arch-linux.efi"
 default_options="--splash /usr/share/systemd/bootctl/splash-arch.bmp"
 EOF
 
+arch-chroot /mnt mkinitcpio -P
+
 echo ""
 echo "Enter Username:"
 read -r USERNAME
@@ -175,7 +179,7 @@ echo "%wheel ALL=(ALL:ALL) ALL" >> /mnt/etc/sudoers
 
 arch-chroot /mnt bootctl install
 
-printf "default arch-linux.efi\ntimeout 3\nconsole-mode auto" > /boot/loader/loader.conf
+printf "default arch-linux.efi\ntimeout 3\nconsole-mode auto" > /mnt/boot/loader/loader.conf
 
 arch-chroot /mnt systemctl enable NetworkManager
 
