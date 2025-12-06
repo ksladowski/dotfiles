@@ -19,7 +19,7 @@ EOF
 
 ENCRYPT=false
 DISK=""
-SWAP=""
+SWAP="16"
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -70,28 +70,32 @@ if [[ "$ENCRYPT" == true ]]; then
     cryptsetup luksOpen "${ROOTPART}" linuxroot
 fi
 
-if [[ "$SWAP" == "" ]]; then
-    echo "Enter desired swap size in GiB. Default 16"
-    read -r ANSWER
-    if [[ $ANSWER =~ $INTREGEX ]]; then
-        SWAP=$ANSWER
-    fi
-fi
-echo "Using default ${SWAP}G swap size."
-
 mkfs.btrfs -f -L linuxroot /dev/mapper/linuxroot
+
+mount -o compress=zstd,noatime,subvol=/ /dev/mapper/linuxroot /mnt
 
 btrfs subvolume create /mnt/home
 btrfs subvolume create /mnt/snapshots
 btrfs subvolume create /mnt/var
 btrfs subvolume create /mnt/swap
 
-mount -o compress=zstd,noatime,subvol=/ /dev/mapper/linuxroot /mnt
-mount -o compress=zstd,noatime,subvol=/var /dev/mapper/linuxroot /mnt/var
 mount -o compress=zstd,noatime,subvol=/home /dev/mapper/linuxroot /mnt/home
 mount -o compress=zstd,noatime,subvol=/snapshots /dev/mapper/linuxroot /mnt/snapshots
+mount -o compress=zstd,noatime,subvol=/var /dev/mapper/linuxroot /mnt/var
+mount -o compress=zstd,noatime,subvol=/swap /dev/mapper/linuxroot /mnt/swap
 mkdir /mnt/boot
 mount -o fmask=0137,dmask=0027 "$BOOTPART" /mnt/boot
+
+if [[ "$SWAP" == "" ]]; then
+    echo "Enter desired swap size (g) default 16"
+    read -r ANSWER
+    if [[ $ANSWER =~ $INTREGEX ]]; then
+        SWAP=$ANSWER
+    fi
+fi
+echo "Using default ${SWAP}G swap size."
+btrfs filesystem mkswapfile --size "${SWAP}g" --uuid clear /mnt/swap/swapfile
+swapon /mnt/swap/swapfile
 
 echo ""
 echo "Sorting US mirrors by speed"
