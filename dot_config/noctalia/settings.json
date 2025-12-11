@@ -399,9 +399,9 @@
         "wezterm": false
     },
     "ui": {
-        "fontDefault": "Roboto",
+        "fontDefault": "Inter",
         "fontDefaultScale": 1,
-        "fontFixed": "DejaVu Sans Mono",
+        "fontFixed": "JetBrainsMono Nerd Font",
         "fontFixedScale": 1,
         "panelBackgroundOpacity": 1,
         "panelsAttachedToBar": true,
