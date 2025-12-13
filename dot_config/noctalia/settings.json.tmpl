@@ -120,12 +120,15 @@
                     "displayMode": "onhover",
                     "id": "Brightness"
                 },
+
+{{- if eq .chezmoi.hostname "vivobook" -}}
                 {
                     "deviceNativePath": "",
                     "displayMode": "onhover",
                     "id": "Battery",
                     "warningThreshold": 30
                 },
+{{- end -}}
                 {
                     "hideWhenZero": true,
                     "id": "NotificationHistory",
@@ -273,7 +276,11 @@
         "weatherShowEffects": true
     },
     "network": {
+{{- if eq .chezmoi.hostname "vivobook" -}}
         "wifiEnabled": true
+{{- else -}}
+        "wifiEnabled": false
+{{- end -}}
     },
     "nightLight": {
         "autoSchedule": true,
@@ -377,7 +384,7 @@
         "warningColor": ""
     },
     "templates": {
-        "alacritty": false,
+        "alacritty": true,
         "cava": false,
         "code": false,
         "discord": true,
