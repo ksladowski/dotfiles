@@ -1,42 +1,16 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Package management
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; init.el --- small, loads other modules -*- lexical-binding: t; -*-
+;;; Commentary:
+;;; Code:
 
-;; Straight.el bootstrapping (package.el disabled in early-init)
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
+;; (setq debug-on-error t)
 
-;; Install use-package
-(straight-use-package 'use-package)
+(add-to-list 'load-path (expand-file-name "modules" user-emacs-directory))
 
-;; Configure straight
-(use-package straight
-  :custom (straight-use-package-by-default t)  ; Without this we need to add the :straight keyword symbol
-  )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Benchmarking
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Normally kept commented out unless trying to identify an issue
-;; (use-package benchmark-init
-;;   :ensure t
-;;   :config
-;;   ;; To disable collection of benchmark data after init is done.
-;;   (add-hook 'after-init-hook 'benchmark-init/deactivate))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Built-In
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'init-packages)
+(require 'init-benchmark) ;; Measure startup time, seems to be basically no performance impact of doing this
+(require 'init-bindings)
+(require 'init-evil)
 
 (use-package emacs
   :config
@@ -78,28 +52,6 @@
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; General.el
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; General needs to come at the top in order to provide the ':general' keyword.
-(use-package general
-  :config
-  (general-evil-setup)
-  (general-auto-unbind-keys)
-  (general-def "<escape>" 'keyboard-escape-quit) ;; Treat <escape> like C-g
-  (general-create-definer my/leader-def
-    :keymaps '(normal insert visual emacs)
-    :global-prefix "C-c"
-    :prefix "SPC")
-  (my/leader-def
-    "h" 'help-command
-    "`" 'tmm-menubar
-    "ff" 'find-file
-    "fd" 'dired
-    "bk" 'kill-this-buffer
-    ":" 'execute-extended-command))
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Packages (Alphabetical)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -113,13 +65,6 @@
 (use-package ace-window
   :custom
   (aw-dispatch-always t)
-  :general
-  (my/leader-def 'normal
-    "w"
-    '(lambda () (interactive)
-       (setq unread-command-events (listify-key-sequence (kbd "?")))
-       (ace-window nil))
-    )
   )
 
 (use-package avy
@@ -139,11 +84,6 @@
   (load-theme 'catppuccin t))
 
 (use-package chezmoi
-  :general
-  (my/leader-def 'normal
-    "acf" 'chezmoi-find
-    "acw" 'chezmoi-write
-    )
   :straight
   '( chezmoi
      :host github
@@ -156,12 +96,7 @@
                 chezmoi-dired
                 )))
 
-(use-package chezmoi-ediff
-  :general
-  (my/leader-def 'normal
-    "acd" 'chezmoi-ediff
-    )
-  )
+(use-package chezmoi-ediff)
 
 (use-package consult
   :config
@@ -188,23 +123,14 @@ pattern (so it's similar to using orderless' first component)."
   (:keymaps 'minibuffer-local-map
             "C-." 'embark-act
             "M-." 'embark-dwim)
-  (my/leader-def 'normal
-    "fb" 'consult-bookmark
-    "bb" 'consult-buffer)
   )
 
-(use-package consult-projectile
-  :general
-  (my/leader-def 'normal
-    "fp" 'consult-projectile))
+(use-package consult-projectile)
 
 (use-package consult-flycheck)
 ;; (use-package consult-lsp)
 
-(use-package consult-yasnippet
-  :general
-  (my/leader-def 'normal
-    "ss" 'consult-yasnippet))
+(use-package consult-yasnippet)
 
 (use-package corfu
   :init
@@ -250,8 +176,6 @@ pattern (so it's similar to using orderless' first component)."
   (general-nmap "M-." 'embark-dwim)
   (:keymaps 'help-map
             "b" 'embark-bindings)
-  (my/leader-def 'normal
-    "." 'embark-act)
   :custom
   ;; Optionally replace the key help with a completing-read interface
   (prefix-help-command #'embark-prefix-help-command)
@@ -272,70 +196,9 @@ pattern (so it's similar to using orderless' first component)."
   (embark-collect-mode . consult-preview-at-point-mode)
   )
 
+
 ;; (use-package erc)
 
-(use-package evil
-  :preface
-  ;; Custom function for :q
-  (defun my/ex-kill-buffer-and-close ()
-    (interactive)
-    (unless (char-equal (elt (buffer-name) 0) ?*)
-      (kill-this-buffer)))
-  ;; Custom function for :wq
-  (defun my/ex-save-kill-buffer-and-close ()
-    (interactive)
-    (save-buffer)
-    (kill-this-buffer))
-  :custom
-  (evil-want-integration t)
-  (evil-want-keybinding nil)
-  (evil-want-C-u-scroll t)
-  (evil-want-C-i-jump nil)
-  (evil-want-fine-undo t)
-  (evil-undo-system 'undo-tree)
-  (evil-search-module 'evil-search)
-  (evil-ex-search-highlight-all nil)
-  :config
-  (evil-mode 1)
-  (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state) ;; Treat C-g like <escape>
-  ;; I don't know if there are any implications of using ex-search instead of default evil-search but this is needed to integrate with consult-line
-  (define-key evil-normal-state-map (kbd "n") #'evil-ex-search-next)
-  (define-key evil-normal-state-map (kbd "N") #'evil-ex-search-previous)
-  ;; Use visual line motions even outside of visual-line-mode buffers
-  (evil-global-set-key 'motion "j" 'evil-next-visual-line)
-  (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
-  (evil-ex-define-cmd "q[uit]" 'my/ex-kill-buffer-and-close)
-  (evil-ex-define-cmd "wq" 'my/ex-save-kill-buffer-and-close)
-  (evil-set-initial-state 'messages-buffer-mode 'normal)
-  (evil-set-initial-state 'dashboard-mode 'normal)
-  )
-
-(use-package evil-collection
-  :after evil
-  :config
-  (evil-collection-init))
-
-(use-package evil-goggles
-  :after evil
-  :config (evil-goggles-mode))
-
-(use-package evil-snipe
-  :after evil
-  :custom
-  (evil-snipe-override-mode t)
-  (evil-snipe-smart-case t)
-  (evil-snipe-repeat-keys t)
-  (evil-snipe-override-evil t)
-  (evil-snipe-override-evil-repeat-keys 1))
-
-(use-package evil-commentary
-  :after evil
-  :config
-  (evil-commentary-mode))
-
-(use-package evil-surround
-  :config
-  (global-evil-surround-mode 1))
 
 (use-package exec-path-from-shell
   :config
@@ -351,7 +214,7 @@ pattern (so it's similar to using orderless' first component)."
         flycheck-standard-error-navigation t
         flycheck-deferred-syntax-check nil)
   :config
-  (add-hook 'after-init-hook #'global-flycheck-mode)
+  ;; (add-hook 'after-init-hook #'global-flycheck-mode)
   )
 
 ;; TODO flycheck hydra
@@ -390,10 +253,7 @@ pattern (so it's similar to using orderless' first component)."
 ;;     "le" 'lsp-treemacs-errors-list))
 
 (use-package magit
-  :defer t
-  :general
-  (my/leader-def 'normal
-    "g" 'magit-status))
+  :defer t)
 
 (use-package marginalia
   :init (marginalia-mode))
@@ -407,56 +267,52 @@ pattern (so it's similar to using orderless' first component)."
 
 (use-package org
   :config
-  (dolist (face '((org-level-1 . 1.2)
-                  (org-level-2 . 1.1)
-                  (org-level-3 . 1.05)
-                  (org-level-4 . 1.0)
+  (set-face-attribute 'default nil :font "Jetbrains Mono Nerd Font" :height 100)
+  (set-face-attribute 'fixed-pitch nil :family "Jetbrains Mono Nerd Font")
+
+  (set-face-attribute 'variable-pitch nil :family "Inter" :height 1.18)
+
+  ;; Resize Org headings
+  (dolist (face '((org-level-1 . 1.35)
+                  (org-level-2 . 1.3)
+                  (org-level-3 . 1.2)
+                  (org-level-4 . 1.1)
                   (org-level-5 . 1.1)
                   (org-level-6 . 1.1)
                   (org-level-7 . 1.1)
                   (org-level-8 . 1.1)))
-    (set-face-attribute (car face) nil :font "Inter" :weight 'regular :height (cdr face)))
-  (font-lock-add-keywords 'org-mode
-                          '(("^ *\\([-]\\) "
-                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-  ;; Ensure that anything that should be fixed-pitch in Org files appears that way
-  (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-indent nil :inherit '(org-hide fixed-pitch))
-  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
+    (set-face-attribute (car face) nil :font "Inter" :weight 'bold :height (cdr face)))
+  ;; Make the document title a bit bigger
+  (set-face-attribute 'org-document-title nil :font "Inter" :weight
+                      'bold :height 1.8)
+  ;; Certain elements should always be fixed pitch
+  (set-face-attribute 'org-block nil            :foreground nil :inherit
+                      'fixed-pitch :height 0.85)
+  (set-face-attribute 'org-code nil             :inherit '(shadow fixed-pitch) :height 0.85)
+  (set-face-attribute 'org-verbatim nil         :inherit '(shadow fixed-pitch) :height 0.85)
+  (set-face-attribute 'org-special-keyword nil  :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-meta-line nil        :inherit '(font-lock-comment-face fixed-pitch))
+  (set-face-attribute 'org-checkbox nil         :inherit 'fixed-pitch)
   :custom
   (org-agenda-files '("~/org"))
   (org-log-done 'time)
   (org-return-follows-link t)
-  (org-hide-emphasis-markers t)
-  (org-auto-align-tags nil)
-  (org-agenda-tags-column 0)
-  (org-tags-column 0)
   (org-catch-invisible-edits 'show-and-error)
   (org-insert-heading-respect-content t)
-  (org-pretty-entities t)
+  (org-hide-emphasis-markers t)  ; bold, italic, etc
+  (org-pretty-entities t)  ; render special chars prefixed w/ backslash
+  (org-src-fontify-natively t)
+  (org-src-tab-acts-natively t)
+  (org-indentation-per-level 4)
+  ;; (org-edit-src-content-indentation 0)
   (org-ellipsis "…")
   (org-capture-templates '(
-                           ("m" "Meeting"
-                            entry (file+datetree "~/org/meetings.org")
-                            "* %? :meeting:%^g \n:Created: %T\n** Attendees\n*** \n** Notes\n** Action Items\n*** TODO [#A] "
-                            :tree-type week
-                            :clock-in t
-                            :clock-resume t
-                            :empty-lines 0)
+                           ;; none yet
                            ))
-  :general
-  (my/leader-def 'normal
-    "oa" 'org-agenda
-    "oc" 'org-capture
-    "ol" 'org-store-link
-    )
   :hook
-  (org-mode org-indent-mode)
-  (org-mode visual-line-mode)
+  (org-mode . org-indent-mode)
+  (org-mode . visual-line-mode)
+  (org-mode . variable-pitch-mode)
   )
 
 (use-package org-modern
@@ -471,10 +327,7 @@ pattern (so it's similar to using orderless' first component)."
   (projectile-switch-project-action #'projectile-dired)
   (projectile-enable-caching t)
   (projectile-indexing-method 'hybrid)
-  (projectile-track-known-projects-automatically nil)
-  :general
-  (my/leader-def 'normal
-    "p" 'projectile-command-map))
+  (projectile-track-known-projects-automatically nil))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -482,31 +335,12 @@ pattern (so it's similar to using orderless' first component)."
 (use-package savehist
   :init (savehist-mode))
 
-(use-package treemacs
-  :ensure t
-  :defer t
-  :general
-  (my/leader-def 'normal
-    "<tab>" 'treemacs-select-window))
-
-(use-package undo-tree
-  :custom
-  (undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
-  :ensure t
-  :general
-  (general-mmap undo-tree-visualizer-mode-map
-    "<escape>" 'undo-tree-visualizer-abort
-    "h" 'undo-tree-visualize-switch-branch-left
-    "j" 'undo-tree-visualize-redo
-    "k" 'undo-tree-visualize-undo
-    "l" 'undo-tree-visualize-switch-branch-right)
-  (my/leader-def 'normal
-    "u" 'undo-tree-visualize)
-  :init
-  (global-undo-tree-mode 1)
-  ;; undo tree forces itself off if any bindings related to undo are changed. here we override the function to always return nil
-  (with-eval-after-load 'undo-tree
-    (defun undo-tree-overridden-undo-bindings-p () nil)))
+;; (use-package treemacs
+;;   :ensure t
+;;   :defer t
+;;   :general
+;;   (my/leader-def 'normal
+;;     "<tab>" 'treemacs-select-window))
 
 (use-package vertico
   :init

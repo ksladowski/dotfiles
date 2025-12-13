@@ -1,38 +1,49 @@
-;; increase garbage collection threshold to prevent it from running during startup
-;; re-enable it after startup
+;;; early-init.el --- Early startup -*- lexical-binding: t; -*-
+
+;;; Commentary:
+
+;; Minor tweaks to improve startup speed and reduce UI flicker on startup.
+
+;;; Code:
+
+;; Increase garbage collection threshold to prevent it from running
+;; during startup
 (setq gc-cons-threshold 402653184
       gc-cons-percentage 0.6)
-(add-hook 'after-init-hook
-          `(lambda ()
-             (setq gc-cons-threshold 800000
-                   gc-cons-percentage 0.1)
-             (garbage-collect)) t)
+
+;; Temporarily disable file-name-handler-alist for faster startup.
+;; We save the original and restore it after init.
+(defvar my/orig-file-name-handler-alist file-name-handler-alist)
+(setq file-name-handler-alist nil)
 
 ;; Prevent runtime compilation of lisp code
-;; this is un-neccesary as packages are compiled on installation
-(setq native-comp-deferred-compilation nil)
+;; Not strictly necessary since straight compiles packages on install
+(setq native-comp-jit-compilation nil)
 
 ;; Disable emacs' builtin package management
 ;; Replaced with straight.el in main init file
 (setq package-enable-at-startup nil)
 
-;; Prevent emacs from redrawing repeatedly on startup
-(setq-default inhibit-redisplay t
-              inhibit-message t)
-(add-hook 'window-setup-hook
-          (lambda ()
-            (setq-default inhibit-redisplay nil
-                          inhibit-message nil)
-            (redisplay)))
-
-;; Hide additional UI elements.
-;; Done in early-init to prevent them from loading and flickering before being disabled
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
-(tooltip-mode 0)
+;; Minimal amount of UI changes to avoid flicker on startup
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(tooltip-mode -1)
 (set-fringe-mode 5)
 (setq inhibit-startup-screen t)
 
-;; silence common lisp deprecation warning
+;; Silence common lisp deprecation warning
 (setq byte-compile-warnings '(cl-functions))
+
+;; Turn everything back on after init
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            ;; restore file-name-handler-alist
+            (setq file-name-handler-alist my/orig-file-name-handler-alist)
+            ;; restore gc settings (choose conservative defaults)
+            (setq gc-cons-threshold 800000
+                  gc-cons-percentage 0.1)
+            (garbage-collect)))
+
+(provide 'early-init)
+;;; early-init.el ends here
