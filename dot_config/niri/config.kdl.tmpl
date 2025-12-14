@@ -188,3 +188,9 @@ binds {
 
 }
 include "./noctalia.kdl"
+
+{{ if eq .chezmoi.hostname "vivobook" }}
+include "./vivobook-outputs.kdl"
+{{ else }}
+include "./fedora-outputs.kdl"
+{{ end }}
