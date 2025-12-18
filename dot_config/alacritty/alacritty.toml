@@ -1,4 +1,5 @@
 [general]
+import = ["themes/noctalia.toml"]
 
 [window]
 opacity = 0.9

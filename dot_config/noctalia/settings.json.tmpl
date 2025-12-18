@@ -275,11 +275,10 @@
         "weatherEnabled": true,
         "weatherShowEffects": true
     },
-    "network": {
 {{- if eq .chezmoi.hostname "vivobook" -}}
-        "wifiEnabled": true
+        "network": {"wifiEnabled": true},
 {{- else -}}
-        "wifiEnabled": false
+        "network": {"wifiEnabled": false},
 {{- end -}}
     },
     "nightLight": {

@@ -38,8 +38,8 @@
   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
   ;; Custom ex commands
-  (evil-ex-define-cmd "q[uit]" 'init-evil/ex-kill-buffer-and-close)
-  (evil-ex-define-cmd "wq" 'init-evil/ex-save-kill-buffer-and-close)
+  (evil-ex-define-cmd "q[uit]" 'init-evil/kill-buffer-no-star)
+  (evil-ex-define-cmd "wq" 'init-evil/save-kill-buffer-no-star)
   ;; Special buffer state overrides
   (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal)

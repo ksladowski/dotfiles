@@ -43,6 +43,8 @@
 
     ;; snippets / search
     "ss" 'consult-yasnippet
+    "sn" 'yas-new-snippet
+    "se" 'yas-visit-snippet-file
 
     ;; undo-tree visualizer (moved from the package stanza into central binds)
     "u"  'undo-tree-visualize
