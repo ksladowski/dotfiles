@@ -20,6 +20,8 @@
     "acf" 'chezmoi-find
     "acd" 'chezmoi-ediff
     "acw" 'chezmoi-write
+    "amm" 'mu4e
+    "amc" 'mu4e-compose-new
 
     "bb" 'consult-buffer
     "bk" 'kill-this-buffer

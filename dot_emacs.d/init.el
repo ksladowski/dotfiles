@@ -21,6 +21,7 @@
 
 (require 'init-chezmoi)
 (require 'init-org)
+(require 'init-mu4e)
 
 ;; (use-package consult-lsp)
 

@@ -4,12 +4,17 @@
 
 (setq read-extended-command-predicate #'command-completion-default-include-p)  ; Hide commands in M-x which do not apply to the current mode
 
+(general-def :keymap 'minibuffer-mode-map "C-w" #'backward-kill-word)
+
 (use-package embark
   :general
   (general-nmap "C-." 'embark-act)
   (general-nmap "M-." 'embark-dwim)
+  (:keymaps 'minibuffer-local-map
+	    "C-." 'embark-act
+	    "M-." 'embark-dwim)
   (:keymaps 'help-map
-            "b" 'embark-bindings)
+	    "b" 'embark-bindings)
   :custom
   ;; Optionally replace the key help with a completing-read interface
   (prefix-help-command #'embark-prefix-help-command)
@@ -20,36 +25,11 @@
   :config
   ;; Hide the mode line of the Embark live/completions buffers
   (add-to-list 'display-buffer-alist
-               '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
-                 nil
-                 (window-parameters (mode-line-format . none)))))
+	       '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
+		 nil
+		 (window-parameters (mode-line-format . none)))))
 
-(use-package consult
-  :config
-  (defun my/consult-line-to-evil-search (&rest _)
-    "Add the latest `consult-line' entry to `evil' search history.
-This picks the first whitespace-separated component of the consult-line
-pattern (so it's similar to using orderless' first component)."
-  (when (and (bound-and-true-p evil-mode)
-             (boundp 'consult--line-history))
-    (let* ((raw (car consult--line-history))
-           (raw (if (and raw (stringp raw)) raw ""))
-           ;; pick the first token (like the first orderless component)
-           (pattern (car (split-string raw "[[:space:]]+" t))))
-      (when (and pattern (> (length pattern) 0))
-        (add-to-history 'evil-ex-search-history pattern)
-        ;; set current evil search pattern: (PATTERN REGEXP-P FLAG-P)
-        (setq evil-ex-search-pattern (list pattern t t))
-        (setq evil-ex-search-direction 'forward)
-        (when evil-ex-search-persistent-highlight
-          (evil-ex-search-activate-highlight evil-ex-search-pattern))))))
-  (advice-add #'consult-line :after #'my/consult-line-to-evil-search)
-  :general
-  (general-nmap "/" 'consult-line)
-  (:keymaps 'minibuffer-local-map
-            "C-." 'embark-act
-            "M-." 'embark-dwim)
-  )
+(use-package consult)
 
 (use-package embark-consult
   :after (embark consult)

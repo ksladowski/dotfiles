@@ -1,0 +1,28 @@
+IMAPAccount mailbox
+Host imap.mailbox.org
+Port 993
+User {{ (bitwarden "item" "c5da98a5-f567-444f-974d-279c65f04829").login.username }}
+Pass {{ (bitwardenFields "item" "c5da98a5-f567-444f-974d-279c65f04829").mupass.value }}
+TLSType IMAPS
+TLSVersions +1.3
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore mailbox-remote
+Account mailbox
+
+MaildirStore mailbox-local
+Path ~/Mail/Mailbox/
+Inbox ~/Mail/Mailbox/Inbox
+Trash ~/Mail/Mailbox/Trash/
+SubFolders Verbatim
+
+Channel mailbox
+Far :mailbox-remote:
+Near :mailbox-local:
+Patterns *
+Expunge None
+CopyArrivalDate yes
+Sync All
+Create Both
+SyncState *
+
