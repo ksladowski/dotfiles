@@ -16,6 +16,7 @@
     "`"  'tmm-menubar
     ":"  'execute-extended-command
     "." 'embark-act
+    "<tab>" 'treemacs
 
     "acf" 'chezmoi-find
     "acd" 'chezmoi-ediff
@@ -57,6 +58,9 @@
        (ace-window nil))
     )
   )
+
+(use-package hydra)
+(use-package pretty-hydra)
 
 (provide 'init-bindings)
 ;;; init-bindings.el ends here
