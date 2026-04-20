@@ -1,0 +1,7 @@
+background-opacity = 0.8
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+link-previews = false
+custom-shader = ~/.config/ghostty/shaders/cursor_warp.glsl
+font-size = 10
