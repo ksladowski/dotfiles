@@ -1,0 +1,8 @@
+[Unit]
+Description=TrueNAS media share mount
+
+[Automount]
+Where=/mnt/media
+
+[Install]
+WantedBy=multi-user.target

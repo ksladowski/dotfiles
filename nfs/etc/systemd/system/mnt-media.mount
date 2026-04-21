@@ -1,0 +1,12 @@
+[Unit]
+Description=TrueNAS media share mount
+After=network.target
+
+[Mount]
+What=truenas.lan:/mnt/tank0/media
+Where=/mnt/media
+Type=nfs
+Options=_netdev,noauto
+
+[Install]
+WantedBy=multi-user.target
