@@ -4,6 +4,9 @@ Id_2=45c8a00a-f42a-45a0-9f98-b54eb5feee48
 Number=2
 Rows=1
 
+[Effect-diminactive]
+Strength=20
+
 [Effect-kwin4_effect_geometry_change]
 Duration=1250
 
@@ -11,10 +14,12 @@ Duration=1250
 BorderActivate=9
 
 [Plugins]
-desktopchangeosdEnabled=false
+desktopchangeosdEnabled=true
+diminactiveEnabled=true
 dynamic_workspacesEnabled=true
 karouselEnabled=true
 krohnkiteEnabled=true
+kwin4_effect_geometry_changeEnabled=true
 zoomEnabled=false
 
 [Script-karousel]
@@ -25,15 +30,6 @@ gapsOuterLeft=8
 gapsOuterRight=8
 gapsOuterTop=8
 presetWidths=25%, 50%, 75%, 100%
-
-[Script-krohnkite]
-noTileBorder=true
-preventMinimize=true
-screenGapBetween=8
-screenGapBottom=8
-screenGapLeft=8
-screenGapRight=8
-screenGapTop=8
 
 [TabBox]
 LayoutName=compact
