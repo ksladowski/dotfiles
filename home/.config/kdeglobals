@@ -146,7 +146,7 @@ toolBarFont=Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0
 
 [KDE]
 AnimationDurationFactor=0.25
-DefaultDarkLookAndFeel=CachyOS-Nord
+DefaultDarkLookAndFeel=org.kde.breezedark.desktop
 DndBehavior=MoveIfSameDevice
 LookAndFeelPackage=org.kde.breezedark.desktop
 contrast=4

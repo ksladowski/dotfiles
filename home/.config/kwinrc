@@ -31,9 +31,6 @@ gapsOuterRight=8
 gapsOuterTop=8
 presetWidths=25%, 50%, 75%, 100%
 
-[TabBox]
-LayoutName=compact
-
 [Tiling][1c94f918-2e1d-46cc-9b6d-fe9c46562805][fe0d0d43-7bfc-4bd2-9fe5-02c97b127862]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
@@ -51,6 +48,10 @@ padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
 [Tiling][45c8a00a-f42a-45a0-9f98-b54eb5feee48][fe0d0d43-7bfc-4bd2-9fe5-02c97b127862]
+padding=4
+tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+
+[Tiling][5731f252-29a0-4444-906d-60aa082e7401][062d83f7-baa7-486f-9b41-4a927d811bca]
 padding=4
 tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
 
