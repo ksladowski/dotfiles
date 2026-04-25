@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
-sudo -s <<EOF
+sudo bash -c '
     stow --no-folding . -t /
 
     systemctl daemon-reload
     systemctl enable --now mnt-media.mount
-EOF
 
+    if [ "$HOSTNAME" = rex ]; then
+        systemctl enable --now wol@enp7s0
+    fi
+'

@@ -22,7 +22,7 @@
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi",
         "private_browsing": true
       },
-      "{036a55b4-5eac-4d89-9f35-4e04de71eddd}": {
+      "plasma-browser-integration@kde.org": {
         "installation_mode": "force_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/plasma-integration/latest.xpi"
       },
