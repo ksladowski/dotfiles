@@ -1,0 +1,181 @@
+" Yank to end of the line with Y
+nnoremap Y yg_
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" Enable plugins
+set anyobject " req external plugin
+set commentary
+set exchange
+set ideajoin
+set highlightedyank
+set matchit
+set NERDTree
+set vim-paragraph-motion
+set quickscope
+set surround
+set switch
+
+" Use system clipboard
+set clipboard+=unnamed
+
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+"" -- Search Improvements --
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set linenumber
+set showmode
+set showcmd
+set visualbell
+
+" Tab navigation
+nnoremap <C-]> :tabnext<cr>
+nnoremap <C-[> :tabprev<cr>
+
+" Pane navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+" Jump between methods
+nnoremap [[ :MethodUp<cr>
+nnoremap ]] :MethodDown<cr>
+
+" Easy visual indentation (Repeatable)
+vnoremap < <gv
+vnoremap > >gv
+
+nmap <Esc> :nohlsearch<cr>
+
+imap <C-y> :action EditorChooseLookupItem<cr>
+
+" nvim style lsp bindings
+nmap gra :action ShowIntentionActions<cr>
+nmap grn :action RenameElement<cr>
+
+" Dial 
+set dial 
+nnoremap <C-a> :DialIncrement<cr>
+nnoremap <C-x> :DialDecrement<cr>
+
+" Which Key
+set which-key
+set notimeout
+let g:WhichKey_ShowVimActions = "true"
+let g:WhichKey_DefaultDelay = 500 "default is 200
+let g:WhichKey_FontFamily = "JetBrains Mono"
+
+" Leader Bindings
+let mapleader=" "
+
+" Flash
+nmap s :action flash.search<cr>
+xmap s :action flash.search<cr>
+nmap f :action flash.find<cr>
+xmap f :action flash.find<cr>
+nmap F :action flash.find_backward<cr>
+xmap F :action flash.find_backward<cr>
+nmap t :action flash.till<cr>
+xmap t :action flash.till<cr>
+nmap T :action flash.till_backward<cr>
+xmap T :action flash.till_backward<cr>
+nmap ; :action flash.repeat<cr>
+xmap ; :action flash.repeat<cr>
+nmap , :action flash.repeat_backward<cr>
+xmap , :action flash.repeat_backward<cr>
+nmap S <Action>(flash.treesitter)
+xmap S <Action>(flash.treesitter)
+" remote operator (after pressing an operator like d, use r to pick target line remotely)
+omap r <Action>(flash.remote)
+
+" AI Bindings
+nmap <leader>ac :action ActivateAIAssistantToolWindow<cr>
+nmap <leader>ai :action AIAssistant.Editor.AskAiAssistantInEditor<cr>
+
+" Bookmarks
+nmap <leader>bb :action ShowBookmarks<cr>
+nmap <leader>bt :action ToggleBookmark<cr>
+nmap <leader>bm :action ToggleBookmarkWithMnemonic<cr>
+nmap <leader>bw :action ActivateBookmarksToolWindow<cr>
+
+" .NET Major Mode
+nmap <leader>c :action NewElement<cr>
+nmap <leader>cp :action ActivateNuGetToolWindow<cr>
+
+" Config
+nmap <leader>Ca :action VimFindActionIdAction<cr>
+nmap <leader>Ce :e ~/.ideavimrc<cr>
+nmap <leader>Cs :action ShowSettings<cr>
+nmap <leader>Cr :action IdeaVim.ReloadVimRc.reload<cr>
+
+" Debug
+nmap <leader>da :action DebugAttachProcess<cr>
+nmap <leader>dar :action DebugAttachRemote<cr>
+nmap <leader>db :action ToggleLineBreakpoint<cr>
+nmap <leader>dl :action ViewBreakpoints<cr>
+nmap <leader>do :action StepOut<cr>
+nmap <leader>dq :action StopDebugging<cr>
+nmap <leader>ds :action StepOver<cr>
+
+" Explorer
+nmap <leader>e :action ActivateProjectToolWindow<cr>
+
+" Go To File
+nmap <leader>f :action GotoFile<cr>
+
+" Git
+nmap <leader>gb :action Git.Branches<cr>
+nmap <leader>gg :action ActivateVersionControlToolWindow<cr>
+nmap <leader>gc :action CheckinProject<cr>
+nmap <leader>gf :action Git.Fetch<cr>
+nmap <leader>gF :action Git.Pull<cr>
+nmap <leader>gw :action Github.Open.In.Browser<cr>
+nmap <leader>gm :action Git.Configure.Remotes<cr>
+nmap <leader>gp :action Vcs.Push<cr>
+nmap <leader>gr :action Git.Rebase<cr>
+nmap <leader>gs :action Git.Stash<cr>
+nmap <leader>gS :action Git.Unstash<cr>
+nmap <leader>gl :action Vcs.Show.Log<cr>
+
+" Refactoring
+nmap <leader>rr :action Refactorings.QuickListPopupAction<cr>
+nmap <leader>rm :action ExtractMethod<cr>
+nmap <leader>rv :action IntroduceVariable<cr>
+nmap <leader>rg :action Generate<cr>
+nmap <leader>rf :action IntroduceField<cr>
+nmap <leader>rs :action ChangeSignature<cr>
+
+" Search
+nmap <leader>s :action FindInPath<cr>
+
+" Windows
+nmap <leader>ww :action ToolWindowsGroup<cr>
+nmap <leader>wt :action ActivateUnitTestsToolWindow<cr>
+nmap <leader>wd :action ActivateProblemsViewToolWindow<cr>
+nmap <leader>wD :action ActivateDatabaseWindow<cr>
+nmap <leader>we :action ActivateEndpointsToolWindow<cr>
+nmap <leader>wo :action HideAllWindows<cr>
+
+" Execute
+nmap <leader>xb :action BuildCurrentProject<cr>
+nmap <leader>xc :action CleanSolution<cr>
+nmap <leader>xd :action Debug<cr>
+nmap <leader>xr :action Run<cr>
+
+" Folding
+nmap <leader>zc :action CollapseAllRegions<cr>
+nmap <leader>zo :action ExpandAllRegions<cr>
+
+" Other special bindings
+nmap <leader>= :action com.intellij.csharpier.ReformatWithCSharpierAction<cr>
+nmap <leader>- :action OptimizeImports<cr>
+nmap <leader>` :action ActivateTerminalToolWindow<cr>
+nmap <leader>: :action GotoAction<cr>
+nmap <leader><space> :action SearchEverywhere<cr>

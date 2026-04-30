@@ -1,0 +1,5 @@
+<application>
+  <component name="com.jetbrains.opentelemetry.CommonSettings">
+    <option name="activateServices" value="false" />
+  </component>
+</application>

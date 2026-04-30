@@ -1,0 +1,11 @@
+<application>
+  <component name="IgnoredPluginSuggestions">
+    <option name="pluginIds">
+      <list>
+        <option value="fr.socolin.awesomeLogViewer" />
+        <option value="nsubstitutecomplete-rider" />
+        <option value="me.rafaelldi.aspire" />
+      </list>
+    </option>
+  </component>
+</application>
