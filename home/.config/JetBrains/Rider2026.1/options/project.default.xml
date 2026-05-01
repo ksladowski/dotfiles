@@ -1,21 +1,65 @@
 <application>
   <component name="ProjectManager">
     <defaultProject>
-      <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise" />
+      <component name="CMakeSettings">
+        <configurations />
+      </component>
+      <component name="GHAISettings">{}</component>
+      <component name="KubernetesApiProvider">{}</component>
+      <component name="ProjectInspectionProfilesVisibleTreeState">
+        <entry key="Project Default">
+          <profile-state>
+            <selected-state>
+              <State>
+                <id>User defined</id>
+              </State>
+            </selected-state>
+          </profile-state>
+        </entry>
+      </component>
       <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;settings.editor.selected.configurable&quot;: &quot;ics&quot;
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.yelog.ideavim.flash.Configurable&quot;
   }
 }</component>
+      <component name="TaskManager">
+        <task active="true" id="Default" summary="Default task">
+          <created>1777605433849</created>
+          <option name="number" value="Default" />
+          <option name="presentableId" value="Default" />
+          <updated>1777605433849</updated>
+          <workItem from="1777605436332" duration="639000" />
+        </task>
+        <servers />
+      </component>
+      <component name="TimeTrackingManager">
+        <option name="totallyTimeSpent" value="639000" />
+      </component>
       <component name="WindowStateProjectService">
-        <state x="305" y="132" width="1355" height="943" key="#Plugins" timestamp="1777516190429">
-          <screen x="20" y="0" width="1900" height="1200" />
+        <state x="4286" y="491" key="FileChooserDialogImpl" timestamp="1777598776371">
+          <screen x="0" y="0" width="5120" height="1440" />
         </state>
-        <state x="305" y="132" width="1355" height="943" key="#Plugins/20.0.1900.1200" timestamp="1777516190429" />
-        <state x="780" y="154" key="SettingsEditor" timestamp="1775052423914">
-          <screen x="0" y="0" width="2558" height="1250" />
+        <state x="4286" y="491" key="FileChooserDialogImpl/0.0.5120.1440/0.0.1920.1080" timestamp="1777598776371" />
+        <state x="4007" y="370" key="SettingsEditor" timestamp="1777606217124">
+          <screen x="0" y="0" width="5120" height="1440" />
         </state>
-        <state x="780" y="154" key="SettingsEditor/0.0.2558.1250" timestamp="1775052423914" />
+        <state x="4007" y="370" key="SettingsEditor/0.0.5120.1440/0.0.1920.1080" timestamp="1777606217124" />
+      </component>
+      <component name="masterDetails">
+        <states>
+          <state key="ScopeChooserConfigurable.UI">
+            <settings>
+              <splitter-proportions>
+                <option name="proportions">
+                  <list>
+                    <option value="0.2" />
+                  </list>
+                </option>
+              </splitter-proportions>
+            </settings>
+          </state>
+        </states>
       </component>
     </defaultProject>
   </component>

@@ -1,22 +1,21 @@
 <application>
-  <component name="NextEditOnboardingComponent">{
-  &quot;isOnboardingShown&quot;: true
-}</component>
   <component name="NextEditPromotionState">
     <option name="promoted" value="true" />
   </component>
-  <component name="NextEditSettings"><![CDATA[{
-  "languageToEnabled": {
-    "yaml": true,
-    "XML": true,
-    "Markdown": true,
-    "HTML": true,
-    "JSON": true,
-    "C++": true,
-    "CSS": true,
-    "C#": true,
-    "next.edit.js.group": true,
-    "Python": true
+  <component name="NextEditSettings">{
+  &quot;previewMode&quot;: &quot;Instant&quot;,
+  &quot;chainNextEditSuggestions&quot;: true,
+  &quot;enableWhitespaceOnlyChanges&quot;: true,
+  &quot;languageToEnabled&quot;: {
+    &quot;yaml&quot;: true,
+    &quot;XML&quot;: true,
+    &quot;Markdown&quot;: true,
+    &quot;HTML&quot;: true,
+    &quot;JSON&quot;: true,
+    &quot;C++&quot;: true,
+    &quot;CSS&quot;: true,
+    &quot;C#&quot;: true,
+    &quot;next.edit.js.group&quot;: true
   }
-}]]></component>
+}</component>
 </application>
