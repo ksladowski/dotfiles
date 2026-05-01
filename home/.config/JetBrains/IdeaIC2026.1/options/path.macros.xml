@@ -1,0 +1,7 @@
+<application>
+  <component name="PathMacrosImpl">
+    <macro name="MAVEN_REPOSITORY" value="/home/kevin/.m2/repository" />
+    <macro name="BUNDLED_DOTNET_LOCATION" value="/opt/rider/lib/ReSharperHost/linux-x64/dotnet/dotnet" />
+    <macro name="JB_DRIVER_LOCATION" value="/opt/rider/tools/JbMsDriver" />
+  </component>
+</application>
