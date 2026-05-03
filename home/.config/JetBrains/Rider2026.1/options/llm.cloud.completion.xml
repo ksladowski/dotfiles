@@ -1,0 +1,24 @@
+<application>
+  <component name="CloudCompletionState">
+    <languageToEnabled>
+      <entry language="C#" enabled="true" />
+      <entry language="ChatInput" enabled="true" />
+      <entry language="C++" enabled="true" />
+      <entry language="CSS" enabled="true" />
+      <entry language="fake_commit_message" enabled="true" />
+      <entry language="F#" enabled="true" />
+      <entry language="GdScript" enabled="true" />
+      <entry language="XML" enabled="true" />
+      <entry language="JSON" enabled="true" />
+      <entry language="JavaScript" enabled="true" />
+      <entry language="Markdown" enabled="true" />
+      <entry language="TEXT" enabled="true" />
+      <entry language="Razor" enabled="true" />
+      <entry language="SQL" enabled="true" />
+      <entry language="ShaderLab" enabled="true" />
+      <entry language="UE Shaders" enabled="true" />
+      <entry language="yaml" enabled="true" />
+    </languageToEnabled>
+    <option name="allowCompletionInComments" value="false" />
+  </component>
+</application>

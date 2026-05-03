@@ -1,0 +1,5 @@
+<application>
+  <component name="com.jetbrains.opentelemetry.CommonSettings">
+    <option name="allowAutoInstrumentation" value="true" />
+  </component>
+</application>

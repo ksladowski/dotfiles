@@ -1,0 +1,22 @@
+<application>
+  <component name="VimHistorySettings">
+    <history />
+  </component>
+  <component name="VimMarksSettings">
+    <globalmarks />
+    <localmarks />
+  </component>
+  <component name="VimRegisterSettings">
+    <registers />
+  </component>
+  <component name="VimSearchSettings">
+    <search>
+      <last-offset encoding="base64" />
+      <last-dir encoding="base64">MQ==</last-dir>
+      <show-last encoding="base64">ZmFsc2U=</show-last>
+    </search>
+  </component>
+  <component name="VimVariables">
+    <vim-variables />
+  </component>
+</application>

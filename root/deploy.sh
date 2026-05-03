@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo bash -c '
-    stow --no-folding . -t /
+    cp -r ./etc /
 
     systemctl daemon-reload
     systemctl enable --now mnt-media.mount
