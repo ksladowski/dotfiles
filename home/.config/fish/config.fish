@@ -4,6 +4,7 @@ if test -e $cachyos_config
 end
 
 set SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
+set SSL_CERT_DIR $HOME/.aspnet/dev-certs/trust:/etc/ssl/certs
 
 # overwrite greeting
 # potentially disabling fastfetch

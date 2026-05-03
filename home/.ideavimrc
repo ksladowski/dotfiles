@@ -60,8 +60,8 @@ imap <C-y> :action EditorChooseLookupItem<cr>
 nmap gra :action ShowIntentionActions<cr>
 nmap grn :action RenameElement<cr>
 
-" Dial 
-set dial 
+" Dial
+set dial
 nnoremap <C-a> :DialIncrement<cr>
 nnoremap <C-x> :DialDecrement<cr>
 
@@ -174,7 +174,7 @@ nmap <leader>zc :action CollapseAllRegions<cr>
 nmap <leader>zo :action ExpandAllRegions<cr>
 
 " Other special bindings
-nmap <leader>= :action com.intellij.csharpier.ReformatWithCSharpierAction<cr>
+nmap <leader>= :action ReformatCode<cr>
 nmap <leader>- :action OptimizeImports<cr>
 nmap <leader>` :action ActivateTerminalToolWindow<cr>
 nmap <leader>: :action GotoAction<cr>

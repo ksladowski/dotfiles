@@ -5,3 +5,4 @@ window-padding-balance = true
 link-previews = false
 custom-shader = ~/.config/ghostty/shaders/cursor_warp.glsl
 font-size = 10
+theme = noctalia
