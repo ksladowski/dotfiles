@@ -1,0 +1,21 @@
+{{- if eq .chezmoi.hostname "ray" }}
+output "Chimei Innolux Corporation 0x1618 Unknown" {
+    mode "1920x1200@60.0"
+    scale 1.0
+    position x=0 y=0
+}
+{{- end }}
+
+{{- if eq .chezmoi.hostname "rex" }}
+output "Samsung Electric Company Odyssey G93SD HCSL201348" {
+    mode "5120x1440@240.000"
+    scale 1.0
+    position x=0 y=0
+}
+output "PNP(XMD) Mi TV Unknown" {
+    off
+    mode "1920x1080@60.0"
+    scale 1.0
+    position x=0 y=0
+}
+{{- end }}
