@@ -1,0 +1,20 @@
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    User git
+    IdentityFile ~/.ssh/ksladowski
+    IdentitiesOnly yes
+    AddKeysToAgent yes
+
+Host github.com-work
+    Hostname ssh.github.com
+    Port 443
+    User git
+    IdentityFile ~/.ssh/ksladowskimsi
+    IdentitiesOnly yes
+    AddKeysToAgent yes
+
+Host docker.lan
+    IdentityFile ~/.ssh/ksladowski
+    IdentitiesOnly yes
+    AddKeysToAgent yes

@@ -1,0 +1,182 @@
+r
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+Plug 'chrisbra/matchit'
+Plug 'tommcdo/vim-exchange'
+Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-commentary'
+Plug 'dbakker/vim-paragraph-motion'
+
+set ideajoin
+set VimEverywhere
+set anyobject
+set peekaboo
+set quickscope
+set easymotion
+set dial
+set which-key
+set easymotion
+
+let mapleader=" "
+
+" Yank to end of the line with Y
+nnoremap Y yg_
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+" Use system clipboard
+set clipboard+=ideaput,unnamedplus
+
+set scrolloff=5
+set incsearch
+set linenumber
+set ignorecase
+set smartcase
+set hlsearch
+set showmode
+set showcmd
+set visualbell
+set ideastatusicon=gray
+set ideavimsupport=dialog,singleline
+set idearefactormode=keep
+set ideastatusicon=gray
+
+map <C-]> :tabnext<cr>
+map <C-[> :tabprev<cr>
+map <C-S-[> <Action>(com.mikejhill.intellij.movetab.actions.MoveTabLeft)
+map <C-S-]> <Action>(com.mikejhill.intellij.movetab.actions.MoveTabRight)
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+map <C-k> <C-w>k
+map <C-j> <C-w>j
+
+map <leader><space> <Action>(Switcher)
+
+" Easy visual indentation (Repeatable)
+vnoremap < <gv
+vnoremap > >gv
+
+" Clear search hl
+nmap <Esc> :nohlsearch<cr>
+
+" Nvim LSP style bindings
+imap <C-y> :action EditorChooseLookupItem<cr>
+nmap gra :action ShowIntentionActions<cr>
+nmap grn :action RenameElement<cr>
+nmap ]d :action GotoNextError<cr>
+nmap [d :action GotoPreviousError<cr>
+nmap gco o<c-o>gcc
+nmap gcO O<c-o>gcc
+nmap K <Action>(ShowErrorDescription)<Action>(QuickJavaDoc)
+
+nmap s <Plug>(easymotion-s)
+
+" Dial
+nnoremap <C-a> :DialIncrement<cr>
+nnoremap <C-x> :DialDecrement<cr>
+
+" Which-Key
+set notimeout
+let g:WhichKey_ShowVimActions = "true"
+let g:WhichKey_DefaultDelay = 500 " default is 200
+let g:WhichKey_FontFamily = "JetBrains Mono"
+
+
+" AI Bindings
+noremap <leader>ac :action ActivateAIAssistantToolWindow<cr>
+noremap <leader>ai :action AIAssistant.Editor.AskAiAssistantInEditor<cr>
+noremap <leader>an :action AIAssistant.ToolWindow.NewChatActionAlt<cr>
+
+" Bookmarks
+map <leader>b0 <Action>(ToggleBookmark0)
+map <leader>b1 <Action>(ToggleBookmark1)
+map <leader>b2 <Action>(ToggleBookmark2)
+map <leader>b3 <Action>(ToggleBookmark3)
+map <leader>b4 <Action>(ToggleBookmark4)
+map <leader>b5 <Action>(ToggleBookmark5)
+map <leader>b6 <Action>(ToggleBookmark6)
+map <leader>b7 <Action>(ToggleBookmark7)
+map <leader>b8 <Action>(ToggleBookmark8)
+map <leader>b9 <Action>(ToggleBookmark9)
+map <leader>bb <Action>(ToggleBookmark)
+map <leader>bB <Action>(ToggleBookmarkWithMnemonic)
+map <leader>B <Action>(ShowBookmarks)
+map ]b <Action>(GotoNextBookmark)
+map [b <Action>(GotoPreviousBookmark)
+map ]d <Action>(GotoNextError)
+map [d <Action>(GotoPreviousError)
+
+" .NET Major Mode
+noremap <leader>ca :action NewElement<cr>
+noremap <leader>cp :action ActivateNuGetToolWindow<cr>
+
+" Config
+noremap <leader>Ca :action VimFindActionIdAction<cr>
+noremap <leader>Cs :action ShowSettings<cr>
+noremap <leader>Cr :action IdeaVim.ReloadVimRc.reload<cr>
+noremap <leader>Ce :e ~/.ideavimrc<cr>
+
+" Debug
+noremap <leader>dap :action DebugAttachProcess<cr>
+noremap <leader>dar :action DebugAttachRemote<cr>
+noremap <leader>db :action ToggleLineBreakpoint<cr>
+noremap <leader>dl :action ViewBreakpoints<cr>
+noremap <leader>do :action StepOut<cr>
+noremap <leader>dq :action StopDebugging<cr>
+noremap <leader>ds :action StepOver<cr>
+
+" Explorer
+noremap <leader>e :action ActivateProjectToolWindow<cr>
+
+" Go To File
+noremap <leader>f :action GotoFile<cr>
+
+" Git
+noremap <leader>gb :action Git.Branches<cr>
+noremap <leader>gg :action ActivateVersionControlToolWindow<cr>
+noremap <leader>gc :action CheckinProject<cr>
+noremap <leader>gf :action Git.Fetch<cr>
+noremap <leader>gF :action Git.Pull<cr>
+noremap <leader>gw :action Github.Open.In.Browser<cr>
+noremap <leader>gm :action Git.Configure.Remotes<cr>
+noremap <leader>gp :action Vcs.Push<cr>
+noremap <leader>gr :action Git.Rebase<cr>
+noremap <leader>gs :action Git.Stash<cr>
+noremap <leader>gS :action Git.Unstash<cr>
+noremap <leader>gl :action Vcs.Show.Log<cr>
+
+" Refactoring
+noremap <leader>rr :action Refactorings.QuickListPopupAction<cr>
+noremap <leader>rm :action ExtractMethod<cr>
+noremap <leader>rv :action IntroduceVariable<cr>
+noremap <leader>rg :action Generate<cr>
+noremap <leader>rf :action IntroduceField<cr>
+noremap <leader>rs :action ChangeSignature<cr>
+
+" Search
+noremap <leader>s :action FindInPath<cr>
+
+" Windows
+noremap <leader>ww :action ToolWindowsGroup<cr>
+noremap <leader>wt :action ActivateUnitTestsToolWindow<cr>
+noremap <leader>wD :action ActivateDatabaseToolWindow<cr>
+noremap <leader>we :action ActivateEndpointsToolWindow<cr>
+noremap <leader>wo :action HideAllWindows<cr>
+noremap <leader>wd :action ActivateProblemsViewToolWindow<cr>
+
+" Execute
+noremap <leader>xb :action BuildCurrentProject<cr>
+noremap <leader>xc :action CleanSolution<cr>
+noremap <leader>xd :action Debug<cr>
+noremap <leader>xr :action Run<cr>
+
+" Folding
+noremap <leader>zc :action CollapseAllRegions<cr>
+noremap <leader>zo :action ExpandAllRegions<cr>
+
+" Other special bindings
+noremap <leader>= :action ReformatCode<cr>
+noremap <leader>- :action OptimizeImports<cr>
+noremap <leader>` :action ActivateTerminalToolWindow<cr>
+noremap <leader>: :action GotoAction<cr>
