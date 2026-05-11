@@ -1,0 +1,23 @@
+{{ if eq .chezmoi.hostname "rex" -}}
+#!/usr/bin/env bash
+
+# Idempotently install cronie
+if ! pacman -Q cronie &> /dev/null; then
+    sudo pacman -S --noconfirm cronie
+fi
+
+# Idempotently enable and start cronie.service
+if ! systemctl is-enabled --quiet cronie.service; then
+    sudo systemctl enable cronie.service
+fi
+
+if ! systemctl is-active --quiet cronie.service; then
+    sudo systemctl start cronie.service
+fi
+
+# Idempotently add a line to crontab
+CRON_LINE="@reboot /usr/bin/ethtool -s enp7s0 wol g"
+if ! crontab -l 2>/dev/null | grep -Fq "$CRON_LINE"; then
+    (crontab -l 2>/dev/null; echo "$CRON_LINE") | crontab -
+fi
+{{ end -}}

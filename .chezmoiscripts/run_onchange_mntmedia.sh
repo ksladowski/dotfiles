@@ -24,7 +24,6 @@ fi
 sudo systemctl daemon-reload
 
 # Enable automount
-sudo systemctl enable "media.mount"
-sudo systemctl enable "media.automount"
+sudo systemctl restart remote-fs.target
 
 exit 0

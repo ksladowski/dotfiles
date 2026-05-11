@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.hostname "rex" -}}
 #!/usr/bin/env bash
 
 sudo -s <<EOF
@@ -7,3 +8,4 @@ sudo -s <<EOF
     ufw allow 48010/tcp
     ufw allow 47998:48000/udp
 EOF
+{{ end -}}
