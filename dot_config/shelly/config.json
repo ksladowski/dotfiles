@@ -19,7 +19,7 @@
   "TrayCheckIntervalHours": 12,
   "NoConfirm": false,
   "NewInstall": false,
-  "CurrentVersion": "2.2.2",
+  "CurrentVersion": "2.2.4",
   "UseWeeklySchedule": false,
   "DaysOfWeek": [],
   "Time": null,
@@ -28,7 +28,14 @@
   "AppImageEnabled": true,
   "NewInstallInitSettings": true,
   "UseSymbolicTray": true,
+  "TrayIconPath": "",
+  "TrayUpdatesIconPath": "",
+  "DefaultPageDropDown": 0,
+  "SuppressFingerprintWarning": false,
+  "RecommendedEnabled": false,
   "ProgressBarStyle": "Blocks",
   "ProgressBarFps": 7,
-  "ProgressBarWidth": 24
+  "ProgressBarWidth": 24,
+  "OutputMode": "singlepane",
+  "SinglePaneMaxStickies": 6
 }
