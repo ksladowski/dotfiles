@@ -50,8 +50,10 @@ map <C-h> <C-w>h
 map <C-l> <C-w>l
 map <C-k> <C-w>k
 map <C-j> <C-w>j
-
-map <leader><space> <Action>(Switcher)
+map <C-S-h> <Action>(StretchSplitToLeft)
+map <C-S-l> <Action>(StretchSplitToRight)
+map <C-S-k> <Action>(StretchSplitToTop)
+map <C-S-j> <Action>(StretchSplitToBottom)
 
 " Easy visual indentation (Repeatable)
 vnoremap < <gv
@@ -68,7 +70,7 @@ nmap ]d :action GotoNextError<cr>
 nmap [d :action GotoPreviousError<cr>
 nmap gco o<c-o>gcc
 nmap gcO O<c-o>gcc
-nmap K <Action>(ShowErrorDescription)<Action>(QuickJavaDoc)
+nmap <C-e> <Action>(ShowErrorDescription)
 
 nmap s <Plug>(easymotion-s)
 
@@ -178,5 +180,5 @@ noremap <leader>zo :action ExpandAllRegions<cr>
 " Other special bindings
 noremap <leader>= :action ReformatCode<cr>
 noremap <leader>- :action OptimizeImports<cr>
-noremap <leader>` :action ActivateTerminalToolWindow<cr>
+noremap <leader>` :action Switcher<cr>
 noremap <leader>: :action GotoAction<cr>
