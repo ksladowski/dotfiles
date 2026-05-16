@@ -38,15 +38,10 @@ binds {
     Mod+K                               { focus-window-or-workspace-up; }
     Mod+L                               { focus-column-right; }
 
-    Mod+CTRL+H                          { move-column-left; }
-    Mod+CTRL+J                          { move-window-down-or-to-workspace-down; }
-    Mod+CTRL+K                          { move-window-up-or-to-workspace-up; }
-    Mod+CTRL+L                          { move-column-right; }
-
-    Mod+Home                            { focus-column-first; }
-    Mod+End                             { focus-column-last; }
-    Mod+Shift+Home                      { move-column-to-first; }
-    Mod+Shift+End                       { move-column-to-last; }
+    Mod+Shift+H                          { move-column-left; }
+    Mod+Shift+J                          { move-window-down-or-to-workspace-down; }
+    Mod+Shift+K                          { move-window-up-or-to-workspace-up; }
+    Mod+Shift+L                          { move-column-right; }
 
     // ─── Workspace Switching ───
     Mod+WheelScrollDown                 cooldown-ms=150 { focus-workspace-down; }
